@@ -1,0 +1,185 @@
+//Header
+.top-nav{
+  background-color: $predictor4;
+  padding: 4px 0;
+  ul.lang{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    @include breakpoint(medium){
+      text-align: right;
+    }
+    li{
+      display: inline-block;
+      list-style: none;
+      padding: 0 6px;
+      a{
+        text-transform: uppercase;
+        color: $white;
+        font-size: 0.7em;
+        &:hover{
+          color: $secondary-color;
+        }
+        &.active{
+          color: $secondary-color;
+        }
+      }
+    }
+  }
+}
+.header{
+  background-color: $predictor3;
+  padding: 16px 0;
+  .logo{
+    margin-top: 0px;
+    padding: 0 12px;
+    float: right;
+    @include breakpoint(medium){
+      margin-top: 12px;
+      float: left;
+    }
+  }
+  ul.menu{
+    text-transform: uppercase;
+    float: left;
+    @include breakpoint(medium){
+      float: right;
+    }
+
+    li{
+      a{
+        padding: 18px 12px;
+        color: $white;
+        font-size: 0.938em;
+        &.active{
+          color: $secondary-color;
+        }
+        &:hover{
+          color: $secondary-color;
+        }
+        &.login{
+          background-color: $secondary-color;
+          padding: 18px 12px;
+          border-radius: 12px;
+          min-width: 120px;
+          text-align: center;
+          margin-left: 12px;
+          &:hover{
+            color: $white;
+            background-color: #e48e2f;
+          }
+        }
+      }
+    }
+  }
+  button.menu-icon {
+    top: -20px;
+    margin-left: 13px;
+    @include breakpoint(medium){
+      top: inherit;
+      margin-left: inherit;
+    }
+  }
+}
+.login{
+  background: $predictor4;
+  padding: 40px 0;
+  color: $white;
+  h2{
+    color: $white;
+    font-size: 1.6em;
+    text-transform: uppercase;
+  }
+  .title{
+    color: $white;
+    font-size: 1.2em;
+    padding-bottom: 12px;
+  }
+  .texto{
+    font-size: 0.8em;
+  }
+  .button{
+    margin-top: 16px;
+    margin-bottom: 50px;
+    @include breakpoint(medium){
+      margin-bottom: inherit;
+    }
+  }
+}
+//Footer
+.footer{
+  background: $primary-color;
+  padding: 40px 0;
+  color: $white;
+  font-size: 0.9em;
+  a{
+    color: $white;
+    &:hover{
+      color: $secondary-color;
+    }
+  }
+  .img-logo{
+    text-align: center;
+    margin-bottom: 16px;
+    @include breakpoint(medium){
+      text-align: inherit;
+      margin-bottom: 0px;
+    }
+    .logo{
+      padding: 0 12px;
+    }
+  }
+  ul{
+    text-align: center;
+    margin: 0;
+    @include breakpoint(medium){
+      text-align: right;
+    }
+    li{
+      list-style: none;
+      display: inherit;
+      padding: 0px;
+      @include breakpoint(medium){
+        display: inline-block;
+        padding: 0 12px;
+      }
+    }
+  }
+}
+
+//Home - Tablas
+.item{
+  padding: 12px 6px;
+  min-height: 62px;
+  &.dark{
+    background: #f6f6f6;
+  }
+  .puntaje{
+    color: $primary-color;
+    font-weight: 600;
+    line-height: 36px;
+  }
+  .posicion, .jugador{
+    line-height: 36px;
+    font-size: 0.9em;
+  }
+  .fecha{
+    text-transform: uppercase;
+    font-size: 0.7em;
+    color: $primary-color;
+    font-weight: 600;
+    line-height: 36px;
+    text-align: center;
+    @include breakpoint(medium){
+      text-align: inherit;
+    }
+  }
+  .equipos{
+    text-transform: uppercase;
+    font-size: 0.7em;
+  }
+  .flag{
+    padding: 0 6px;
+  }
+}
+
