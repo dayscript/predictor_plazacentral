@@ -1,72 +1,73 @@
 //Header
-.top-nav{
+.top-nav {
   background-color: $predictor4;
   padding: 4px 0;
-  ul.lang{
+  ul.lang {
     margin: 0;
     padding: 0;
     text-align: center;
-    @include breakpoint(medium){
+    @include breakpoint(medium) {
       text-align: right;
     }
-    li{
+    li {
       display: inline-block;
       list-style: none;
       padding: 0 6px;
-      a{
+      a {
         text-transform: uppercase;
         color: $white;
         font-size: 0.7em;
-        &:hover{
+        &:hover {
           color: $secondary-color;
         }
-        &.active{
+        &.active {
           color: $secondary-color;
         }
       }
     }
   }
 }
-.header{
+
+.header {
   background-color: $predictor3;
   padding: 16px 0;
-  .logo{
+  .logo {
     margin-top: 0px;
-    padding: 0 12px;
+    padding: 0px;
     float: right;
-    @include breakpoint(medium){
+    @include breakpoint(medium) {
       margin-top: 12px;
       float: left;
     }
   }
-  ul.menu{
+  ul.menu {
     text-transform: uppercase;
     float: left;
-    @include breakpoint(medium){
+    @include breakpoint(medium) {
       float: right;
     }
 
-    li{
-      a{
+    li {
+      a {
         padding: 18px 12px;
         color: $white;
         font-size: 0.938em;
-        &.active{
+        &.active {
           color: $secondary-color;
         }
-        &:hover{
+        &:hover {
           color: $secondary-color;
         }
-        &.login{
+        &.login {
           background-color: $secondary-color;
           padding: 18px 12px;
           border-radius: 12px;
           min-width: 120px;
           text-align: center;
           margin-left: 12px;
-          &:hover{
+          &:hover {
             color: $white;
-            background-color: #e48e2f;
+            background-color: #E48E2F;
           }
         }
       }
@@ -75,71 +76,73 @@
   button.menu-icon {
     top: -20px;
     margin-left: 13px;
-    @include breakpoint(medium){
+    @include breakpoint(medium) {
       top: inherit;
       margin-left: inherit;
     }
   }
 }
-.login{
+
+.login {
   background: $predictor4;
   padding: 40px 0;
   color: $white;
-  h2{
+  h2 {
     color: $white;
     font-size: 1.6em;
     text-transform: uppercase;
   }
-  .title{
+  .title {
     color: $white;
     font-size: 1.2em;
     padding-bottom: 12px;
   }
-  .texto{
+  .texto {
     font-size: 0.8em;
   }
-  .button{
+  .button {
     margin-top: 16px;
     margin-bottom: 50px;
-    @include breakpoint(medium){
+    @include breakpoint(medium) {
       margin-bottom: inherit;
     }
   }
 }
+
 //Footer
-.footer{
+.footer {
   background: $primary-color;
   padding: 40px 0;
   color: $white;
   font-size: 0.9em;
-  a{
+  a {
     color: $white;
-    &:hover{
+    &:hover {
       color: $secondary-color;
     }
   }
-  .img-logo{
+  .img-logo {
     text-align: center;
     margin-bottom: 16px;
-    @include breakpoint(medium){
+    @include breakpoint(medium) {
       text-align: inherit;
       margin-bottom: 0px;
     }
-    .logo{
+    .logo {
       padding: 0 12px;
     }
   }
-  ul{
+  ul {
     text-align: center;
     margin: 0;
-    @include breakpoint(medium){
+    @include breakpoint(medium) {
       text-align: right;
     }
-    li{
+    li {
       list-style: none;
       display: inherit;
       padding: 0px;
-      @include breakpoint(medium){
+      @include breakpoint(medium) {
         display: inline-block;
         padding: 0 12px;
       }
@@ -148,38 +151,122 @@
 }
 
 //Home - Tablas
-.item{
+.item-title {
+  min-height: 42px;
+  &.head {
+    background: $primary-color;
+    color: $white;
+    .encabezado {
+      text-transform: uppercase;
+      line-height: 42px;
+      font-size: 0.8em;
+      @include breakpoint(medium) {
+        font-size: 1em;
+      }
+    }
+  }
+}
+
+.item {
   padding: 12px 6px;
   min-height: 62px;
-  &.dark{
-    background: #f6f6f6;
+  .columns {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
   }
-  .puntaje{
+  &.dark {
+    background: #F6F6F6;
+  }
+
+  .puntaje {
     color: $primary-color;
     font-weight: 600;
     line-height: 36px;
   }
-  .posicion, .jugador{
+  .posicion, .jugador {
     line-height: 36px;
     font-size: 0.9em;
   }
-  .fecha{
+  .fecha {
     text-transform: uppercase;
     font-size: 0.7em;
     color: $primary-color;
     font-weight: 600;
     line-height: 36px;
     text-align: center;
-    @include breakpoint(medium){
+    @include breakpoint(medium) {
       text-align: inherit;
     }
+    .columns {
+      padding-right: 0.2rem;
+      padding-left: 0.2rem;
+    }
   }
-  .equipos{
+  .equipos {
     text-transform: uppercase;
     font-size: 0.7em;
+    .columns {
+      padding-right: 0rem;
+      padding-left: 0rem;
+    }
+    .flag {
+      padding: 0 6px;
+    }
+    .team {
+      line-height: 35px;
+    }
   }
-  .flag{
-    padding: 0 6px;
+  .liga-info {
+    font-size: 1em;
   }
 }
 
+//Slide
+.orbit{
+  .button{
+    background-color: $secondary-color;
+    width: 160px;
+    border: 1px solid $white;
+  }
+}
+.orbit-figure {
+  position: relative;
+}
+
+.container-slide {
+  position: absolute;
+  color: $white;
+  z-index: 4;
+  max-width: auto;
+  margin-top: 1em;
+  @include breakpoint(medium){
+    margin-top: 6em;
+    max-width: 640px;
+  }
+  .seccion{
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1em;
+    @include breakpoint(medium){
+      font-size: 1.4em;
+    }
+  }
+  h1{
+    text-transform: uppercase;
+    line-height: 50px;
+    letter-spacing: -1px;
+    font-size: 1.4em;
+    font-weight: 500;
+    @include breakpoint(medium){
+      font-size: 2.6em;
+    }
+  }
+}
+
+//Ads
+.banner{
+margin: 16px 0;
+  @include breakpoint(medium){
+    margin: inherit;
+  }
+}

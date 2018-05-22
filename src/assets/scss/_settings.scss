@@ -120,8 +120,8 @@ $breakpoint-classes: (small medium large);
 $grid-row-width: $global-width;
 $grid-column-count: 12;
 $grid-column-gutter: (
-  small: 20px,
-  medium: 30px,
+  small: 14px,
+  medium: 18px,
 );
 $grid-column-align-edge: true;
 $grid-column-alias: 'columns';
@@ -425,7 +425,7 @@ $form-label-font-size: rem-calc(14);
 $form-label-font-weight: $global-weight-normal;
 $form-label-line-height: 1.8;
 $select-background: $white;
-$select-triangle-color: $dark-gray;
+$select-triangle-color: $secondary-color;
 $select-radius: $global-radius;
 $input-color: $black;
 $input-placeholder-color: $medium-gray;
@@ -795,8 +795,8 @@ $table-stack-breakpoint: medium;
 $tab-margin: 0;
 $tab-background: $white;
 $tab-color: $primary-color;
-$tab-background-active: $light-gray;
-$tab-active-color: $primary-color;
+$tab-background-active: $primary-color;
+$tab-active-color: $white;
 $tab-item-font-size: rem-calc(12);
 $tab-item-background-hover: $white;
 $tab-item-padding: 1.25rem 1.5rem;
