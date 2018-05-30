@@ -1,4 +1,4 @@
-# predictor
+# Dayscript Predictor
 
 ## template folder
 

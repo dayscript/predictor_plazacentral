@@ -1,0 +1,91 @@
+@extends('layouts.app')
+
+@section('title')
+    {{ __('menu.home') }} @parent
+@endsection
+
+@section('content')
+    @include('layouts.partials.banner')
+    <div class="row margin-60">
+        <div class="medium-9 columns">
+            <div class="row">
+                <div class="medium-6 columns">
+                    <h2 class="title">Próximos partidos</h2>
+                    <div class="row columns item dark">
+                        <div class="medium-3 columns fecha text-left">
+                            Jun 20  - 15:00
+                        </div>
+                        <div class="medium-9 columns equipos text-center">
+                            <div class="row">
+                                <div class="small-4 columns team text-right">
+                                    Arabia Saudita
+                                </div>
+                                <div class="small-4 columns text-center">
+                                    <img src="/img/flag1.png" alt="" class="flag">-<img src="/img/flag2.png" alt="" class="flag">
+                                </div>
+                                <div class="small-4 columns team text-left">
+                                    Arabia Saudita
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row columns item">
+                        <div class="medium-3 columns fecha text-left">
+                            Jun 20  - 15:00
+                        </div>
+                        <div class="medium-9 columns equipos text-center">
+                            <div class="row">
+                                <div class="small-4 columns team text-right">
+                                    Arabia Saudita
+                                </div>
+                                <div class="small-4 columns text-center">
+                                    <img src="/img/flag1.png" alt="" class="flag">-<img src="/img/flag2.png" alt="" class="flag">
+                                </div>
+                                <div class="small-4 columns team text-left">
+                                    Arabia Saudita
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <a href="#" class="button expanded">Pronosticar</a>
+
+                </div>
+                <div class="medium-6 columns">
+                    <h2 class="title">Ranking general</h2>
+                    <div class="row columns item dark">
+                        <div class="small-1 columns posicion text-left">
+                            1.
+                        </div>
+                        <div class="small-9 columns jugador text-left">
+                            Julian Andres Cardenas
+                        </div>
+                        <div class="small-2 columns puntaje text-right">
+                            120
+                        </div>
+                    </div>
+                    <div class="row columns item">
+                        <div class="small-1 columns posicion text-left">
+                            2.
+                        </div>
+                        <div class="small-9 columns jugador text-left">
+                            Carlos David Ortega
+                        </div>
+                        <div class="small-2 columns puntaje text-right">
+                            90
+                        </div>
+                    </div>
+                    <a href="#" class="button expanded">Ver todos</a>
+                </div>
+
+            </div>
+        </div>
+        <div class="medium-3 columns">
+            @include('layouts.partials.ads')
+        </div>
+    </div>
+
+@endsection

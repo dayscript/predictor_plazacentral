@@ -1,0 +1,1 @@
+<img src="{{ asset('img/ads/300x600.jpg') }}" alt="" class="Add">

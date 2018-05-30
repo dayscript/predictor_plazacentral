@@ -1,0 +1,246 @@
+//Header
+.top-nav {
+  background-color: $predictor4;
+  padding: 4px 0;
+  ul.lang {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    @include breakpoint(medium) {
+      text-align: right;
+    }
+    li {
+      display: inline-block;
+      list-style: none;
+      padding: 0 6px;
+      a {
+        text-transform: uppercase;
+        color: $white;
+        font-size: 0.7em;
+        &:hover {
+          color: $secondary-color;
+        }
+        &.active {
+          color: $secondary-color;
+        }
+      }
+    }
+  }
+}
+
+.header {
+  background-color: $predictor3;
+  padding: 16px 0;
+  .logo {
+    margin-top: 0px;
+    padding: 0px;
+    float: right;
+    @include breakpoint(medium) {
+      margin-top: 12px;
+      float: left;
+    }
+  }
+  ul.menu {
+    text-transform: uppercase;
+    float: left;
+    @include breakpoint(medium) {
+      float: right;
+    }
+
+    li {
+      a {
+        padding: 18px 12px;
+        color: $white;
+        font-size: 0.938em;
+        &.active {
+          color: $secondary-color;
+        }
+        &:hover {
+          color: $secondary-color;
+        }
+        &.login {
+          background-color: $secondary-color;
+          padding: 18px 12px;
+          border-radius: 12px;
+          min-width: 120px;
+          text-align: center;
+          margin-left: 12px;
+          &:hover {
+            color: $white;
+            background-color: #E48E2F;
+          }
+        }
+      }
+    }
+  }
+  button.menu-icon {
+    top: -20px;
+    margin-left: 13px;
+    @include breakpoint(medium) {
+      top: inherit;
+      margin-left: inherit;
+    }
+  }
+}
+
+//Footer
+.footer {
+  background: $primary-color;
+  padding: 40px 0;
+  color: $white;
+  font-size: 0.9em;
+  a {
+    color: $white;
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+  .img-logo {
+    text-align: center;
+    margin-bottom: 16px;
+    @include breakpoint(medium) {
+      text-align: inherit;
+      margin-bottom: 0px;
+    }
+    .logo {
+      padding: 0 12px;
+    }
+  }
+  ul {
+    text-align: center;
+    margin: 0;
+    @include breakpoint(medium) {
+      text-align: right;
+    }
+    li {
+      list-style: none;
+      display: inherit;
+      padding: 0px;
+      @include breakpoint(medium) {
+        display: inline-block;
+        padding: 0 12px;
+      }
+    }
+  }
+}
+
+//Home - Tablas
+.item-title {
+  min-height: 42px;
+  &.head {
+    background: $primary-color;
+    color: $white;
+    .encabezado {
+      text-transform: uppercase;
+      line-height: 42px;
+      font-size: 0.8em;
+      @include breakpoint(medium) {
+        font-size: 1em;
+      }
+    }
+  }
+}
+
+.item {
+  padding: 12px 6px;
+  min-height: 62px;
+  .columns {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+  }
+  &.dark {
+    background: #F6F6F6;
+  }
+
+  .puntaje {
+    color: $primary-color;
+    font-weight: 600;
+    line-height: 36px;
+  }
+  .posicion, .jugador {
+    line-height: 36px;
+    font-size: 0.9em;
+  }
+  .fecha {
+    text-transform: uppercase;
+    font-size: 0.7em;
+    color: $primary-color;
+    font-weight: 600;
+    line-height: 36px;
+    text-align: center;
+    @include breakpoint(medium) {
+      text-align: inherit;
+    }
+    .columns {
+      padding-right: 0.2rem;
+      padding-left: 0.2rem;
+    }
+  }
+  .equipos {
+    text-transform: uppercase;
+    font-size: 0.7em;
+    .columns {
+      padding-right: 0rem;
+      padding-left: 0rem;
+    }
+    .flag {
+      padding: 0 4px;
+    }
+    .team {
+      line-height: 35px;
+    }
+  }
+  .liga-info {
+    font-size: 1em;
+  }
+}
+
+//Slide
+.orbit{
+  .button{
+    background-color: $secondary-color;
+    width: 160px;
+    border: 1px solid $white;
+  }
+}
+.orbit-figure {
+  position: relative;
+}
+
+.container-slide {
+  position: absolute;
+  color: $white;
+  z-index: 4;
+  max-width: auto;
+  margin-top: 1em;
+  @include breakpoint(medium){
+    margin-top: 6em;
+    max-width: 640px;
+  }
+  .seccion{
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1em;
+    @include breakpoint(medium){
+      font-size: 1.4em;
+    }
+  }
+  h1{
+    text-transform: uppercase;
+    line-height: 50px;
+    letter-spacing: -1px;
+    font-size: 1.4em;
+    font-weight: 500;
+    @include breakpoint(medium){
+      font-size: 2.6em;
+    }
+  }
+}
+
+//Ads
+.banner{
+margin: 16px 0;
+  @include breakpoint(medium){
+    margin: inherit;
+  }
+}
