@@ -17,3 +17,15 @@ Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallba
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::put('users/updatelang/{lang}', 'UsersController@updateLang');
+Route::get('terms-and-conditions', 'HomeController@terms');
+Route::get('privacy-policy', 'HomeController@privacy');
+Route::get('support', 'HomeController@support');
+Route::get('rewards', 'HomeController@rewards');
+Route::get('ranking', 'HomeController@ranking');
+Route::get('predictions', 'HomeController@predictions');
+Route::get('how-to-play', 'HomeController@howToPlay');
+Route::resource('leagues','LeaguesController');
+Route::post('leagues/{league}/invite','LeaguesController@inviteLeague');
+Route::get('leagues/join/{code}', 'LeaguesController@join');
+Route::post('leagues/join','LeaguesController@joinLeague');
+Route::post('leagues/{league}/leave','LeaguesController@leaveLeague');

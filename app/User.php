@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Predictor\League;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -74,6 +75,22 @@ class User extends Authenticatable
                  "Vichada"            => ["La Primavera", "Puerto Carreno", "Santa Rosalia", "Cumaribo"]
         ];
         return $data;
+    }
+    /**
+     * Leagues owned by this user
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function myleagues()
+    {
+        return $this->hasMany(League::class);
+    }
+    /**
+     * Leagues of this user
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function leagues()
+    {
+        return $this->belongsToMany(League::class)->withTimestamps();
     }
 
 }

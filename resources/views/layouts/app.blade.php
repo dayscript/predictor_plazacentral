@@ -12,21 +12,27 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/pnotify.css') }}" rel="stylesheet">
     {{--@include('layouts.partials.googleanalytics')--}}
+    <link rel="shortcut icon" href="/favicon.ico"/>
 </head>
 <body>
-    <div id="app">
-        @include('layouts.partials.language')
-        @include('layouts.partials.header')
-        @yield('content')
-        @include('layouts.partials.footer')
-    </div>
-    <!-- Scripts -->
-    <script src="{{ mix('js/messages.js') }}"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
-    <script>
-        $(document).foundation();
-    </script>
-    @yield('scripts')
+<div class="reveal" id="loadingModal" data-reveal data-close-on-esc="false" data-overlay="true" data-close-on-click="false">
+    <img border="0" src="{{ asset('img/icons/loading-bgb.gif') }}" alt="...">
+</div>
+<div id="app">
+    @include('layouts.partials.language')
+    @include('layouts.partials.header')
+    @yield('content')
+    @include('layouts.partials.footer')
+</div>
+<!-- Scripts -->
+<script src="{{ mix('js/messages.js') }}"></script>
+<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/pnotify.js') }}"></script>
+<script>
+  $(document).foundation();
+</script>
+@yield('scripts')
 </body>
 </html>

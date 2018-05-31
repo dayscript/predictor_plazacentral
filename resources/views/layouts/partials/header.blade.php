@@ -10,11 +10,11 @@
             <div id="menu-predictor">
                 <ul class="vertical medium-horizontal menu align-left">
                     <li><a class="active" href="/">@{{ $store.getters.trans('menu.home') }}</a></li>
-                    <li><a href="predictions">@{{ $store.getters.trans('menu.my_predictions') }}</a></li>
-                    <li><a href="ligues">@{{ $store.getters.trans('menu.leagues') }}</a></li>
-                    <li><a href="ranking">@{{ $store.getters.trans('menu.ranking') }}</a></li>
-                    <li><a href="how-to-play">@{{ $store.getters.trans('menu.how_to_play') }}</a></li>
-                    <li><a href="rewards">@{{ $store.getters.trans('menu.rewards') }}</a></li>
+                    <li><a href="/predictions">@{{ $store.getters.trans('menu.my_predictions') }}</a></li>
+                    <li><a href="/leagues">@{{ $store.getters.trans('menu.leagues') }}</a></li>
+                    <li><a href="/ranking">@{{ $store.getters.trans('menu.ranking') }}</a></li>
+                    <li><a href="/how-to-play">@{{ $store.getters.trans('menu.how_to_play') }}</a></li>
+                    <li><a href="/rewards">@{{ $store.getters.trans('menu.rewards') }}</a></li>
                     @auth
                         <li><a href="#" class="login" onclick="$('.login.in').slideToggle();"><i class="fi-torso"> </i> {{ auth()->user()->name }}</a></li>
                     @else
@@ -45,7 +45,7 @@
     </div>
 @endauth
 @guest
-    <div class="login out {{ request()->is('login')?'show':'' }}">
+    <div class="login out {{ request()->is('login') || $errors->count()?'show':'' }}">
         <div class="row">
             <div class="medium-4 medium-offset-2 columns">
                 <h2> @{{ $store.getters.trans('users.login') }}</h2>

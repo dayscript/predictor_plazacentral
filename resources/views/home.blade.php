@@ -10,77 +10,46 @@
         <div class="medium-9 columns">
             <div class="row">
                 <div class="medium-6 columns">
-                    <h2 class="title">Próximos partidos</h2>
-                    <div class="row columns item dark">
+                    <h2 class="title">@{{ $store.getters.trans('matches.next_matches') }}</h2>
+                    @foreach($matches as $match)
+                    <div class="row columns item {{ $loop->index%2?'':'dark' }}">
                         <div class="medium-3 columns fecha text-left">
-                            Jun 20  - 15:00
+                            {{ $match->date }}
                         </div>
                         <div class="medium-9 columns equipos text-center">
                             <div class="row">
                                 <div class="small-4 columns team text-right">
-                                    Arabia Saudita
+                                    {{ $store.getters.trans('teams.<?= str_slug($match->localId->name) ?>') }}
                                 </div>
                                 <div class="small-4 columns text-center">
-                                    <img src="/img/flag1.png" alt="" class="flag">-<img src="/img/flag2.png" alt="" class="flag">
+                                    <img src="/storage/{{ $match->localId->image }}" alt="{{ $match->localId->name }}" class="flag thumbnail circle" width="40">&nbsp;<img src="/storage/{{ $match->visitId->image }}" alt="{{ $match->visitId->name }}" class="flag thumbnail circle" width="40">
                                 </div>
                                 <div class="small-4 columns team text-left">
-                                    Arabia Saudita
+                                    {{ $store.getters.trans('teams.<?= str_slug($match->visitId->name) ?>') }}
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row columns item">
-                        <div class="medium-3 columns fecha text-left">
-                            Jun 20  - 15:00
-                        </div>
-                        <div class="medium-9 columns equipos text-center">
-                            <div class="row">
-                                <div class="small-4 columns team text-right">
-                                    Arabia Saudita
-                                </div>
-                                <div class="small-4 columns text-center">
-                                    <img src="/img/flag1.png" alt="" class="flag">-<img src="/img/flag2.png" alt="" class="flag">
-                                </div>
-                                <div class="small-4 columns team text-left">
-                                    Arabia Saudita
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-                    <a href="#" class="button expanded">Pronosticar</a>
-
+                    @endforeach
+                    <a href="/predictions" class="button expanded">@{{ $store.getters.trans('matches.predict') }}</a>
                 </div>
                 <div class="medium-6 columns">
-                    <h2 class="title">Ranking general</h2>
-                    <div class="row columns item dark">
+                    <h2 class="title">@{{ $store.getters.trans('game.general_ranking') }}</h2>
+                    @foreach($users as $user)
+                    <div class="row columns item {{ $loop->index%2?'':'dark' }}">
                         <div class="small-1 columns posicion text-left">
-                            1.
+                            {{ $loop->iteration }}.
                         </div>
                         <div class="small-9 columns jugador text-left">
-                            Julian Andres Cardenas
+                            {{ $user->fullName }}
                         </div>
                         <div class="small-2 columns puntaje text-right">
-                            120
+                            {{ $user->points }}
                         </div>
                     </div>
-                    <div class="row columns item">
-                        <div class="small-1 columns posicion text-left">
-                            2.
-                        </div>
-                        <div class="small-9 columns jugador text-left">
-                            Carlos David Ortega
-                        </div>
-                        <div class="small-2 columns puntaje text-right">
-                            90
-                        </div>
-                    </div>
-                    <a href="#" class="button expanded">Ver todos</a>
+                    @endforeach
+                    <a href="#" class="button expanded">@{{ $store.getters.trans('game.see_all') }}</a>
                 </div>
-
             </div>
         </div>
         <div class="medium-3 columns">

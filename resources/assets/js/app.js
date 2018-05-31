@@ -15,10 +15,12 @@ window.Vue = require('vue');
  */
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('league-create', require('./components/leagues/Create.vue'));
+Vue.component('league-invite', require('./components/leagues/Invite.vue'));
+Vue.component('league-summary', require('./components/leagues/Summary.vue'));
+Vue.component('league-join', require('./components/leagues/Join.vue'));
 import Lang from './lang'
-
 import Vuex from 'vuex'
-
 Vue.use(Vuex)
 let app_locale = document.head.querySelector('meta[name="app_locale"]').content
 if (!app_locale) app_locale = 'en'
