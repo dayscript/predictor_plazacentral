@@ -621,7 +621,7 @@
                 </div>
             </div>
             <div class="text-center margin-30">
-                <img src="/img/ads/728x90.png" alt="">
+                <img src="/img/banners/MPI_320x50_Q20089_GM_99Coverage_ST.jpg" alt="" class="Add">
             </div>
         </div>
     </div>
