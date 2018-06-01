@@ -33,6 +33,10 @@ Vue.use(Vuex)
 var SocialSharing = require('vue-social-sharing');
 Vue.use(SocialSharing);
 
+var Foundation = require('foundation-sites/dist/js/foundation'); // 'foundation.min' can also be used if you like
+Vue.use(Foundation);
+$(document).foundation();
+
 let app_locale = document.head.querySelector('meta[name="app_locale"]').content
 if (!app_locale) app_locale = 'en'
 
