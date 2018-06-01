@@ -7,6 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="app_locale" content="{{ app()->getLocale() }}">
+    @yield('meta')
     <title>@section('title') :: {{ config('app.name', 'Predictor') }} @show</title>
 
     <!-- Styles -->
