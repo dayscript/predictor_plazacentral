@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Predictor\Match;
 use Image;
 use App\Predictor\Team;
 use App\Predictor\Group;
@@ -16,7 +17,13 @@ class ImagesController extends Controller
     {
         $this->middleware('locale');
     }
-    
+
+    /**
+     * @param Group $group
+     * @param Team $team1
+     * @param Team $team2
+     * @return mixed
+     */
     public function groupPrediction(Group $group, Team $team1, Team $team2)
     {
         $blue   = '#35348f';
@@ -57,6 +64,54 @@ class ImagesController extends Controller
         $img->text(__('teams.'.str_slug($team2->name)), 450, 270, function ($font) {
             $font->file(public_path('fonts/Exo2/Exo2-Light.otf'));
             $font->size(30);
+            $font->color('#000');
+            $font->align('center');
+            $font->valign('bottom');
+        });
+        return $img->response('png');
+    }
+
+    /**
+     * @param Match $match
+     * @param $local_score
+     * @param $visit_score
+     * @return mixed
+     */
+    public function matchPrediction(Match $match, $local_score, $visit_score)
+    {
+        $blue   = '#35348f';
+        $img = Image::canvas(600, 315,'#eee');
+        if($match->localId && $match->localId->image)$img->insert('storage/'.$match->localId->image, 'top-left',80,100);
+        else $img->insert('img/flag-default.png', 'top-left',80,100);
+        if($match->visitId && $match->visitId->image)$img->insert('storage/'.$match->visitId->image, 'top-left',370,100);
+        else $img->insert('img/flag-default.png', 'top-left',370,100);
+        $img->rectangle(0,0,600,15, function ($draw)use($blue) {
+            $draw->background($blue);
+        });
+        $img->text($match->date, 300, 60, function ($font)use($blue) {
+            $font->file(public_path('fonts/Exo2/Exo2-ExtraLight.otf'));
+            $font->size(30);
+            $font->color($blue);
+            $font->align('center');
+            $font->valign('bottom');
+        });
+        $img->text($local_score . '   -   ' . $visit_score, 300, 180, function ($font) {
+            $font->file(public_path('fonts/Exo2/Exo2-ExtraBold.otf'));
+            $font->size(35);
+            $font->color('#000');
+            $font->align('center');
+            $font->valign('bottom');
+        });
+        $img->text(__('teams.'.str_slug($match->localId->short)), 160, 270, function ($font) {
+            $font->file(public_path('fonts/Exo2/Exo2-Light.otf'));
+            $font->size(20);
+            $font->color('#000');
+            $font->align('center');
+            $font->valign('bottom');
+        });
+        $img->text(__('teams.'.str_slug($match->visitId->short)), 450, 270, function ($font) {
+            $font->file(public_path('fonts/Exo2/Exo2-Light.otf'));
+            $font->size(20);
             $font->color('#000');
             $font->align('center');
             $font->valign('bottom');

@@ -20,6 +20,8 @@ return [
     'second_place'            => 'Second place',
     'share_group_title'       => 'This is mi prediction for the 2 classified teams for the group :group in Russia World Cup 2018',
     'share_group_description' => 'You can also play to win wonderful prizes',
+    'share_match_title'       => 'This is mi prediction for game :match in Russia World Cup 2018',
+    'share_match_description' => 'You can also play to win wonderful prizes',
     'to_close_1'              => 'The -',
     'to_close_2'              => '- is about to close',
     'to_close_3'              => 'Remember that you can make your predictions up to 15 minutes before the start of the match',

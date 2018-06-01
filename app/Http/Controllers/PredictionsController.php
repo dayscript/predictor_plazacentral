@@ -28,6 +28,15 @@ class PredictionsController extends Controller
     }
 
     /**
+     * @param MatchPrediction $prediction
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function matchShow(MatchPrediction $prediction)
+    {
+        return view('predictions.match_show', compact('prediction'));
+    }
+
+    /**
      * Adds prediction
      * @param Group $group
      * @return array

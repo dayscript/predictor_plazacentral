@@ -19,6 +19,8 @@ return [
     'second_place'            => 'Segundo lugar',
     'share_group_title'       => 'Este es mi pronóstico para los clasificados a octavos de final por el Grupo :group del Mundial de Rusia 2018',
     'share_group_description' => 'Tu también puedes participar y ganar fabulosos premios',
+    'share_match_title'       => 'Este es mi pronóstico para el partido :match del Mundial de Rusia 2018',
+    'share_match_description' => 'Tu también puedes participar y ganar fabulosos premios',
     'to_close_1'              => 'El -',
     'to_close_2'              => '- está próximo a cerrar',
     'to_close_3'              => 'Recuerde que puede realizar sus pronósticos hasta 15 minutos antes del comienzo del partido',

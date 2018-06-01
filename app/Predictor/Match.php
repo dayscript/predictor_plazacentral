@@ -130,4 +130,16 @@ class Match extends Model
     {
         return MatchPrediction::firstOrCreate(['user_id' => auth()->user()->id, 'match_id' => $this->id]);
     }
+
+    /**
+     * @return string
+     */
+    public function getVersusAttribute()
+    {
+        $text = '';
+        $text .= __('teams.'.str_slug($this->localId->name));
+        $text .= ' vs ';
+        $text .= __('teams.'.str_slug($this->visitId->name));
+        return $text;
+    }
 }
