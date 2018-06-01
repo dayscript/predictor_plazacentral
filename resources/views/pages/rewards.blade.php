@@ -23,7 +23,7 @@
                 </div>
             </div>
             <div class="medium-3 columns text-center banner">
-                @include('layouts.ads.vertical')
+                @include('ads.vertical')
             </div>
         </div>
     </div>

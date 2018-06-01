@@ -155,7 +155,7 @@
                 <button type="submit" class="button expanded">@{{ $store.getters.trans('users.accept_and_continue') }}</button>
             </div>
             <div class="medium-3 columns hide-for-small-only">
-                @include('layouts.ads.vertical')
+                @include('ads.vertical')
             </div>
         </div>
     </form>
