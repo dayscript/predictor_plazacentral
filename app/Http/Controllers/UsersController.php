@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Predictor\Group;
+use App\Predictor\GroupPrediction;
 
 class UsersController extends Controller
 {
@@ -12,7 +13,7 @@ class UsersController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except(['updateLang']);
+        $this->middleware(['auth','locale'])->except(['updateLang']);
     }
 
     /**
@@ -36,5 +37,26 @@ class UsersController extends Controller
             $results['status']  = 'error';
         }
         return $results;
+    }
+
+    /**
+     * Adds prediction
+     * @param Group $group
+     * @return array
+     */
+    public function addGroupPrediction(Group $group)
+    {
+        $results    = [];
+        $prediction = GroupPrediction::firstOrCreate(['user_id' => auth()->user()->id, 'group_id' => $group->id]);
+        if ($first = request()->get('first')) $prediction->first_team_id = $first;
+        if ($second = request()->get('second')) $prediction->second_team_id = $second;
+        $prediction->save();
+        $results['first']      = $first;
+        $results['prediction'] = $prediction;
+        $results['group']      = $group;
+        $results['message']    = __('predictions.predictions_updated');
+        $results['status']     = 'success';
+        return $results;
+
     }
 }

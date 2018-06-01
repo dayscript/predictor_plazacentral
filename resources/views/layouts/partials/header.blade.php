@@ -1,4 +1,4 @@
-<div class="header  sticky" data-sticky data-margin-top="0">
+<div class="header sticky" data-sticky data-margin-top="0">
     <div class="row">
         <div class="medium-3 columns">
             <img class="logo" src="/img/logo.png" alt="">

@@ -125,6 +125,16 @@ class HomeController extends Controller
         }
         $match = Match::orderBy('date')->first();
         $groups = Group::orderBy('name')->get();
-        return view('pages.predictions',compact('groups','match'));
+        $groups->each->append('myprediction');
+        $message = '';
+        if(isset($match) && $match && $match->group){
+            $message .= '<strong>' . __('predictions.to_close_1') . __('predictions.group_'.$match->group->name)
+                        . __('predictions.to_close_2') .':</strong> '
+                        . __('predictions.to_close_3') . ' '
+                        . __('teams.'. str_slug($match->localId->name) )
+                        . ' vs ' . __('teams.'. str_slug($match->visitId->name)) 
+                        . __('predictions.on') .' '. $match->date;
+        }
+        return view('pages.predictions',compact('groups','match', 'message'));
     }
 }

@@ -29,3 +29,6 @@ Route::post('leagues/{league}/invite','LeaguesController@inviteLeague');
 Route::get('leagues/join/{code}', 'LeaguesController@join');
 Route::post('leagues/join','LeaguesController@joinLeague');
 Route::post('leagues/{league}/leave','LeaguesController@leaveLeague');
+Route::post('predictions/{group}','UsersController@addGroupPrediction');
+Route::get('predictions/{prediction}','PredictionsController@show');
+Route::get('images/predictions/{group}/{team1}/{team2}','ImagesController@groupPrediction');

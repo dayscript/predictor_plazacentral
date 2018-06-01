@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Predictor\GroupPrediction;
 use App\Predictor\League;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -91,6 +92,15 @@ class User extends Authenticatable
     public function leagues()
     {
         return $this->belongsToMany(League::class)->withTimestamps();
+    }
+
+    /**
+     * User group predictions
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function predictions()
+    {
+        return $this->hasMany(GroupPrediction::class);
     }
 
 }

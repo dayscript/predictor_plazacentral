@@ -3,7 +3,7 @@
   background-position: top;
   background-repeat: repeat-x;
   background-color: $black;
-
+  min-height: 70vh;
 }
 .info{
   background: $white;
@@ -11,6 +11,9 @@
   border-radius: 8px;
   padding: 12px;
   min-height: 500px;
+  &.small{
+    min-height: 315px;
+  }
 }
 //Pronosticos
 .mensaje {

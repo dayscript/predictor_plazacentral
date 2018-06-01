@@ -17,6 +17,7 @@ return [
     'join_leagues'            => 'Unirse a una liga',
     'join_code_placeholder'   => 'Ingrese el código de la liga',
     'league'                  => 'Liga',
+    'leagues'                  => 'Ligas',
     'league_abandoned'        => 'Has abandonado la liga',
     'league_code_not_found'   => 'No se encontró una liga con ese código!',
     'league_created'          => 'Liga creada',

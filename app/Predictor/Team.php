@@ -12,7 +12,12 @@ class Team extends Model
      * @var array
      */
     protected $fillable = ['id'];
-
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = ['short'];
     /**
      * Fix team name
      */

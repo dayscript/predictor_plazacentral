@@ -17,10 +17,7 @@
     <link rel="shortcut icon" href="/favicon.ico"/>
 </head>
 <body>
-<div class="reveal" id="loadingModal" data-reveal data-close-on-esc="false" data-overlay="true" data-close-on-click="false">
-    <img border="0" src="{{ asset('img/icons/loading-bgb.gif') }}" alt="...">
-</div>
-<div id="app">
+<div id="app" style="display:none;" :class="{'show':loaded}">
     @include('layouts.partials.language')
     @include('layouts.partials.header')
     @yield('content')

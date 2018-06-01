@@ -19,9 +19,16 @@ Vue.component('league-create', require('./components/leagues/Create.vue'));
 Vue.component('league-invite', require('./components/leagues/Invite.vue'));
 Vue.component('league-summary', require('./components/leagues/Summary.vue'));
 Vue.component('league-join', require('./components/leagues/Join.vue'));
+Vue.component('predictions-index', require('./components/predictions/PredictionsIndex.vue'));
+Vue.component('group-prediction', require('./components/predictions/GroupPrediction.vue'));
+Vue.component('spinner', require('./components/Utils/Spinner.vue'));
 import Lang from './lang'
 import Vuex from 'vuex'
 Vue.use(Vuex)
+
+var SocialSharing = require('vue-social-sharing');
+Vue.use(SocialSharing);
+
 let app_locale = document.head.querySelector('meta[name="app_locale"]').content
 if (!app_locale) app_locale = 'en'
 
@@ -49,6 +56,14 @@ const store = new Vuex.Store({
 const app = new Vue({
   el: '#app',
   store,
+  data(){
+    return {
+      loaded:false
+    }
+  },
+  mounted(){
+    this.loaded = true
+  }
 });
 
 window.vm = app;

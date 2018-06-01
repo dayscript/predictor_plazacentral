@@ -17,6 +17,7 @@ return [
     'join_leagues'            => 'Join leagues',
     'join_code_placeholder'   => 'Enter league code',
     'league'                  => 'League',
+    'leagues'                  => 'Leagues',
     'league_abandoned'        => 'You have left the league',
     'league_code_not_found'   => 'No league found with this code!',
     'league_created'          => 'League created',
