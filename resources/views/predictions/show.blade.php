@@ -12,6 +12,12 @@
     <meta property="og:image:width" content="600"/>
     <meta property="og:image:height" content="315"/>
     <meta property="fb:app_id" content="941902379280971"/>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@dayscript">
+    <meta name="twitter:creator" content="@dayscript">
+    <meta name="twitter:title" content="@lang('predictions.share_group_title',['group'=>$prediction->group->name])">
+    <meta name="twitter:description" content="@lang('predictions.share_group_description')">
+    <meta name="twitter:image" content="{{ url('images/predictions/'.$prediction->group_id . '/' . $prediction->first_team_id . '/' . $prediction->second_team_id) }}">
 @endsection
 @section('content')
     <div class="page">
