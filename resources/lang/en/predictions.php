@@ -3,7 +3,7 @@
 return [
     '1st'                     => '1st',
     '2nd'                     => '2nd',
-    'elimination_phase'       => 'Elimination phase',
+    'elimination_phase'       => 'Knockout phase',
     'first_place'             => 'First place',
     'group_A'                 => 'Group A',
     'group_B'                 => 'Group B',

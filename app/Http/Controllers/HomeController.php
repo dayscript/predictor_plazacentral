@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Predictor\Group;
 use App\Predictor\Match;
+use App\Predictor\Round;
 use App\Predictor\Team;
 use App\User;
 
@@ -93,9 +94,9 @@ class HomeController extends Controller
     public function ranking()
     {
         if (!($l = request()->get('l'))) $l = null;
-//        $rounds  = Round::orderBy('name')->get();
+        $rounds  = Round::orderBy('id')->get();
         $leagues = auth()->user()->leagues;
-        return view('pages.ranking', compact('leagues', 'l'));
+        return view('pages.ranking', compact('leagues', 'l', 'rounds'));
     }
 
     /**

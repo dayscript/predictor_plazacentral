@@ -18,6 +18,7 @@ class Team extends Model
      * @var array
      */
     protected $appends = ['short'];
+
     /**
      * Fix team name
      */
@@ -38,8 +39,16 @@ class Team extends Model
      */
     public function getShortAttribute()
     {
-        return strtoupper(substr($this->name,0,3));   
+        if (starts_with($this->name,'Ganador Grupo ')) $short = 'gg'.strtolower(substr($this->name,-1));
+        elseif (starts_with($this->name, 'Segundo Lugar Grupo ')) $short = 'sl'.strtolower(substr($this->name,-1));
+        elseif (starts_with($this->name, 'Cuartos-Finalista ')) $short = 'cf'.strtolower(substr($this->name,-1));
+        elseif (starts_with($this->name, 'Semi-Finalista ')) $short = 'sf'.strtolower(substr($this->name,-1));
+        elseif (starts_with($this->name, 'Ganador Semi-Final ')) $short = 'gs'.strtolower(substr($this->name,-1));
+        elseif (starts_with($this->name, 'Perdedor Semi-Final ')) $short = 'ps'.strtolower(substr($this->name,-1));
+        else $short = strtoupper(substr($this->name, 0, 3));
+        return $short;
     }
+
     /**
      * Groups list
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany

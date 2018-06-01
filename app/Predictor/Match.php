@@ -122,4 +122,12 @@ class Match extends Model
             }
         }
     }
+    /**
+     * Loads predictions
+     * @return array
+     */
+    public function getMypredictionAttribute()
+    {
+        return MatchPrediction::firstOrCreate(['user_id' => auth()->user()->id, 'match_id' => $this->id]);
+    }
 }

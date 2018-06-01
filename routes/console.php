@@ -14,10 +14,16 @@ use Illuminate\Foundation\Inspiring;
 */
 
 Artisan::command('matches:create', function () {
+    $round1 = \App\Predictor\Round::firstOrCreate(['name'=>'group_phase']);
+    $round2 = \App\Predictor\Round::firstOrCreate(['name'=>'round_of_16']);
+    $round3 = \App\Predictor\Round::firstOrCreate(['name'=>'quarter_finals']);
+    $round4 = \App\Predictor\Round::firstOrCreate(['name'=>'semi_finals']);
+    $round5 = \App\Predictor\Round::firstOrCreate(['name'=>'finals']);
     $ids = [958022,958023,958028,958029,958034,958041,958035,958040,958047,958057,958046,958056,958058,958059,958069,958068,958024,958031,958025,958030,958037,958036,958042,958049,958043,958048,958060,958054,958055,958061,958066,958067,958027,958026,958033,958032,958039,958038,958045,958044,958053,958052,958051,958050,958065,958064,958063,958062,958070,958071,958072,958073,958075,958074,958077,958076,958078,958079,958081,958080,958082,958083,958084,958085];
 //    $ids = [958070,958071,958072,958073,958075,958074,958077,958076,958078,958079,958081,958080,958082,958083,958084,958085];
     foreach($ids as $key=>$id){
         $match = \App\Predictor\Match::firstOrCreate(['id'=>$id]);
+        if($match->id<=958069)$match->round_id= $round1->id;
         $this->info($key+1 . ' Match: '.$match->id);
 //        $match->channel = '600dtsc';
         $match->updateOptaData();

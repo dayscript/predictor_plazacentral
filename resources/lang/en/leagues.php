@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'accumulated'             => 'Accumulated',
     'are_you_sure_delete'     => 'Are you sure you want to delete this league?',
     'create_code'             => 'Create and invitation code',
     'create_code_placeholder' => 'Enter a code for the league',
@@ -8,6 +9,7 @@ return [
     'create_league'           => 'Create league',
     'delete_league'           => 'Delete league',
     'edit'                    => 'Edit',
+    'general_ranking'         => 'General Ranking',
     'invite'                  => 'Invite',
     'invitation_code'         => 'Invitation code',
     'invite_your_friends'     => 'Invite your friends',
@@ -17,7 +19,7 @@ return [
     'join_leagues'            => 'Join leagues',
     'join_code_placeholder'   => 'Enter league code',
     'league'                  => 'League',
-    'leagues'                  => 'Leagues',
+    'leagues'                 => 'Leagues',
     'league_abandoned'        => 'You have left the league',
     'league_code_not_found'   => 'No league found with this code!',
     'league_created'          => 'League created',

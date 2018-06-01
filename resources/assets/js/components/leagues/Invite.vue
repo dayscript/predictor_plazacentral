@@ -9,37 +9,39 @@
             <a @click="sendInvites" class="button expanded">{{ $store.getters.trans('leagues.invite') }}</a>
         </div>
         <div class="medium-6 columns"><p></p></div>
+        <spinner v-if="loading"></spinner>
     </div>
 </template>
 
 <script>
-    export default {
-        props: ['id'],
-        data() {
-            return {
-                list: ''
+  export default {
+    props: ['id'],
+    data () {
+      return {
+        loading: 0,
+        list: ''
+      }
+    },
+    methods: {
+      sendInvites () {
+        this.loading++
+        axios.post('/leagues/' + this.id + '/invite', {list: this.list}).then(
+          ({data}) => {
+            if (data.message) {
+              new PNotify({
+                text: data.message,
+                type: data.status,
+                animation: 'fade',
+                delay: 2000
+              });
+              this.list = '';
             }
-        },
-        methods: {
-            sendInvites() {
-                $('#loadingModal').foundation('open');
-                axios.post('/leagues/'+this.id + '/invite', {list: this.list}).then(
-                    ({data}) => {
-                        if (data.message) {
-                            new PNotify({
-                                text: data.message,
-                                type: data.status,
-                                animation: 'fade',
-                                delay: 2000
-                            });
-                            this.list = '';
-                        }
-                        $('#loadingModal').foundation('close');
-                    }
-                ).catch(function (error) {
-                    $('#loadingModal').foundation('close');
-                });
-            },
-        }
+            this.loading--
+          }
+        ).catch(function (error) {
+          this.loading--
+        });
+      },
     }
+  }
 </script>

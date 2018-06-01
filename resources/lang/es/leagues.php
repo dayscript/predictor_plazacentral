@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'accumulated'             => 'Acumulado',
     'are_you_sure_delete'     => '¿Estás segur@ que quieres eliminar esta liga?',
     'create_code'             => 'Crear un código de invitación',
     'create_code_placeholder' => 'Ingrese el código de la liga',
@@ -8,6 +9,7 @@ return [
     'create_league'           => 'Crear liga',
     'delete_league'           => 'Eliminar liga',
     'edit'                    => 'Editar',
+    'general_ranking'         => 'Clasificación General',
     'invite'                  => 'Invitar',
     'invitation_code'         => 'Código de invitación',
     'invite_your_friends'     => 'Invita tus amigos',
@@ -17,7 +19,7 @@ return [
     'join_leagues'            => 'Unirse a una liga',
     'join_code_placeholder'   => 'Ingrese el código de la liga',
     'league'                  => 'Liga',
-    'leagues'                  => 'Ligas',
+    'leagues'                 => 'Ligas',
     'league_abandoned'        => 'Has abandonado la liga',
     'league_code_not_found'   => 'No se encontró una liga con ese código!',
     'league_created'          => 'Liga creada',

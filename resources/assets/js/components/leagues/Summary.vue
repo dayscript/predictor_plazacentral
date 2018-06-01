@@ -11,32 +11,38 @@
             <a v-if="editable" :href="'/leagues/'+league.id+'/edit'" class="button small">{{ $store.getters.trans('leagues.edit') }}</a>
             <a v-if="!editable" @click="leaveLeague" class="button alert small">{{ $store.getters.trans('leagues.leave') }}</a>
         </div>
+        <spinner v-if="loading"></spinner>
     </div>
 </template>
 
 <script>
-    export default {
-        props: ['league', 'editable','rowclass'],
-        methods: {
-            leaveLeague() {
-                $('#loadingModal').foundation('open');
-                axios.post('/leagues/' + this.league.id + '/leave').then(
-                    ({data}) => {
-                        $('#loadingModal').foundation('close');
-                        if (data.message) {
-                            new PNotify({
-                                text: data.message,
-                                type: data.status,
-                                animation: 'fade',
-                                delay: 2000
-                            });
-                        }
-                        document.location.href = '/leagues';
-                    }
-                ).catch(function (error) {
-                    $('#loadingModal').foundation('close');
-                });
+  export default {
+    props: ['league', 'editable', 'rowclass'],
+    data () {
+      return {
+        loading: 0,
+      }
+    },
+    methods: {
+      leaveLeague () {
+        this.loading++
+        axios.post('/leagues/' + this.league.id + '/leave').then(
+          ({data}) => {
+            this.loading--
+            if (data.message) {
+              new PNotify({
+                text: data.message,
+                type: data.status,
+                animation: 'fade',
+                delay: 2000
+              });
             }
-        }
+            document.location.href = '/leagues';
+          }
+        ).catch(function (error) {
+          this.loading--
+        });
+      }
     }
+  }
 </script>

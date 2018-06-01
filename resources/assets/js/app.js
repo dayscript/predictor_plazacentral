@@ -21,7 +21,11 @@ Vue.component('league-summary', require('./components/leagues/Summary.vue'));
 Vue.component('league-join', require('./components/leagues/Join.vue'));
 Vue.component('predictions-index', require('./components/predictions/PredictionsIndex.vue'));
 Vue.component('group-prediction', require('./components/predictions/GroupPrediction.vue'));
+Vue.component('match-prediction', require('./components/predictions/MatchPrediction.vue'));
+Vue.component('ranking-index', require('./components/ranking/Ranking.vue'));
 Vue.component('spinner', require('./components/Utils/Spinner.vue'));
+Vue.component('change-password', require('./components/Utils/ChangePassword.vue'));
+Vue.component('game-summary', require('./components/Utils/GameSummary.vue'));
 import Lang from './lang'
 import Vuex from 'vuex'
 Vue.use(Vuex)

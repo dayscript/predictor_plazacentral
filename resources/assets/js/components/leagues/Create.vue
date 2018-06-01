@@ -38,137 +38,139 @@
         <div v-if="id">
             <league-invite :id="id"></league-invite>
         </div>
+        <spinner v-if="loading"></spinner>
     </div>
 </template>
 
 <script>
-    export default {
-        mounted() {
-            if (this.league) {
-                this.id = this.league.id;
-                this.name = this.league.name;
-                this.description = this.league.description;
-                this.code = this.league.code;
+  export default {
+    mounted () {
+      if (this.league) {
+        this.id = this.league.id;
+        this.name = this.league.name;
+        this.description = this.league.description;
+        this.code = this.league.code;
+      }
+    },
+    props: ['league'],
+    data () {
+      return {
+        loading: 0,
+        id: null,
+        name: '',
+        description: '',
+        code: '',
+        errors: {}
+      }
+    },
+    methods: {
+      updateLeague () {
+        this.loading++
+        axios.put('/leagues/' + this.id, {name: this.name, description: this.description, code: this.code}).then(
+          ({data}) => {
+            if (data.message) {
+              new PNotify({
+                text: data.message,
+                type: data.status,
+                animation: 'fade',
+                delay: 2000
+              });
             }
-        },
-        props: ['league'],
-        data() {
-            return {
-                id: null,
-                name: '',
-                description: '',
-                code: '',
-                errors: {}
+            this.loading--
+          }
+        ).catch(function (error) {
+          this.loading--
+          if (error.response) {
+            if (error.response.status === 422) {
+              var data = error.response.data;
+              this.errors = data.errors;
+            } else if (error.response.status === 403) {
+              new PNotify({
+                text: this.$store.getters.trans('leagues.not_authorized'),
+                type: 'error',
+                animation: 'fade',
+                delay: 2000
+              });
+            } else {
+              console.log(error.response.status);
             }
-        },
-        methods: {
-            updateLeague(){
-                $('#loadingModal').foundation('open');
-                axios.put('/leagues/'+this.id, {name: this.name, description: this.description, code: this.code}).then(
-                    ({data})=>{
-                        if (data.message) {
-                            new PNotify({
-                                text: data.message,
-                                type: data.status,
-                                animation: 'fade',
-                                delay: 2000
-                            });
-                        }
-                        $('#loadingModal').foundation('close');
-                    }
-                ).catch(function (error){
-                    $('#loadingModal').foundation('close');
-                    if (error.response) {
-                        if (error.response.status === 422) {
-                            var data = error.response.data;
-                            this.errors = data.errors;
-                        } else if (error.response.status === 403) {
-                            new PNotify({
-                                text: this.$store.getters.trans('leagues.not_authorized'),
-                                type: 'error',
-                                animation: 'fade',
-                                delay: 2000
-                            });
-                        } else {
-                            console.log(error.response.status);
-                        }
-                    } else {
-                        console.log('Error', error.message);
-                    }
-                });
-            },
-            createLeague() {
-                $('#loadingModal').foundation('open');
-                axios.post('/leagues', {name: this.name, description: this.description, code: this.code}).then(
-                    ({data}) => {
-                        if (data.id) this.id = data.id;
-                        if (data.message) {
-                            new PNotify({
-                                text: data.message,
-                                type: data.status,
-                                animation: 'fade',
-                                delay: 2000
-                            });
-                        }
-                        $('#loadingModal').foundation('close');
-                    }
-                ).catch(function (error) {
-                    $('#loadingModal').foundation('close');
-                  if (error.response) {
-                    if (error.response.status === 422) {
-                      var data = error.response.data;
-                      this.errors = data.errors;
-                    } else {
-                      console.log(error.response.status);
-                    }
-                  } else {
-                    console.log('Error', error.message);
-                  }
-                }.bind(this));
-            },
-            deleteLeague() {
-                if (confirm(this.$store.getters.trans('leagues.are_you_sure_delete'))) {
-                    $('#loadingModal').foundation('open');
-                    axios.delete('/leagues/' + this.id).then(
-                        ({data}) => {
-                            if (data.message) {
-                                if (data.status === 'success') {
-                                    this.id = null;
-                                    this.name = '';
-                                    this.description = '';
-                                    this.code = '';
-                                }
-                                new PNotify({
-                                    text: data.message,
-                                    type: data.status,
-                                    animation: 'fade',
-                                    delay: 2000
-                                });
-                            }
-                            $('#loadingModal').foundation('close');
-                        }
-                    ).catch(function (error) {
-                        $('#loadingModal').foundation('close');
-                        if (error.response) {
-                            if (error.response.status === 403) {
-                                new PNotify({
-                                    text: this.$store.getters.trans('leagues.not_authorized'),
-                                    type: 'error',
-                                    animation: 'fade',
-                                    delay: 2000
-                                });
-                            } else {
-                                console.log(error.response.status);
-                            }
-                        } else {
-                            console.log('Error', error.message);
-                        }
-                    });
+          } else {
+            console.log('Error', error.message);
+          }
+        });
+      },
+      createLeague () {
+        this.loading++
+        axios.post('/leagues', {name: this.name, description: this.description, code: this.code}).then(
+          ({data}) => {
+            if (data.id) this.id = data.id;
+            if (data.message) {
+              new PNotify({
+                text: data.message,
+                type: data.status,
+                animation: 'fade',
+                delay: 2000
+              });
+            }
+            this.loading--
+          }
+        ).catch(function (error) {
+          this.loading--
+          if (error.response) {
+            if (error.response.status === 422) {
+              var data = error.response.data;
+              this.errors = data.errors;
+            } else {
+              console.log(error.response.status);
+            }
+          } else {
+            console.log('Error', error.message);
+          }
+        }.bind(this));
+      },
+      deleteLeague () {
+        if (confirm(this.$store.getters.trans('leagues.are_you_sure_delete'))) {
+          this.loading++
+          axios.delete('/leagues/' + this.id).then(
+            ({data}) => {
+              if (data.message) {
+                if (data.status === 'success') {
+                  this.id = null;
+                  this.name = '';
+                  this.description = '';
+                  this.code = '';
                 }
-            },
-            resetErrors(field) {
-                Vue.delete(this.errors, field);
-            },
+                new PNotify({
+                  text: data.message,
+                  type: data.status,
+                  animation: 'fade',
+                  delay: 2000
+                });
+              }
+              this.loading--
+            }
+          ).catch(function (error) {
+            this.loading--
+            if (error.response) {
+              if (error.response.status === 403) {
+                new PNotify({
+                  text: this.$store.getters.trans('leagues.not_authorized'),
+                  type: 'error',
+                  animation: 'fade',
+                  delay: 2000
+                });
+              } else {
+                console.log(error.response.status);
+              }
+            } else {
+              console.log('Error', error.message);
+            }
+          });
         }
+      },
+      resetErrors (field) {
+        Vue.delete(this.errors, field);
+      },
     }
+  }
 </script>
