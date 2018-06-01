@@ -133,7 +133,7 @@ class HomeController extends Controller
                         . __('predictions.to_close_2') .':</strong> '
                         . __('predictions.to_close_3') . ' '
                         . __('teams.'. str_slug($match->localId->name) )
-                        . ' vs ' . __('teams.'. str_slug($match->visitId->name)) 
+                        . ' vs ' . __('teams.'. str_slug($match->visitId->name)) . ' '
                         . __('predictions.on') .' '. $match->date;
         }
         return view('pages.predictions',compact('groups','match', 'message'));
