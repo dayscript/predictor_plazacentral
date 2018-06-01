@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'participant' => 'Participant',
-    'pos'      => 'Pos',
-    'positions_table'         => 'Tabla de Posiciones',
+    'participant'     => 'Participant',
+    'pos'             => 'Pos',
+    'positions_table' => 'Positions Table',
 ];
