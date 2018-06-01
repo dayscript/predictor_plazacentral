@@ -137,9 +137,9 @@ class Match extends Model
     public function getVersusAttribute()
     {
         $text = '';
-        $text .= __('teams.'.str_slug($this->localId->name));
+        $text .= __('teams.'.str_slug($this->localId->short));
         $text .= ' vs ';
-        $text .= __('teams.'.str_slug($this->visitId->name));
+        $text .= __('teams.'.str_slug($this->visitId->short));
         return $text;
     }
 }

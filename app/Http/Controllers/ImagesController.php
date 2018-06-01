@@ -54,14 +54,14 @@ class ImagesController extends Controller
             $font->align('center');
             $font->valign('bottom');
         });
-        $img->text(__('teams.'.str_slug($team1->name)), 160, 270, function ($font) {
+        $img->text(__('teams.'.str_slug($team1->short)), 160, 270, function ($font) {
             $font->file(public_path('fonts/Exo2/Exo2-Light.otf'));
             $font->size(30);
             $font->color('#000');
             $font->align('center');
             $font->valign('bottom');
         });
-        $img->text(__('teams.'.str_slug($team2->name)), 450, 270, function ($font) {
+        $img->text(__('teams.'.str_slug($team2->short)), 450, 270, function ($font) {
             $font->file(public_path('fonts/Exo2/Exo2-Light.otf'));
             $font->size(30);
             $font->color('#000');
