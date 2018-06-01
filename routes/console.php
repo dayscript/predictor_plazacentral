@@ -24,6 +24,10 @@ Artisan::command('matches:create', function () {
     foreach($ids as $key=>$id){
         $match = \App\Predictor\Match::firstOrCreate(['id'=>$id]);
         if($match->id<=958069)$match->round_id= $round1->id;
+        else if(in_array($match->id,[958084,958085]))$match->round_id= $round5->id;
+        else if(in_array($match->id,[958082,958083]))$match->round_id= $round4->id;
+        else if(in_array($match->id,[958078,958079,958080,958081]))$match->round_id= $round3->id;
+        else if(in_array($match->id,[958070,958071,958075,958074,958072,958073,958077,958076]))$match->round_id= $round2->id;
         $this->info($key+1 . ' Match: '.$match->id);
 //        $match->channel = '600dtsc';
         $match->updateOptaData();
