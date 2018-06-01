@@ -6,4 +6,5 @@
 
 @section('content')
     <predictions-index message="{{ $message }}" :groups="{{ $groups }}"></predictions-index>
+    @include('ads.horizontal')
 @endsection

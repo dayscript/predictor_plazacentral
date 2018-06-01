@@ -53,7 +53,7 @@
             </div>
         </div>
         <div class="medium-3 columns">
-            @include('layouts.partials.ads')
+            @include('layouts.ads.vertical')
         </div>
     </div>
 
