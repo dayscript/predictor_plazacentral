@@ -52,28 +52,29 @@
                 <form class="form-horizontal" method="POST" action="{{ route('login') }}">
                     {{ csrf_field() }}
                     <div class="title">@{{ $store.getters.trans('users.do_you_have_an_account') }}</div>
-                    <div class="small-12 columns">
-                        <input type="email" name="email" :placeholder="$store.getters.trans('users.email')" value="{{ old('email') }}" class="{{ $errors->has('email') ? ' is-invalid-input' : '' }}" required autofocus/>
-                        @if ($errors->has('email'))
-                            <span class="form-error is-visible">{{ $errors->first('email') }}</span>
-                        @endif
-                    </div>
-                    <div class="small-12 columns">
-                        <input type="password" :placeholder="$store.getters.trans('users.password')" name="password" required class="{{ $errors->has('password') ? ' is-invalid-input' : '' }}"/>
-                        @if ($errors->has('password'))
-                            <span class="form-error is-visible">{{ $errors->first('password') }}</span>
-                        @endif
-                    </div>
-                    <div class="small-12 columns">
-                        <input type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
-                        <label for="remember">@{{ $store.getters.trans('users.remember_me') }}</label>
-                    </div>
-                    <button type="submit" class="button expanded">@{{ $store.getters.trans('users.login') }}</button>
-                    <div class="text-center">
-                        <a href="{{ route('password.request') }}" class="link">@{{ $store.getters.trans('users.forgot_my_password') }}</a>
-                    </div>
-                    <hr>
-                    <div class="texto">@{{ $store.getters.trans('users.or_use_facebook') }}</div>
+                    {{--<div class="small-12 columns">--}}
+                        {{--<input type="email" name="email" :placeholder="$store.getters.trans('users.email')" value="{{ old('email') }}" class="{{ $errors->has('email') ? ' is-invalid-input' : '' }}" required autofocus/>--}}
+                        {{--@if ($errors->has('email'))--}}
+                            {{--<span class="form-error is-visible">{{ $errors->first('email') }}</span>--}}
+                        {{--@endif--}}
+                    {{--</div>--}}
+                    {{--<div class="small-12 columns">--}}
+                        {{--<input type="password" :placeholder="$store.getters.trans('users.password')" name="password" required class="{{ $errors->has('password') ? ' is-invalid-input' : '' }}"/>--}}
+                        {{--@if ($errors->has('password'))--}}
+                            {{--<span class="form-error is-visible">{{ $errors->first('password') }}</span>--}}
+                        {{--@endif--}}
+                    {{--</div>--}}
+                    {{--<div class="small-12 columns">--}}
+                        {{--<input type="checkbox" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>--}}
+                        {{--<label for="remember">@{{ $store.getters.trans('users.remember_me') }}</label>--}}
+                    {{--</div>--}}
+                    {{--<button type="submit" class="button expanded">@{{ $store.getters.trans('users.login') }}</button>--}}
+                    {{--<div class="text-center">--}}
+                        {{--<a href="{{ route('password.request') }}" class="link">@{{ $store.getters.trans('users.forgot_my_password') }}</a>--}}
+                    {{--</div>--}}
+                    {{--<hr>--}}
+                    {{--<div class="texto">@{{ $store.getters.trans('users.or_use_facebook') }}</div>--}}
+                    <div class="texto">@{{ $store.getters.trans('users.login_help') }}</div>
                     <a href="/login/facebook" class="button facebook expanded"><i class="fab fa-facebook"></i> @{{ $store.getters.trans('users.facebook_connect') }}</a>
                 </form>
             </div>
@@ -81,7 +82,8 @@
                 <h2>@{{ $store.getters.trans('users.register') }}</h2>
                 <div class="title">@{{ $store.getters.trans('users.still_not_user') }}</div>
                 <div class="texto">@{{ $store.getters.trans('users.create_account_help') }}</div>
-                <a href="{{ route('register') }}" class="button expanded">@{{ $store.getters.trans('users.create_account') }}</a>
+                {{--<a href="{{ route('register') }}" class="button expanded">@{{ $store.getters.trans('users.create_account') }}</a>--}}
+                <a href="/login/facebook" class="button facebook expanded"><i class="fab fa-facebook"></i> @{{ $store.getters.trans('users.facebook_register') }}</a>
             </div>
         </div>
     </div>
