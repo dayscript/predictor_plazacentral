@@ -13,6 +13,7 @@ return [
     'group_E'                 => 'Grupo E',
     'group_F'                 => 'Grupo F',
     'group_G'                 => 'Grupo G',
+    'group_H'                 => 'Grupo H',
     'on'                      => 'el',
     'predictions'             => 'Pronósticos',
     'predictions_updated'     => 'Sus pronósticos han sido actualizados',

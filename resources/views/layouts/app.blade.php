@@ -16,9 +16,17 @@
     <link href="{{ asset('css/pnotify.css') }}" rel="stylesheet">
     {{--@include('layouts.partials.googleanalytics')--}}
     <link rel="shortcut icon" href="/favicon.ico"/>
+{{--    @include('layouts.partials.googletags')--}}
+    
 </head>
 <body>
 <div id="app" style="display:none;" :class="{'show':loaded}">
+    <!-- /6881/rd.univision_section_deportes/futbol/mundialrusia2018/predictordemisionrusia -->
+    {{--<div id='div-gpt-ad-1528227919403-0' style="width: 728px; height: 90px">--}}
+        {{--<script>--}}
+          {{--googletag.cmd.push(function() { googletag.display('div-gpt-ad-1528227919403-0'); });--}}
+        {{--</script>--}}
+    {{--</div>--}}
     @include('layouts.partials.language')
     @include('layouts.partials.header')
     @yield('content')
