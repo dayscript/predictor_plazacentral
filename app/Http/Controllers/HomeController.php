@@ -124,7 +124,8 @@ class HomeController extends Controller
                 $i++;
             }
         }
-        $match = Match::orderBy('date')->first();
+//        $match = Match::orderBy('date')->first();
+        $match = Match::find(958026);
         $groups = Group::orderBy('name')->get();
         $groups->each->append('myprediction');
         $message = '';

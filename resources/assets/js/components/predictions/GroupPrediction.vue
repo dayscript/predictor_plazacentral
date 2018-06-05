@@ -73,7 +73,10 @@
             </social-sharing>
             <!--<a href="#"><img src="/img/email.png" alt="Email"></a>-->
         </div>
-        <div class="social text-center" v-else>&nbsp;</div>
+        <div class="social text-center" v-else>
+            <img src="/img/facebook-off.png" alt="Twitter" class="pointer">
+            <img src="/img/twitter-off.png" alt="Twitter" class="pointer">
+        </div>
         <spinner v-if="loading"></spinner>
     </div>
 </template>
