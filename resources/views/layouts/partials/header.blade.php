@@ -1,7 +1,7 @@
 <div class="header sticky" data-sticky data-margin-top="0">
     <div class="row">
         <div class="medium-3 columns">
-            <img class="logo" src="/img/logo.png" alt="">
+            <img class="logo" src="/img/logo-predictor.png" alt="">
         </div>
         <div class="medium-9 columns">
             <div class="barra" data-responsive-toggle="menu-predictor" data-hide-for="medium">

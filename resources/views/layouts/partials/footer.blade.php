@@ -2,7 +2,7 @@
     <div class="row">
         <div class="medium-2 columns">
             <div class="img-logo">
-                <img class="logo" src="/img/logo.png" alt="Predictor">
+                <img class="logo" src="/img/logo-predictor.png" alt="Predictor">
             </div>
         </div>
         <div class="medium-2 columns">
