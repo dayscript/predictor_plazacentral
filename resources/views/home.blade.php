@@ -12,7 +12,7 @@
                 <div class="medium-6 columns">
                     <h2 class="title">@{{ $store.getters.trans('matches.next_matches') }}</h2>
                     @foreach($matches as $match)
-                    <div class="row columns item {{ $loop->index%2?'':'dark' }}">
+                    <div class="row columns h-64 item {{ $loop->index%2?'':'dark' }}">
                         <div class="medium-3 columns fecha text-left">
                             {{ $match->date }}
                         </div>
@@ -36,7 +36,7 @@
                 <div class="medium-6 columns">
                     <h2 class="title">@{{ $store.getters.trans('game.general_ranking') }}</h2>
                     @foreach($users as $user)
-                    <div class="row columns item {{ $loop->index%2?'':'dark' }}">
+                    <div class="row columns h-64 item {{ $loop->index%2?'':'dark' }}">
                         <div class="small-1 columns posicion text-left">
                             {{ $loop->iteration }}.
                         </div>
