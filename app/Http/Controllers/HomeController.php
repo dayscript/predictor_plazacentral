@@ -24,7 +24,7 @@ class HomeController extends Controller
             'privacy',
             'support',
             'contact',
-            'rewards',
+            'prizes',
         ]);
         $this->middleware('locale');
     }
@@ -69,12 +69,12 @@ class HomeController extends Controller
     }
 
     /**
-     * Rewards page
+     * Prizes page
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function rewards()
+    public function prizes()
     {
-        return view('pages.rewards');
+        return view('pages.prizes');
     }
 
     /**

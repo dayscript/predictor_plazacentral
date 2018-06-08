@@ -8,5 +8,6 @@ return [
     'play'           => 'Play',
     'ranking'        => 'Ranking',
     'rewards'        => 'Rewards',
+    'prizes'        => 'Prizes',
 
 ];

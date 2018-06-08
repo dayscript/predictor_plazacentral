@@ -14,7 +14,7 @@
                     <li><a href="/leagues">@{{ $store.getters.trans('menu.leagues') }}</a></li>
                     <li><a href="/ranking">@{{ $store.getters.trans('menu.ranking') }}</a></li>
                     <li><a href="/how-to-play">@{{ $store.getters.trans('menu.how_to_play') }}</a></li>
-                    <li><a href="/rewards">@{{ $store.getters.trans('menu.rewards') }}</a></li>
+                    <li><a href="/prizes">@{{ $store.getters.trans('menu.prizes') }}</a></li>
                     @auth
                         <li><a href="#" class="login" onclick="$('.login.in').slideToggle();"><i class="fi-torso"> </i> {{ auth()->user()->name }}</a></li>
                     @else

@@ -20,7 +20,7 @@ Route::put('users/updatelang/{lang}', 'UsersController@updateLang');
 Route::get('terms-and-conditions', 'HomeController@terms');
 Route::get('privacy-policy', 'HomeController@privacy');
 Route::get('support', 'HomeController@support');
-Route::get('rewards', 'HomeController@rewards');
+Route::get('prizes', 'HomeController@prizes');
 Route::get('ranking', 'HomeController@ranking');
 Route::get('predictions', 'HomeController@predictions');
 Route::get('how-to-play', 'HomeController@howToPlay');

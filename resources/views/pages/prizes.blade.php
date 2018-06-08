@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    {{ __('menu.rewards') }} @parent
+    {{ __('menu.prizes') }} @parent
 @endsection
 
 @section('content')
@@ -10,7 +10,7 @@
         <div class="row">
             <div class="medium-12 columns text-left">
                 <div class="title-section">
-                    @{{ $store.getters.trans('menu.rewards') }}
+                    @{{ $store.getters.trans('menu.prizes') }}
                 </div>
             </div>
         </div>
