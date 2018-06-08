@@ -32,12 +32,17 @@
   background-color: $predictor3;
   padding: 16px 0;
   .logo {
-    margin-top: 0px;
+    margin-top: 18px;
     padding: 0px;
     float: right;
+    margin-right: -53px;
     @include breakpoint(medium) {
       margin-top: 12px;
       float: left;
+      margin-right: 0px;
+    }
+    .pred{
+      margin-top: 20px;
     }
   }
   ul.menu {
@@ -74,7 +79,7 @@
     }
   }
   button.menu-icon {
-    top: -20px;
+    top: -26px;
     margin-left: 13px;
     @include breakpoint(medium) {
       top: inherit;

@@ -10288,16 +10288,22 @@ hr {
 }
 
 .header .logo {
-  margin-top: 0px;
+  margin-top: 18px;
   padding: 0px;
   float: right;
+  margin-right: -53px;
 }
 
 @media print, screen and (min-width: 40em) {
   .header .logo {
     margin-top: 12px;
     float: left;
+    margin-right: 0px;
   }
+}
+
+.header .logo .pred {
+  margin-top: 20px;
 }
 
 .header ul.menu {
@@ -10340,7 +10346,7 @@ hr {
 }
 
 .header button.menu-icon {
-  top: -20px;
+  top: -26px;
   margin-left: 13px;
 }
 
