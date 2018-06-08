@@ -1,13 +1,13 @@
-<div class="orbit hide-for-small-only" role="region" aria-label=" " data-orbit>
+<div class="orbit" role="region" aria-label=" " data-orbit>
     <div class="orbit-wrapper">
         <ul class="orbit-container">
             <li class="is-active orbit-slide">
                 <div class="row">
                     <div class="medium-6 columns">
                         <div class="container-slide">
-                            <div class="seccion">@{{ $store.getters.trans('menu.prizes') }}</div>
-                            <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elited </h1>
-                            <a href="#" class="button">@{{ $store.getters.trans('menu.play') }}</a>
+                            <div class="seccion hide-for-small-only">@{{ $store.getters.trans('menu.prizes') }}</div>
+                            <h1>Lorem ipsum dolor amera consectetur adipiscing </h1>
+                            <a href="#" class="button hide-for-small-only">@{{ $store.getters.trans('menu.play') }}</a>
                         </div>
                     </div>
                 </div>
