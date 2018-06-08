@@ -128,15 +128,6 @@ class HomeController extends Controller
         $match = Match::find(958026);
         $groups = Group::orderBy('name')->get();
         $groups->each->append('myprediction');
-        $message = '';
-        if(isset($match) && $match && $match->group){
-            $message .= '<strong>' . __('predictions.to_close_1') . __('predictions.group_'.$match->group->name)
-                        . __('predictions.to_close_2') .':</strong> '
-                        . __('predictions.to_close_3') . ' '
-                        . __('teams.'. str_slug($match->localId->short) )
-                        . ' vs ' . __('teams.'. str_slug($match->visitId->short)) . ' '
-                        . __('predictions.on') .' '. $match->date;
-        }
-        return view('pages.predictions',compact('groups','match', 'message'));
+        return view('pages.predictions',compact('groups','match'));
     }
 }

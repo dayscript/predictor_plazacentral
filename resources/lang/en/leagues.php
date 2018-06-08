@@ -5,7 +5,7 @@ return [
     'are_you_sure_delete'     => 'Are you sure you want to delete this league?',
     'create_code'             => 'Create and invitation code',
     'create_code_placeholder' => 'Enter a code for the league',
-    'create_intro'            => 'Its very easy to create private leagues to play with your firneds. You just need to fill the following fields and invite your friends using their email address.',
+    'create_intro'            => 'Its very easy to create private leagues to play with your friends. You just need to fill the following fields and invite your friends using their email address.',
     'create_league'           => 'Create league',
     'delete_league'           => 'Delete league',
     'edit'                    => 'Edit',

@@ -17,7 +17,7 @@
         <div class="padding-30">
             <div class="row">
                 <div class="medium-8 columns">
-                    <div class="mensaje" v-if="message" v-html="message"></div>
+                    <div class="mensaje" v-html="$store.getters.trans('predictions.predictions_help_message')"></div>
                 </div>
                 <div class="medium-4 columns">
                     <div class="acumulado">
@@ -122,7 +122,7 @@
 
 <script>
   export default {
-    props: ['message', 'groups'],
+    props: ['groups'],
     data () {
       return {
         updated: false
