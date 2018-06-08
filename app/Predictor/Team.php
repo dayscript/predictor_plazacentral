@@ -45,7 +45,7 @@ class Team extends Model
         elseif (starts_with($this->name, 'Semi-Finalista ')) $short = 'sf'.strtolower(substr($this->name,-1));
         elseif (starts_with($this->name, 'Ganador Semi-Final ')) $short = 'gs'.strtolower(substr($this->name,-1));
         elseif (starts_with($this->name, 'Perdedor Semi-Final ')) $short = 'ps'.strtolower(substr($this->name,-1));
-        else $short = strtoupper(substr($this->name, 0, 3));
+        else $short = strtolower(substr($this->name, 0, 3));
         return $short;
     }
 

@@ -11,7 +11,7 @@
                     <img v-else src="/img/flag-default.png" alt="Default" class="flag">
                 </div>
                 <div class="small-6 columns text-left">
-                    <div class="team" style="line-height: 14px;">{{ $store.getters.trans('teams.'+match.local_id.short + '_short') }}</div>
+                    <div class="team" style="line-height: 14px;">{{ $store.getters.trans('teams.'+match.local_id.short) }}</div>
                 </div>
                 <div class="small-3 columns text-center">
                     <input type="text" placeholder="0" v-model="local_score" @input="updateContent" disabled>
@@ -23,7 +23,7 @@
                     <img v-else src="/img/flag-default.png" alt="Default" class="flag">
                 </div>
                 <div class="small-6 columns text-left">
-                    <div class="team" style="line-height: 14px;">{{ $store.getters.trans('teams.'+match.visit_id.short + '_short') }}</div>
+                    <div class="team" style="line-height: 14px;">{{ $store.getters.trans('teams.'+match.visit_id.short) }}</div>
                 </div>
                 <div class="small-3 columns text-center">
                     <input type="text" placeholder="0" v-model="visit_score" @input="updateContent" disabled>
