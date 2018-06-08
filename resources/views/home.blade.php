@@ -52,7 +52,7 @@
                 </div>
             </div>
         </div>
-        <div class="medium-3 columns">
+        <div class="medium-3 columns text-center">
             @include('ads.vertical')
         </div>
     </div>
