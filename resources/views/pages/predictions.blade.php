@@ -5,5 +5,5 @@
 @endsection
 
 @section('content')
-    <predictions-index message="{{ $message }}" :groups="{{ $groups }}"></predictions-index>
+    <predictions-index :groups="{{ $groups }}"></predictions-index>
 @endsection

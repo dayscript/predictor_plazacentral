@@ -14,7 +14,7 @@
                     <div class="team" style="line-height: 14px;">{{ $store.getters.trans('teams.'+match.local_id.short) }}</div>
                 </div>
                 <div class="small-3 columns text-center">
-                    <input type="text" placeholder="0" v-model="local_score" @input="updateContent">
+                    <input type="text" placeholder="0" v-model="local_score" @input="updateContent" disabled>
                 </div>
             </div>
             <div class="row">
@@ -26,7 +26,7 @@
                     <div class="team" style="line-height: 14px;">{{ $store.getters.trans('teams.'+match.visit_id.short) }}</div>
                 </div>
                 <div class="small-3 columns text-center">
-                    <input type="text" placeholder="0" v-model="visit_score" @input="updateContent">
+                    <input type="text" placeholder="0" v-model="visit_score" @input="updateContent" disabled>
                 </div>
             </div>
         </div>

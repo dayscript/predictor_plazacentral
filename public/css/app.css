@@ -10242,7 +10242,7 @@ hr {
 }
 
 .h-64 {
-  min-height: 64px;
+  min-height: 64px !important;
 }
 
 .top-nav {
@@ -10617,7 +10617,7 @@ hr {
 }
 
 .tabs-title {
-  width: 50%;
+  width: 20%;
 }
 
 .tabs-title a {

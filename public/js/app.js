@@ -2664,9 +2664,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['message', 'groups'],
+  props: ['groups'],
   data: function data() {
     return {
       updated: false
@@ -45076,7 +45082,7 @@ var render = function() {
                       expression: "local_score"
                     }
                   ],
-                  attrs: { type: "text", placeholder: "0" },
+                  attrs: { type: "text", placeholder: "0", disabled: "" },
                   domProps: { value: _vm.local_score },
                   on: {
                     input: [
@@ -45138,7 +45144,7 @@ var render = function() {
                       expression: "visit_score"
                     }
                   ],
-                  attrs: { type: "text", placeholder: "0" },
+                  attrs: { type: "text", placeholder: "0", disabled: "" },
                   domProps: { value: _vm.visit_score },
                   on: {
                     input: [
@@ -45598,7 +45604,13 @@ var render = function() {
               _vm._v(" "),
               _vm.first.length
                 ? _c("div", { staticClass: "team" }, [
-                    _vm._v(_vm._s(_vm.first[0].short))
+                    _vm._v(
+                      _vm._s(
+                        _vm.$store.getters.trans(
+                          "teams." + _vm.first[0].short + "_short"
+                        )
+                      )
+                    )
                   ])
                 : _c("div", { staticClass: "team" }, [_vm._v("-")])
             ],
@@ -45668,7 +45680,13 @@ var render = function() {
               _vm._v(" "),
               _vm.second.length
                 ? _c("div", { staticClass: "team" }, [
-                    _vm._v(_vm._s(_vm.second[0].short))
+                    _vm._v(
+                      _vm._s(
+                        _vm.$store.getters.trans(
+                          "teams." + _vm.second[0].short + "_short"
+                        )
+                      )
+                    )
                   ])
                 : _c("div", { staticClass: "team" }, [_vm._v("-")])
             ],
@@ -45716,7 +45734,7 @@ var render = function() {
                       })
                     }),
                     _vm._v(" "),
-                    list.length == 0
+                    list.length === 0
                       ? _c("img", {
                           key: "empty",
                           staticClass: "flag circle",
@@ -45729,7 +45747,13 @@ var render = function() {
                 _vm._v(" "),
                 list.length
                   ? _c("div", { staticClass: "team" }, [
-                      _vm._v(_vm._s(list[0].short))
+                      _vm._v(
+                        _vm._s(
+                          _vm.$store.getters.trans(
+                            "teams." + list[0].short + "_short"
+                          )
+                        )
+                      )
                     ])
                   : _vm._e()
               ],
@@ -46421,12 +46445,14 @@ var render = function() {
     _c("div", { staticClass: "padding-30" }, [
       _c("div", { staticClass: "row" }, [
         _c("div", { staticClass: "medium-8 columns" }, [
-          _vm.message
-            ? _c("div", {
-                staticClass: "mensaje",
-                domProps: { innerHTML: _vm._s(_vm.message) }
-              })
-            : _vm._e()
+          _c("div", {
+            staticClass: "mensaje",
+            domProps: {
+              innerHTML: _vm._s(
+                _vm.$store.getters.trans("predictions.predictions_help_message")
+              )
+            }
+          })
         ]),
         _vm._v(" "),
         _c("div", { staticClass: "medium-4 columns" }, [
@@ -46484,10 +46510,32 @@ var render = function() {
               _c("li", { staticClass: "tabs-title" }, [
                 _c("a", { attrs: { href: "#panel2c" } }, [
                   _vm._v(
+                    _vm._s(_vm.$store.getters.trans("game.round_round_of_16"))
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "tabs-title" }, [
+                _c("a", { attrs: { href: "#panel3c" } }, [
+                  _vm._v(
                     _vm._s(
-                      _vm.$store.getters.trans("predictions.elimination_phase")
+                      _vm.$store.getters.trans("game.round_quarter_finals")
                     )
                   )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "tabs-title" }, [
+                _c("a", { attrs: { href: "#panel4c" } }, [
+                  _vm._v(
+                    _vm._s(_vm.$store.getters.trans("game.round_semi_finals"))
+                  )
+                ])
+              ]),
+              _vm._v(" "),
+              _c("li", { staticClass: "tabs-title" }, [
+                _c("a", { attrs: { href: "#panel5c" } }, [
+                  _vm._v(_vm._s(_vm.$store.getters.trans("game.round_finals")))
                 ])
               ])
             ]
@@ -46535,211 +46583,135 @@ var render = function() {
                 "div",
                 { staticClass: "tabs-panel", attrs: { id: "panel2c" } },
                 [
-                  _c("div", { staticClass: "container-teams" }, [
-                    _c("div", { staticClass: "fase" }, [
-                      _c("div", { staticClass: "fase-title" }, [
-                        _vm._v(
-                          _vm._s(
-                            _vm.$store.getters.trans("game.round_round_of_16")
-                          )
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col1" },
-                        [
-                          _c("match-prediction", {
-                            attrs: { match_id: 958070 }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col1" },
-                        [
-                          _c("match-prediction", {
-                            attrs: { match_id: 958071 }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col1" },
-                        [
-                          _c("match-prediction", {
-                            attrs: { match_id: 958075 }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col1" },
-                        [
-                          _c("match-prediction", {
-                            attrs: { match_id: 958074 }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col1" },
-                        [
-                          _c("match-prediction", {
-                            attrs: { match_id: 958072 }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col1" },
-                        [
-                          _c("match-prediction", {
-                            attrs: { match_id: 958073 }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col1" },
-                        [
-                          _c("match-prediction", {
-                            attrs: { match_id: 958077 }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col1" },
-                        [
-                          _c("match-prediction", {
-                            attrs: { match_id: 958076 }
-                          })
-                        ],
-                        1
-                      )
-                    ]),
+                  _c("div", { staticClass: "row" }, [
+                    _c(
+                      "div",
+                      { staticClass: "medium-3 columns collapse" },
+                      [_c("match-prediction", { attrs: { match_id: 958070 } })],
+                      1
+                    ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "fase" }, [
-                      _c("div", { staticClass: "fase-title" }, [
-                        _vm._v(
-                          _vm._s(
-                            _vm.$store.getters.trans(
-                              "game.round_quarter_finals"
-                            )
-                          )
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col1 cuartos" },
-                        [
-                          _c("match-prediction", {
-                            attrs: { match_id: 958078 }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col1 cuartos" },
-                        [
-                          _c("match-prediction", {
-                            attrs: { match_id: 958079 }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col1 cuartos" },
-                        [
-                          _c("match-prediction", {
-                            attrs: { match_id: 958080 }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col1 cuartos" },
-                        [
-                          _c("match-prediction", {
-                            attrs: { match_id: 958081 }
-                          })
-                        ],
-                        1
-                      )
-                    ]),
+                    _c(
+                      "div",
+                      { staticClass: "medium-3 columns collapse" },
+                      [_c("match-prediction", { attrs: { match_id: 958071 } })],
+                      1
+                    ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "fase" }, [
-                      _c("div", { staticClass: "fase-title" }, [
-                        _vm._v(
-                          _vm._s(
-                            _vm.$store.getters.trans("game.round_semi_finals")
-                          )
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col1 semis" },
-                        [
-                          _c("match-prediction", {
-                            attrs: { match_id: 958082 }
-                          })
-                        ],
-                        1
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col1 semis" },
-                        [
-                          _c("match-prediction", {
-                            attrs: { match_id: 958083 }
-                          })
-                        ],
-                        1
-                      )
-                    ]),
+                    _c(
+                      "div",
+                      { staticClass: "medium-3 columns collapse" },
+                      [_c("match-prediction", { attrs: { match_id: 958075 } })],
+                      1
+                    ),
                     _vm._v(" "),
-                    _c("div", { staticClass: "fase" }, [
-                      _c("div", { staticClass: "fase-title" }, [
-                        _vm._v(
-                          _vm._s(_vm.$store.getters.trans("game.round_finals"))
-                        )
-                      ]),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        { staticClass: "col1 final" },
-                        [
-                          _c("match-prediction", {
-                            attrs: { match_id: 958085 }
-                          })
-                        ],
-                        1
-                      )
-                    ])
+                    _c(
+                      "div",
+                      { staticClass: "medium-3 columns collapse" },
+                      [_c("match-prediction", { attrs: { match_id: 958074 } })],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "medium-3 columns collapse" },
+                      [_c("match-prediction", { attrs: { match_id: 958072 } })],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "medium-3 columns collapse" },
+                      [_c("match-prediction", { attrs: { match_id: 958073 } })],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "medium-3 columns collapse" },
+                      [_c("match-prediction", { attrs: { match_id: 958077 } })],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "medium-3 columns collapse" },
+                      [_c("match-prediction", { attrs: { match_id: 958076 } })],
+                      1
+                    )
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "tabs-panel", attrs: { id: "panel3c" } },
+                [
+                  _c("div", { staticClass: "row" }, [
+                    _c(
+                      "div",
+                      { staticClass: "medium-3 columns collapse" },
+                      [_c("match-prediction", { attrs: { match_id: 958078 } })],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "medium-3 columns collapse" },
+                      [_c("match-prediction", { attrs: { match_id: 958079 } })],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "medium-3 columns collapse" },
+                      [_c("match-prediction", { attrs: { match_id: 958080 } })],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "medium-3 columns collapse" },
+                      [_c("match-prediction", { attrs: { match_id: 958081 } })],
+                      1
+                    )
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "tabs-panel", attrs: { id: "panel4c" } },
+                [
+                  _c("div", { staticClass: "row" }, [
+                    _c(
+                      "div",
+                      { staticClass: "medium-3 columns collapse" },
+                      [_c("match-prediction", { attrs: { match_id: 958082 } })],
+                      1
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "div",
+                      { staticClass: "medium-3 columns collapse" },
+                      [_c("match-prediction", { attrs: { match_id: 958083 } })],
+                      1
+                    )
+                  ])
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "div",
+                { staticClass: "tabs-panel", attrs: { id: "panel5c" } },
+                [
+                  _c("div", { staticClass: "row" }, [
+                    _c(
+                      "div",
+                      { staticClass: "medium-3 columns collapse" },
+                      [_c("match-prediction", { attrs: { match_id: 958085 } })],
+                      1
+                    )
                   ])
                 ]
               )
@@ -61077,7 +61049,7 @@ var Lang = new __WEBPACK_IMPORTED_MODULE_0_lang_js___default.a({
 /***/ "./resources/assets/js/messages.js":
 /***/ (function(module, exports) {
 
-module.exports = { "en.auth": { "failed": "These credentials do not match our records.", "throttle": "Too many login attempts. Please try again in :seconds seconds." }, "en.footer": { "copyright": "Copyright", "privacy_policy": "Privacy policy", "support": "Support", "terms_and_conditions": "Terms and conditions" }, "en.game": { "general_ranking": "General Ranking", "phases": "Phases", "round_finals": "Finals", "round_group_phase": "Groups Phase", "round_quarter_finals": "Quarter Finals", "round_round_of_16": "Round of 16", "round_semi_finals": "Semi-Finals", "see_all": "See all" }, "en.leagues": { "accumulated": "Accumulated", "are_you_sure_delete": "Are you sure you want to delete this league?", "create_code": "Create and invitation code", "create_code_placeholder": "Enter a code for the league", "create_intro": "Its very easy to create private leagues to play with your firneds. You just need to fill the following fields and invite your friends using their email address.", "create_league": "Create league", "delete_league": "Delete league", "edit": "Edit", "general_ranking": "General Ranking", "invitation_code": "Invitation code", "invite": "Invite", "invite_friends_intro": "You can invite your friends to join this league. To do so, enter their email addresses below and we will send them an invitation. <br> You can write the addresses separated by spaces, commas, or in separate lines, in any way it works.", "invite_your_friends": "Invite your friends", "join": "Join", "join_code_placeholder": "Enter league code", "join_intro": "JOINING IS VERY EASY! enter the code of the league you want to join. The codes are generated by the person who creates the league", "join_leagues": "Join leagues", "league": "League", "league_abandoned": "You have left the league", "league_code_not_found": "No league found with this code!", "league_created": "League created", "league_data": "League information", "league_deleted": "League deleted", "league_description": "Description", "league_name": "League name", "league_updated": "League updated", "leagues": "Leagues", "leave": "Leave", "my_leagues": "My leagues", "not_authorized": "You are not authorized for this action.", "not_joined_any_leagues": "You have not joined any leagues yet.", "options": "Options", "points": "Points", "update_league": "Update league", "users": "Users", "you_have_joined": "You have joined the league", "your_position": "Your position" }, "en.matches": { "next_matches": "Next matches", "predict": "Predict" }, "en.menu": { "home": "Home", "how_to_play": "How to play", "leagues": "Leagues", "my_predictions": "My predictions", "play": "Play", "prizes": "Prizes", "ranking": "Ranking", "rewards": "Rewards" }, "en.pagination": { "next": "Next &raquo;", "previous": "&laquo; Previous" }, "en.passwords": { "password": "Passwords must be at least six characters and match the confirmation.", "reset": "Your password has been reset!", "sent": "We have e-mailed your password reset link!", "token": "This password reset token is invalid.", "user": "We can't find a user with that e-mail address." }, "en.predictions": { "1st": "1st", "2nd": "2nd", "elimination_phase": "Knockout phase", "first_place": "First place", "group_A": "Group A", "group_B": "Group B", "group_C": "Group C", "group_D": "Group D", "group_E": "Group E", "group_F": "Group F", "group_G": "Group G", "group_H": "Group H", "group_phase": "Groups phase", "on": "on", "predictions": "Predictions", "predictions_updated": "Your results have been updated", "second_place": "Second place", "share_group_description": "You can also play to win wonderful prizes", "share_group_title": "This is mi prediction for the 2 classified teams for the group :group in Russia World Cup 2018", "share_match_description": "You can also play to win wonderful prizes", "share_match_title": "This is mi prediction for game :match in Russia World Cup 2018", "to_close_1": "The -", "to_close_2": "- is about to close", "to_close_3": "Remember that you can make your predictions up to 15 minutes before the start of the match", "total_points": "Total score", "win_in_these_phase": "Win in these phase" }, "en.ranking": { "participant": "Participant", "pos": "Pos", "positions_table": "Positions Table" }, "en.teams": { "arg": "Argentina", "argentina": "Argentina", "aus": "Australia", "australia": "Australia", "bel": "Belgium", "belgium": "Belgium", "bra": "Brazil", "brazil": "Brazil", "cf1": "Quarter-Finalist 1", "cf2": "Quarter-Finalist 2", "cf3": "Quarter-Finalist 3", "cf4": "Quarter-Finalist 4", "cf5": "Quarter-Finalist 5", "cf6": "Quarter-Finalist 6", "cf7": "Quarter-Finalist 7", "cf8": "Quarter-Finalist 8", "col": "Colombia", "colombia": "Colombia", "cos": "Costa Rica", "costa-rica": "Costa Rica", "cro": "Croatia", "croatia": "Croatia", "den": "Denmark", "denmark": "Denmark", "egy": "Egypt", "egypt": "Egypt", "eng": "England", "england": "England", "fra": "France", "france": "France", "ger": "Germany", "germany": "Germany", "gga": "Group A Winner", "ggb": "Group B Winner", "ggc": "Group C Winner", "ggd": "Group D Winner", "gge": "Group E Winner", "ggf": "Group F Winner", "ggg": "Group G Winner", "ggh": "Group H Winner", "gs1": "Semi-Final 1 Winner", "gs2": "Semi-Final 2 Winner", "ice": "Iceland", "iceland": "Iceland", "ira": "Iran", "iran": "Iran", "jap": "Japan", "japan": "Japan", "kor": "Korea Republic", "korea-republic": "Korea Republic", "mex": "Mexico", "mexico": "Mexico", "mor": "Morocco", "morocco": "Morocco", "nig": "Nigeria", "nigeria": "Nigeria", "pan": "Panama", "panama": "Panama", "per": "Peru", "peru": "Peru", "pol": "Poland", "poland": "Poland", "por": "Portugal", "portugal": "Portugal", "rus": "Russia", "russia": "Russia", "sau": "Saudi Arabia", "saudi-arabia": "Saudi Arabia", "sen": "Senegal", "senegal": "Senegal", "ser": "Serbia", "serbia": "Serbia", "sf1": "Semi-Finalist 1", "sf2": "Semi-Finalist 2", "sf3": "Semi-Finalist 3", "sf4": "Semi-Finalist 4", "sla": "Group A Second Place", "slb": "Group B Second Place", "slc": "Group C Second Place", "sld": "Group D Second Place", "sle": "Group E Second Place", "slf": "Group F Second Place", "slg": "Group G Second Place", "slh": "Group H Second Place", "spa": "Spain", "spain": "Spain", "swe": "Sweden", "sweden": "Sweden", "swi": "Switzerland", "switzerland": "Switzerland", "tun": "Tunisia", "tunisia": "Tunisia", "uru": "Uruguay", "uruguay": "Uruguay" }, "en.users": { "accept_and_continue": "Accept and continue", "accept_tyc": "By continuing, you are agreeing with the <a target=\"_blank\" href=\"\/terms-and-conditions\">Terms and conditions<\/a> of the platform.", "change_password": "Change password", "city": "City", "confirm_password": "Confirm password", "country": "Country", "create_account": "Create account", "create_account_help": "Create your account with Predictor and you could win big rewards. Your soccer knowledge will make you a winner.", "do_you_have_an_account": "Do you already have an account?", "do_you_like_promotions": "Would you like to be up to date with exiting promotions offered by Predictor? You can change this setting in your profile preferences at any time.", "email": "E-mail", "facebook_connect": "Connect with Facebook", "facebook_register": "Register with Facebook", "forgot_my_password": "Forgot my password", "gender": "Gender", "gender_f": "Female", "gender_m": "Male", "hi": "Hi", "identification": "Identification", "identification_type": "Identification type", "identification_type_CC": "ID \/ Social Sec #", "identification_type_CE": "Foreign ID", "identification_type_PASSPORT": "Passport", "lang_updated": "Language updated!", "last_login": "Last login", "last_names": "Last names", "login": "Login", "login_help": "Use your Facebook account to login with one simple click.", "logout": "Logout", "my_account": "My account", "my_personal_information": "My personal information", "names": "Names", "new_password": "New password", "not_logged_in": "User not logged in", "or_use_facebook": "Or you can login using your Facebook account. No password required with this option.", "password": "Password", "password_changed": "Password changed", "phone": "Phone", "register": "Register", "register_date": "Register date", "register_or_facebook": "You can create a new account, or connect using your Facebook account.", "remember_me": "Remember me", "still_not_user": "\xBFNot a user yet?", "summary": "Summary", "update_password": "Update password", "yes_i_want_promotions": "Yes, i want to receive promotions" }, "en.validation": { "accepted": "The :attribute must be accepted.", "active_url": "The :attribute is not a valid URL.", "after": "The :attribute must be a date after :date.", "after_or_equal": "The :attribute must be a date after or equal to :date.", "alpha": "The :attribute may only contain letters.", "alpha_dash": "The :attribute may only contain letters, numbers, dashes and underscores.", "alpha_num": "The :attribute may only contain letters and numbers.", "array": "The :attribute must be an array.", "attributes": [], "before": "The :attribute must be a date before :date.", "before_or_equal": "The :attribute must be a date before or equal to :date.", "between": { "array": "The :attribute must have between :min and :max items.", "file": "The :attribute must be between :min and :max kilobytes.", "numeric": "The :attribute must be between :min and :max.", "string": "The :attribute must be between :min and :max characters." }, "boolean": "The :attribute field must be true or false.", "confirmed": "The :attribute confirmation does not match.", "custom": { "attribute-name": { "rule-name": "custom-message" } }, "date": "The :attribute is not a valid date.", "date_format": "The :attribute does not match the format :format.", "different": "The :attribute and :other must be different.", "digits": "The :attribute must be :digits digits.", "digits_between": "The :attribute must be between :min and :max digits.", "dimensions": "The :attribute has invalid image dimensions.", "distinct": "The :attribute field has a duplicate value.", "email": "The :attribute must be a valid email address.", "exists": "The selected :attribute is invalid.", "file": "The :attribute must be a file.", "filled": "The :attribute field must have a value.", "gt": { "array": "The :attribute must have more than :value items.", "file": "The :attribute must be greater than :value kilobytes.", "numeric": "The :attribute must be greater than :value.", "string": "The :attribute must be greater than :value characters." }, "gte": { "array": "The :attribute must have :value items or more.", "file": "The :attribute must be greater than or equal :value kilobytes.", "numeric": "The :attribute must be greater than or equal :value.", "string": "The :attribute must be greater than or equal :value characters." }, "image": "The :attribute must be an image.", "in": "The selected :attribute is invalid.", "in_array": "The :attribute field does not exist in :other.", "integer": "The :attribute must be an integer.", "ip": "The :attribute must be a valid IP address.", "ipv4": "The :attribute must be a valid IPv4 address.", "ipv6": "The :attribute must be a valid IPv6 address.", "json": "The :attribute must be a valid JSON string.", "lt": { "array": "The :attribute must have less than :value items.", "file": "The :attribute must be less than :value kilobytes.", "numeric": "The :attribute must be less than :value.", "string": "The :attribute must be less than :value characters." }, "lte": { "array": "The :attribute must not have more than :value items.", "file": "The :attribute must be less than or equal :value kilobytes.", "numeric": "The :attribute must be less than or equal :value.", "string": "The :attribute must be less than or equal :value characters." }, "max": { "array": "The :attribute may not have more than :max items.", "file": "The :attribute may not be greater than :max kilobytes.", "numeric": "The :attribute may not be greater than :max.", "string": "The :attribute may not be greater than :max characters." }, "mimes": "The :attribute must be a file of type: :values.", "mimetypes": "The :attribute must be a file of type: :values.", "min": { "array": "The :attribute must have at least :min items.", "file": "The :attribute must be at least :min kilobytes.", "numeric": "The :attribute must be at least :min.", "string": "The :attribute must be at least :min characters." }, "not_in": "The selected :attribute is invalid.", "not_regex": "The :attribute format is invalid.", "numeric": "The :attribute must be a number.", "present": "The :attribute field must be present.", "regex": "The :attribute format is invalid.", "required": "The :attribute field is required.", "required_if": "The :attribute field is required when :other is :value.", "required_unless": "The :attribute field is required unless :other is in :values.", "required_with": "The :attribute field is required when :values is present.", "required_with_all": "The :attribute field is required when :values is present.", "required_without": "The :attribute field is required when :values is not present.", "required_without_all": "The :attribute field is required when none of :values are present.", "same": "The :attribute and :other must match.", "size": { "array": "The :attribute must contain :size items.", "file": "The :attribute must be :size kilobytes.", "numeric": "The :attribute must be :size.", "string": "The :attribute must be :size characters." }, "string": "The :attribute must be a string.", "timezone": "The :attribute must be a valid zone.", "unique": "The :attribute has already been taken.", "uploaded": "The :attribute failed to upload.", "url": "The :attribute format is invalid." }, "es.auth": { "failed": "Los datos no coinciden con nuestros registros.", "throttle": "Demasiados intentos de ingreso. Por favor intenta nuevamente en :seconds segundos." }, "es.footer": { "copyright": "Copyright", "privacy_policy": "Pol\xEDtica de privacidad", "support": "Soporte", "terms_and_conditions": "T\xE9rminos y condiciones" }, "es.game": { "general_ranking": "Ranking General", "phases": "Fases", "round_finals": "Finales", "round_group_phase": "Fase de Grupos", "round_quarter_finals": "Cuartos de Final", "round_round_of_16": "Octavos de Final", "round_semi_finals": "Semi-Finales", "see_all": "Ver todos" }, "es.leagues": { "accumulated": "Acumulado", "are_you_sure_delete": "\xBFEst\xE1s segur@ que quieres eliminar esta liga?", "create_code": "Crear un c\xF3digo de invitaci\xF3n", "create_code_placeholder": "Ingrese el c\xF3digo de la liga", "create_intro": "Crear ligas privadas para participar con sus amigos es muy f\xE1cil. S\xF3lo debe diligenciar los campos a continuaci\xF3n e invitar a sus amigos usando su cuenta de correo electr\xF3nico.", "create_league": "Crear liga", "delete_league": "Eliminar liga", "edit": "Editar", "general_ranking": "Clasificaci\xF3n General", "invitation_code": "C\xF3digo de invitaci\xF3n", "invite": "Invitar", "invite_friends_intro": "Puedes invitar a tus amigos a unirte a esta liga. Para hacerlo, ingresa a continuaci\xF3n las direcciones de correo electr\xF3nico y les enviaremos una invitaci\xF3n. <br> Puedes escribir las direcciones separadas por espacios, comas, o en l\xEDneas separadas, de cualquier forma funciona.", "invite_your_friends": "Invita tus amigos", "join": "Unirse", "join_code_placeholder": "Ingrese el c\xF3digo de la liga", "join_intro": "\xA1UNIRSE ES MUY F\xC1CIL! ingresa el c\xF3digo de la liga a la que quieres unirte. Los c\xF3digos son generados por la persona que crea la liga", "join_leagues": "Unirse a una liga", "league": "Liga", "league_abandoned": "Has abandonado la liga", "league_code_not_found": "No se encontr\xF3 una liga con ese c\xF3digo!", "league_created": "Liga creada", "league_data": "Datos de la liga", "league_deleted": "Liga eliminada", "league_description": "Descripci\xF3n", "league_name": "Nombre de la liga", "league_updated": "Liga actualizada", "leagues": "Ligas", "leave": "Abandonar", "my_leagues": "Mis ligas", "not_authorized": "No estas autorizad@ a realizar esta acci\xF3n.", "not_joined_any_leagues": "No te has unido a ninguna liga todav\xEDa.", "options": "Opciones", "points": "Puntos", "update_league": "Actualizar liga", "users": "Usuarios", "you_have_joined": "Te has unido a la liga", "your_position": "Tu posici\xF3n" }, "es.matches": { "next_matches": "Pr\xF3ximos partidos", "predict": "Pronosticar" }, "es.menu": { "home": "Inicio", "how_to_play": "C\xF3mo jugar", "leagues": "Ligas", "my_predictions": "Mis pron\xF3sticos", "play": "Jugar", "prizes": "Premios", "ranking": "Ranking", "rewards": "Premios" }, "es.pagination": { "next": "Siguiente &raquo;", "previous": "&laquo; Anterior" }, "es.passwords": { "password": "La contrase\xF1a debe tener al menos seis caracteres y coincidir con la confirmaci\xF3n.", "reset": "Tu contrase\xF1a se ha cambiado!", "sent": "Hemos enviado un link para reasignar tu contrase\xF1a!", "token": "Este token para cambiar contrase\xF1a no es v\xE1lido.", "user": "No podemos encontrar un usuario con esa direcci\xF3n de correo electr\xF3nico." }, "es.predictions": { "1st": "1ro", "2nd": "2do", "elimination_phase": "Fase de eliminaci\xF3n", "first_place": "Primer lugar", "group_A": "Grupo A", "group_B": "Grupo B", "group_C": "Grupo C", "group_D": "Grupo D", "group_E": "Grupo E", "group_F": "Grupo F", "group_G": "Grupo G", "group_H": "Grupo H", "group_phase": "Fase de Grupos", "on": "el", "predictions": "Pron\xF3sticos", "predictions_updated": "Sus pron\xF3sticos han sido actualizados", "second_place": "Segundo lugar", "share_group_description": "Tu tambi\xE9n puedes participar y ganar fabulosos premios", "share_group_title": "Este es mi pron\xF3stico para los clasificados a octavos de final por el Grupo :group del Mundial de Rusia 2018", "share_match_description": "Tu tambi\xE9n puedes participar y ganar fabulosos premios", "share_match_title": "Este es mi pron\xF3stico para el partido :match del Mundial de Rusia 2018", "to_close_1": "El -", "to_close_2": "- est\xE1 pr\xF3ximo a cerrar", "to_close_3": "Recuerde que puede realizar sus pron\xF3sticos hasta 15 minutos antes del comienzo del partido", "total_points": "Puntaje acumulado", "win_in_these_phase": "Gana en esta fase" }, "es.ranking": { "participant": "Participante", "pos": "Pos", "positions_table": "Tabla de Posiciones" }, "es.teams": { "arg": "Argentina", "argentina": "Argentina", "aus": "Australia", "australia": "Australia", "bel": "B\xE9lgica", "belgium": "B\xE9lgica", "bra": "Brasil", "brazil": "Brasil", "cf1": "Cuartos-Finalista 1", "cf2": "Cuartos-Finalista 2", "cf3": "Cuartos-Finalista 3", "cf4": "Cuartos-Finalista 4", "cf5": "Cuartos-Finalista 5", "cf6": "Cuartos-Finalista 6", "cf7": "Cuartos-Finalista 7", "cf8": "Cuartos-Finalista 8", "col": "Colombia", "colombia": "Colombia", "cos": "Costa Rica", "costa-rica": "Costa Rica", "cro": "Croacia", "croatia": "Croacia", "den": "Dinamarca", "denmark": "Dinamarca", "egy": "Egipto", "egypt": "Egipto", "eng": "Inglaterra", "england": "Inglaterra", "fra": "Francia", "france": "Francia", "ger": "Alemania", "germany": "Alemania", "gga": "Ganador Grupo A", "ggb": "Ganador Grupo B", "ggc": "Ganador Grupo C", "ggd": "Ganador Grupo D", "gge": "Ganador Grupo E", "ggf": "Ganador Grupo F", "ggg": "Ganador Grupo G", "ggh": "Ganador Grupo H", "gs1": "Ganador Semi-Final 1", "gs2": "Ganador Semi-Final 2", "ice": "Islandia", "iceland": "Islandia", "ira": "Ir\xE1n", "iran": "Ir\xE1n", "jap": "Jap\xF3n", "japan": "Jap\xF3n", "kor": "Rep\xFAblica de Korea", "korea-republic": "Rep\xFAblica de Korea", "mex": "M\xE9xico", "mexico": "M\xE9xico", "mor": "Marruecos", "morocco": "Marruecos", "nig": "Nigeria", "nigeria": "Nigeria", "pan": "Panam\xE1", "panama": "Panam\xE1", "per": "Per\xFA", "peru": "Per\xFA", "pol": "Polonia", "poland": "Polonia", "por": "Portugal", "portugal": "Portugal", "rus": "Rusia", "russia": "Rusia", "sau": "Arabia Saudita", "saudi-arabia": "Arabia Saudita", "sen": "Senegal", "senegal": "Senegal", "ser": "Serbia", "serbia": "Serbia", "sf1": "Semi-Finalista 1", "sf2": "Semi-Finalista 2", "sf3": "Semi-Finalista 3", "sf4": "Semi-Finalista 4", "sla": "Segundo Lugar Grupo A", "slb": "Segundo Lugar Grupo B", "slc": "Segundo Lugar Grupo C", "sld": "Segundo Lugar Grupo D", "sle": "Segundo Lugar Grupo E", "slf": "Segundo Lugar Grupo F", "slg": "Segundo Lugar Grupo G", "slh": "Segundo Lugar Grupo H", "spa": "Espa\xF1a", "spain": "Espa\xF1a", "swe": "Suecia", "sweden": "Suecia", "swi": "Suiza", "switzerland": "Suiza", "tun": "T\xFAnez", "tunisia": "T\xFAnez", "uru": "Uruguay", "uruguay": "Uruguay" }, "es.users": { "accept_and_continue": "Aceptar y continuar", "accept_tyc": "Al continuar est\xE1s aceptando los <a target=\"_blank\" href=\"/terms-and-conditions\">T\xE9rminos y condiciones</a> de la plataforma.", "change_password": "Cambiar contrase\xF1a", "city": "Ciudad", "confirm_password": "Confirmar contrase\xF1a", "country": "Pa\xEDs", "create_account": "Crear cuenta", "create_account_help": "Crea tu cuenta en Predictor y podr\xE1s ganar grandes premios. Tu conocimiento del f\xFAtbol te podr\xE1 hacer ganador.", "do_you_have_an_account": "\xBFYa tiene cuenta de usuario?", "do_you_like_promotions": "\xBFLe gustar\xEDa estar al d\xEDa en las emocionantes promociones ofrecidas por Predictor? Puede cambiar esta configuraci\xF3n en las preferencias de su perfil en cualquier momento.", "email": "Correo electr\xF3nico", "facebook_connect": "Ingresar con Facebook", "facebook_register": "Registrar con Facebook", "forgot_my_password": "Olvid\xE9 mi contrase\xF1a", "gender": "G\xE9nero", "gender_f": "Femenino", "gender_m": "Masculino", "hi": "Hola", "identification": "Identificaci\xF3n", "identification_type": "Tipo de identificaci\xF3n", "identification_type_CC": "C\xE9dula de ciudadan\xEDa", "identification_type_CE": "C\xE9dula de extranjer\xEDa", "identification_type_PASSPORT": "Pasaporte", "lang_updated": "Idioma actualizado!", "last_login": "\xDAltimo ingreso", "last_names": "Apellidos", "login": "Iniciar sesi\xF3n", "login_help": "Usa tu cuenta de Facebook para ingresar a Predictor con un solo click.", "logout": "Cerrar sesi\xF3n", "my_account": "Mi cuenta", "my_personal_information": "Mis datos personales", "names": "Nombres", "new_password": "Nueva contrase\xF1a", "not_logged_in": "Usuario no ha iniciado sesi\xF3n", "or_use_facebook": "O puede ingresar usando su cuenta en Facebook. Con este m\xE9todo no requiere una contrase\xF1a.", "password": "Contrase\xF1a", "password_changed": "Contrase\xF1a cambiada", "phone": "Celular", "register": "Reg\xEDstrate", "register_date": "Fecha de registro", "register_or_facebook": "Puede registrarse o iniciar sesi\xF3n usando su cuenta de Facebook", "remember_me": "Recu\xE9rdame", "still_not_user": "\xBFA\xFAn no eres miembro?", "summary": "Resumen", "update_password": "Actualizar contrase\xF1a", "yes_i_want_promotions": "Si, deseo recibir promociones" }, "es.validation": { "accepted": "The :attribute must be accepted.", "active_url": "The :attribute is not a valid URL.", "after": "The :attribute must be a date after :date.", "after_or_equal": "The :attribute must be a date after or equal to :date.", "alpha": "The :attribute may only contain letters.", "alpha_dash": "The :attribute may only contain letters, numbers, dashes and underscores.", "alpha_num": "Este campo solo puede contener letras y numeros.", "array": "The :attribute must be an array.", "attributes": [], "before": "The :attribute must be a date before :date.", "before_or_equal": "The :attribute must be a date before or equal to :date.", "between": { "array": "The :attribute must have between :min and :max items.", "file": "The :attribute must be between :min and :max kilobytes.", "numeric": "The :attribute must be between :min and :max.", "string": "The :attribute must be between :min and :max characters." }, "boolean": "The :attribute field must be true or false.", "confirmed": "The :attribute confirmation does not match.", "custom": { "attribute-name": { "rule-name": "custom-message" } }, "date": "The :attribute is not a valid date.", "date_format": "The :attribute does not match the format :format.", "different": "The :attribute and :other must be different.", "digits": "The :attribute must be :digits digits.", "digits_between": "The :attribute must be between :min and :max digits.", "dimensions": "The :attribute has invalid image dimensions.", "distinct": "The :attribute field has a duplicate value.", "email": "The :attribute must be a valid email address.", "exists": "The selected :attribute is invalid.", "file": "The :attribute must be a file.", "filled": "The :attribute field must have a value.", "gt": { "array": "The :attribute must have more than :value items.", "file": "The :attribute must be greater than :value kilobytes.", "numeric": "The :attribute must be greater than :value.", "string": "The :attribute must be greater than :value characters." }, "gte": { "array": "The :attribute must have :value items or more.", "file": "The :attribute must be greater than or equal :value kilobytes.", "numeric": "The :attribute must be greater than or equal :value.", "string": "The :attribute must be greater than or equal :value characters." }, "image": "The :attribute must be an image.", "in": "The selected :attribute is invalid.", "in_array": "The :attribute field does not exist in :other.", "integer": "The :attribute must be an integer.", "ip": "The :attribute must be a valid IP address.", "ipv4": "The :attribute must be a valid IPv4 address.", "ipv6": "The :attribute must be a valid IPv6 address.", "json": "The :attribute must be a valid JSON string.", "lt": { "array": "The :attribute must have less than :value items.", "file": "The :attribute must be less than :value kilobytes.", "numeric": "The :attribute must be less than :value.", "string": "The :attribute must be less than :value characters." }, "lte": { "array": "The :attribute must not have more than :value items.", "file": "The :attribute must be less than or equal :value kilobytes.", "numeric": "The :attribute must be less than or equal :value.", "string": "The :attribute must be less than or equal :value characters." }, "max": { "array": "The :attribute may not have more than :max items.", "file": "The :attribute may not be greater than :max kilobytes.", "numeric": "The :attribute may not be greater than :max.", "string": "The :attribute may not be greater than :max characters." }, "mimes": "The :attribute must be a file of type: :values.", "mimetypes": "The :attribute must be a file of type: :values.", "min": { "array": "The :attribute must have at least :min items.", "file": "The :attribute must be at least :min kilobytes.", "numeric": "The :attribute must be at least :min.", "string": "Este campo debe tener al menos :min caracteres." }, "not_in": "The selected :attribute is invalid.", "not_regex": "The :attribute format is invalid.", "numeric": "The :attribute must be a number.", "present": "The :attribute field must be present.", "regex": "The :attribute format is invalid.", "required": "Este campo es obligatorio", "required_if": "The :attribute field is required when :other is :value.", "required_unless": "The :attribute field is required unless :other is in :values.", "required_with": "The :attribute field is required when :values is present.", "required_with_all": "The :attribute field is required when :values is present.", "required_without": "The :attribute field is required when :values is not present.", "required_without_all": "The :attribute field is required when none of :values are present.", "same": "The :attribute and :other must match.", "size": { "array": "The :attribute must contain :size items.", "file": "The :attribute must be :size kilobytes.", "numeric": "The :attribute must be :size.", "string": "The :attribute must be :size characters." }, "string": "The :attribute must be a string.", "timezone": "The :attribute must be a valid zone.", "unique": "Este valor ya ha sido usado.", "uploaded": "The :attribute failed to upload.", "url": "The :attribute format is invalid." } };
+module.exports = { "en.auth": { "failed": "These credentials do not match our records.", "throttle": "Too many login attempts. Please try again in :seconds seconds." }, "en.footer": { "copyright": "Copyright", "privacy_policy": "Privacy policy", "support": "Support", "terms_and_conditions": "Terms and conditions" }, "en.game": { "general_ranking": "General Ranking", "phases": "Phases", "round_finals": "Finals", "round_group_phase": "Groups Phase", "round_quarter_finals": "Quarter Finals", "round_round_of_16": "Round of 16", "round_semi_finals": "Semi-Finals", "see_all": "See all" }, "en.leagues": { "accumulated": "Accumulated", "are_you_sure_delete": "Are you sure you want to delete this league?", "create_code": "Create and invitation code", "create_code_placeholder": "Enter a code for the league", "create_intro": "Its very easy to create private leagues to play with your friends. You just need to fill the following fields and invite your friends using their email address.", "create_league": "Create league", "delete_league": "Delete league", "edit": "Edit", "general_ranking": "General Ranking", "invitation_code": "Invitation code", "invite": "Invite", "invite_friends_intro": "You can invite your friends to join this league. To do so, enter their email addresses below and we will send them an invitation. <br> You can write the addresses separated by spaces, commas, or in separate lines, in any way it works.", "invite_your_friends": "Invite your friends", "join": "Join", "join_code_placeholder": "Enter league code", "join_intro": "JOINING IS VERY EASY! enter the code of the league you want to join. The codes are generated by the person who creates the league", "join_leagues": "Join leagues", "league": "League", "league_abandoned": "You have left the league", "league_code_not_found": "No league found with this code!", "league_created": "League created", "league_data": "League information", "league_deleted": "League deleted", "league_description": "Description", "league_name": "League name", "league_updated": "League updated", "leagues": "Leagues", "leave": "Leave", "my_leagues": "My leagues", "not_authorized": "You are not authorized for this action.", "not_joined_any_leagues": "You have not joined any leagues yet.", "options": "Options", "points": "Points", "update_league": "Update league", "users": "Users", "you_have_joined": "You have joined the league", "your_position": "Your position" }, "en.matches": { "next_matches": "Next matches", "predict": "Predict" }, "en.menu": { "home": "Home", "how_to_play": "How to play", "leagues": "Leagues", "my_predictions": "My predictions", "play": "Play", "prizes": "Prizes", "ranking": "Ranking", "rewards": "Rewards" }, "en.pagination": { "next": "Next &raquo;", "previous": "&laquo; Previous" }, "en.passwords": { "password": "Passwords must be at least six characters and match the confirmation.", "reset": "Your password has been reset!", "sent": "We have e-mailed your password reset link!", "token": "This password reset token is invalid.", "user": "We can't find a user with that e-mail address." }, "en.predictions": { "1st": "1st", "2nd": "2nd", "elimination_phase": "Knockout phase", "first_place": "First place", "group_A": "Group A", "group_B": "Group B", "group_C": "Group C", "group_D": "Group D", "group_E": "Group E", "group_F": "Group F", "group_G": "Group G", "group_H": "Group H", "group_phase": "Group phase", "on": "on", "predictions": "Predictions", "predictions_help_message": "Group A is near closing: You can make changes to your predictions until 15 minutes before the Uruguay vs Rusia match on Jun 25th", "predictions_updated": "Your results have been updated", "second_place": "Second place", "share_group_description": "You can also play to win wonderful prizes", "share_group_title": "This is mi prediction for the 2 classified teams for the group :group in Russia World Cup 2018", "share_match_description": "You can also play to win wonderful prizes", "share_match_title": "This is mi prediction for game :match in Russia World Cup 2018", "total_points": "Total score", "win_in_these_phase": "Win in these phase" }, "en.ranking": { "participant": "Participant", "pos": "Pos", "positions_table": "Ranking" }, "en.teams": { "arg": "Argentina", "arg_short": "Arg", "argentina": "Argentina", "aus": "Australia", "aus_short": "Aus", "australia": "Australia", "bel": "Belgium", "bel_short": "Bel", "belgium": "Belgium", "bra": "Brazil", "bra_short": "Bra", "brazil": "Brazil", "cf1": "Quarter-Finalist 1", "cf2": "Quarter-Finalist 2", "cf3": "Quarter-Finalist 3", "cf4": "Quarter-Finalist 4", "cf5": "Quarter-Finalist 5", "cf6": "Quarter-Finalist 6", "cf7": "Quarter-Finalist 7", "cf8": "Quarter-Finalist 8", "col": "Colombia", "col_short": "Col", "colombia": "Colombia", "cos": "Costa Rica", "cos_short": "Cos", "costa-rica": "Costa Rica", "cro": "Croatia", "cro_short": "Cro", "croatia": "Croatia", "den": "Denmark", "den_short": "Den", "denmark": "Denmark", "egy": "Egypt", "egy_short": "Egy", "egypt": "Egypt", "eng": "England", "eng_short": "Eng", "england": "England", "fra": "France", "fra_short": "Fra", "france": "France", "ger": "Germany", "ger_short": "Ger", "germany": "Germany", "gga": "Group A Winner", "ggb": "Group B Winner", "ggc": "Group C Winner", "ggd": "Group D Winner", "gge": "Group E Winner", "ggf": "Group F Winner", "ggg": "Group G Winner", "ggh": "Group H Winner", "gs1": "Semi-Final 1 Winner", "gs2": "Semi-Final 2 Winner", "ice": "Iceland", "ice_short": "Ice", "iceland": "Iceland", "ira": "Iran", "ira_short": "Ira", "iran": "Iran", "jap": "Japan", "jap_short": "Jap", "japan": "Japan", "kor": "Korea Republic", "kor_short": "Kor", "korea-republic": "Korea Republic", "mex": "Mexico", "mex_short": "Mex", "mexico": "Mexico", "mor": "Morocco", "mor_short": "Mor", "morocco": "Morocco", "nig": "Nigeria", "nig_short": "Nig", "nigeria": "Nigeria", "pan": "Panama", "pan_short": "Pan", "panama": "Panama", "per": "Peru", "per_short": "Per", "peru": "Peru", "pol": "Poland", "pol_short": "Pol", "poland": "Poland", "por": "Portugal", "por_short": "Por", "portugal": "Portugal", "rus": "Russia", "rus_short": "Rus", "russia": "Russia", "sau": "Saudi Arabia", "sau_short": "Sau", "saudi-arabia": "Saudi Arabia", "sen": "Senegal", "sen_short": "Sen", "senegal": "Senegal", "ser": "Serbia", "ser_short": "Ser", "serbia": "Serbia", "sf1": "Semi-Finalist 1", "sf2": "Semi-Finalist 2", "sf3": "Semi-Finalist 3", "sf4": "Semi-Finalist 4", "sla": "Group A Second Place", "slb": "Group B Second Place", "slc": "Group C Second Place", "sld": "Group D Second Place", "sle": "Group E Second Place", "slf": "Group F Second Place", "slg": "Group G Second Place", "slh": "Group H Second Place", "spa": "Spain", "spa_short": "Spa", "spain": "Spain", "swe": "Sweden", "swe_short": "Swe", "sweden": "Sweden", "swi": "Switzerland", "swi_short": "Swi", "switzerland": "Switzerland", "tun": "Tunisia", "tun_short": "Tun", "tunisia": "Tunisia", "uru": "Uruguay", "uru_short": "Uru", "uruguay": "Uruguay" }, "en.users": { "accept_and_continue": "Accept and continue", "accept_tyc": "By continuing, you are agreeing with the <a target=\"_blank\" href=\"\/terms-and-conditions\">Terms and conditions<\/a> of the platform.", "change_password": "Change password", "city": "City", "confirm_password": "Confirm password", "country": "Country", "create_account": "Create account", "create_account_help": "Create your account with Predictor and you could win big rewards. Your soccer knowledge will make you a winner.", "do_you_have_an_account": "Do you already have an account?", "do_you_like_promotions": "Would you like to be up to date with exiting promotions offered by Predictor? You can change this setting in your profile preferences at any time.", "email": "E-mail", "facebook_connect": "Connect with Facebook", "facebook_register": "Register with Facebook", "forgot_my_password": "Forgot my password", "gender": "Gender", "gender_f": "Female", "gender_m": "Male", "hi": "Hi", "identification": "Identification", "identification_type": "Identification type", "identification_type_CC": "ID \/ Social Sec #", "identification_type_CE": "Foreign ID", "identification_type_PASSPORT": "Passport", "lang_updated": "Language updated!", "last_login": "Last login", "last_names": "Last names", "login": "Login", "login_help": "Use your Facebook account to login with one simple click.", "logout": "Logout", "my_account": "My account", "my_personal_information": "My personal information", "names": "Names", "new_password": "New password", "not_logged_in": "User not logged in", "or_use_facebook": "Or you can login using your Facebook account. No password required with this option.", "password": "Password", "password_changed": "Password changed", "phone": "Phone", "register": "Register", "register_date": "Register date", "register_or_facebook": "You can create a new account, or connect using your Facebook account.", "remember_me": "Remember me", "still_not_user": "\xBFNot a user yet?", "summary": "Summary", "update_password": "Update password", "yes_i_want_promotions": "Yes, i want to receive promotions" }, "en.validation": { "accepted": "The :attribute must be accepted.", "active_url": "The :attribute is not a valid URL.", "after": "The :attribute must be a date after :date.", "after_or_equal": "The :attribute must be a date after or equal to :date.", "alpha": "The :attribute may only contain letters.", "alpha_dash": "The :attribute may only contain letters, numbers, dashes and underscores.", "alpha_num": "The :attribute may only contain letters and numbers.", "array": "The :attribute must be an array.", "attributes": [], "before": "The :attribute must be a date before :date.", "before_or_equal": "The :attribute must be a date before or equal to :date.", "between": { "array": "The :attribute must have between :min and :max items.", "file": "The :attribute must be between :min and :max kilobytes.", "numeric": "The :attribute must be between :min and :max.", "string": "The :attribute must be between :min and :max characters." }, "boolean": "The :attribute field must be true or false.", "confirmed": "The :attribute confirmation does not match.", "custom": { "attribute-name": { "rule-name": "custom-message" } }, "date": "The :attribute is not a valid date.", "date_format": "The :attribute does not match the format :format.", "different": "The :attribute and :other must be different.", "digits": "The :attribute must be :digits digits.", "digits_between": "The :attribute must be between :min and :max digits.", "dimensions": "The :attribute has invalid image dimensions.", "distinct": "The :attribute field has a duplicate value.", "email": "The :attribute must be a valid email address.", "exists": "The selected :attribute is invalid.", "file": "The :attribute must be a file.", "filled": "The :attribute field must have a value.", "gt": { "array": "The :attribute must have more than :value items.", "file": "The :attribute must be greater than :value kilobytes.", "numeric": "The :attribute must be greater than :value.", "string": "The :attribute must be greater than :value characters." }, "gte": { "array": "The :attribute must have :value items or more.", "file": "The :attribute must be greater than or equal :value kilobytes.", "numeric": "The :attribute must be greater than or equal :value.", "string": "The :attribute must be greater than or equal :value characters." }, "image": "The :attribute must be an image.", "in": "The selected :attribute is invalid.", "in_array": "The :attribute field does not exist in :other.", "integer": "The :attribute must be an integer.", "ip": "The :attribute must be a valid IP address.", "ipv4": "The :attribute must be a valid IPv4 address.", "ipv6": "The :attribute must be a valid IPv6 address.", "json": "The :attribute must be a valid JSON string.", "lt": { "array": "The :attribute must have less than :value items.", "file": "The :attribute must be less than :value kilobytes.", "numeric": "The :attribute must be less than :value.", "string": "The :attribute must be less than :value characters." }, "lte": { "array": "The :attribute must not have more than :value items.", "file": "The :attribute must be less than or equal :value kilobytes.", "numeric": "The :attribute must be less than or equal :value.", "string": "The :attribute must be less than or equal :value characters." }, "max": { "array": "The :attribute may not have more than :max items.", "file": "The :attribute may not be greater than :max kilobytes.", "numeric": "The :attribute may not be greater than :max.", "string": "The :attribute may not be greater than :max characters." }, "mimes": "The :attribute must be a file of type: :values.", "mimetypes": "The :attribute must be a file of type: :values.", "min": { "array": "The :attribute must have at least :min items.", "file": "The :attribute must be at least :min kilobytes.", "numeric": "The :attribute must be at least :min.", "string": "The :attribute must be at least :min characters." }, "not_in": "The selected :attribute is invalid.", "not_regex": "The :attribute format is invalid.", "numeric": "The :attribute must be a number.", "present": "The :attribute field must be present.", "regex": "The :attribute format is invalid.", "required": "The :attribute field is required.", "required_if": "The :attribute field is required when :other is :value.", "required_unless": "The :attribute field is required unless :other is in :values.", "required_with": "The :attribute field is required when :values is present.", "required_with_all": "The :attribute field is required when :values is present.", "required_without": "The :attribute field is required when :values is not present.", "required_without_all": "The :attribute field is required when none of :values are present.", "same": "The :attribute and :other must match.", "size": { "array": "The :attribute must contain :size items.", "file": "The :attribute must be :size kilobytes.", "numeric": "The :attribute must be :size.", "string": "The :attribute must be :size characters." }, "string": "The :attribute must be a string.", "timezone": "The :attribute must be a valid zone.", "unique": "The :attribute has already been taken.", "uploaded": "The :attribute failed to upload.", "url": "The :attribute format is invalid." }, "es.auth": { "failed": "Los datos no coinciden con nuestros registros.", "throttle": "Demasiados intentos de ingreso. Por favor intenta nuevamente en :seconds segundos." }, "es.footer": { "copyright": "Copyright", "privacy_policy": "Pol\xEDtica de privacidad", "support": "Soporte", "terms_and_conditions": "T\xE9rminos y condiciones" }, "es.game": { "general_ranking": "Ranking General", "phases": "Fases", "round_finals": "Finales", "round_group_phase": "Fase de Grupos", "round_quarter_finals": "Cuartos de Final", "round_round_of_16": "Octavos de Final", "round_semi_finals": "Semi-Finales", "see_all": "Ver todos" }, "es.leagues": { "accumulated": "Acumulado", "are_you_sure_delete": "\xBFEst\xE1s segur@ que quieres eliminar esta liga?", "create_code": "Crear un c\xF3digo de invitaci\xF3n", "create_code_placeholder": "Ingrese el c\xF3digo de la liga", "create_intro": "Crear ligas privadas para participar con sus amigos es muy f\xE1cil. S\xF3lo debe diligenciar los campos a continuaci\xF3n e invitar a sus amigos usando su cuenta de correo electr\xF3nico.", "create_league": "Crear liga", "delete_league": "Eliminar liga", "edit": "Editar", "general_ranking": "Clasificaci\xF3n General", "invitation_code": "C\xF3digo de invitaci\xF3n", "invite": "Invitar", "invite_friends_intro": "Puedes invitar a tus amigos a unirte a esta liga. Para hacerlo, ingresa a continuaci\xF3n las direcciones de correo electr\xF3nico y les enviaremos una invitaci\xF3n. <br> Puedes escribir las direcciones separadas por espacios, comas, o en l\xEDneas separadas, de cualquier forma funciona.", "invite_your_friends": "Invita tus amigos", "join": "Unirse", "join_code_placeholder": "Ingrese el c\xF3digo de la liga", "join_intro": "\xA1UNIRSE ES MUY F\xC1CIL! ingresa el c\xF3digo de la liga a la que quieres unirte. Los c\xF3digos son generados por la persona que crea la liga", "join_leagues": "Unirse a una liga", "league": "Liga", "league_abandoned": "Has abandonado la liga", "league_code_not_found": "No se encontr\xF3 una liga con ese c\xF3digo!", "league_created": "Liga creada", "league_data": "Datos de la liga", "league_deleted": "Liga eliminada", "league_description": "Descripci\xF3n", "league_name": "Nombre de la liga", "league_updated": "Liga actualizada", "leagues": "Ligas", "leave": "Abandonar", "my_leagues": "Mis ligas", "not_authorized": "No estas autorizad@ a realizar esta acci\xF3n.", "not_joined_any_leagues": "No te has unido a ninguna liga todav\xEDa.", "options": "Opciones", "points": "Puntos", "update_league": "Actualizar liga", "users": "Usuarios", "you_have_joined": "Te has unido a la liga", "your_position": "Tu posici\xF3n" }, "es.matches": { "next_matches": "Pr\xF3ximos partidos", "predict": "Pronosticar" }, "es.menu": { "home": "Inicio", "how_to_play": "C\xF3mo jugar", "leagues": "Ligas", "my_predictions": "Mis pron\xF3sticos", "play": "Jugar", "prizes": "Premios", "ranking": "Ranking", "rewards": "Premios" }, "es.pagination": { "next": "Siguiente &raquo;", "previous": "&laquo; Anterior" }, "es.passwords": { "password": "La contrase\xF1a debe tener al menos seis caracteres y coincidir con la confirmaci\xF3n.", "reset": "Tu contrase\xF1a se ha cambiado!", "sent": "Hemos enviado un link para reasignar tu contrase\xF1a!", "token": "Este token para cambiar contrase\xF1a no es v\xE1lido.", "user": "No podemos encontrar un usuario con esa direcci\xF3n de correo electr\xF3nico." }, "es.predictions": { "1st": "1ro", "2nd": "2do", "elimination_phase": "Fase de eliminaci\xF3n", "first_place": "Primer lugar", "group_A": "Grupo A", "group_B": "Grupo B", "group_C": "Grupo C", "group_D": "Grupo D", "group_E": "Grupo E", "group_F": "Grupo F", "group_G": "Grupo G", "group_H": "Grupo H", "group_phase": "Fase de Grupos", "on": "el", "predictions": "Pron\xF3sticos", "predictions_help_message": "El Grupo A esta por cerrar: Puedes realizar cambios a tus pron\xF3sticos hasta 15 minutos antes del partido Uruguay vs Rusia el 25 de Junio", "predictions_updated": "Sus pron\xF3sticos han sido actualizados", "second_place": "Segundo lugar", "share_group_description": "Tu tambi\xE9n puedes participar y ganar fabulosos premios", "share_group_title": "Este es mi pron\xF3stico para los clasificados a octavos de final por el Grupo :group del Mundial de Rusia 2018", "share_match_description": "Tu tambi\xE9n puedes participar y ganar fabulosos premios", "share_match_title": "Este es mi pron\xF3stico para el partido :match del Mundial de Rusia 2018", "total_points": "Puntaje acumulado", "win_in_these_phase": "Gana en esta fase" }, "es.ranking": { "participant": "Participante", "pos": "Pos", "positions_table": "Ranking" }, "es.teams": { "arg": "Argentina", "arg_short": "Arg", "argentina": "Argentina", "aus": "Australia", "aus_short": "Aus", "australia": "Australia", "bel": "B\xE9lgica", "bel_short": "Bel", "belgium": "B\xE9lgica", "bra": "Brasil", "bra_short": "Bra", "brazil": "Brasil", "cf1": "Cuartos-Finalista 1", "cf2": "Cuartos-Finalista 2", "cf3": "Cuartos-Finalista 3", "cf4": "Cuartos-Finalista 4", "cf5": "Cuartos-Finalista 5", "cf6": "Cuartos-Finalista 6", "cf7": "Cuartos-Finalista 7", "cf8": "Cuartos-Finalista 8", "col": "Colombia", "col_short": "Col", "colombia": "Colombia", "cos": "Costa Rica", "cos_short": "Cos", "costa-rica": "Costa Rica", "cro": "Croacia", "cro_short": "Cro", "croatia": "Croacia", "den": "Dinamarca", "den_short": "Din", "denmark": "Dinamarca", "egy": "Egipto", "egy_short": "Egi", "egypt": "Egipto", "eng": "Inglaterra", "eng_short": "Ing", "england": "Inglaterra", "fra": "Francia", "fra_short": "Fra", "france": "Francia", "ger": "Alemania", "ger_short": "Ale", "germany": "Alemania", "gga": "Ganador Grupo A", "ggb": "Ganador Grupo B", "ggc": "Ganador Grupo C", "ggd": "Ganador Grupo D", "gge": "Ganador Grupo E", "ggf": "Ganador Grupo F", "ggg": "Ganador Grupo G", "ggh": "Ganador Grupo H", "gs1": "Ganador Semi-Final 1", "gs2": "Ganador Semi-Final 2", "ice": "Islandia", "ice_short": "Isl", "iceland": "Islandia", "ira": "Ir\xE1n", "ira_short": "Ira", "iran": "Ir\xE1n", "jap": "Jap\xF3n", "jap_short": "Jap", "japan": "Jap\xF3n", "kor": "Rep\xFAblica de Korea", "kor_short": "Kor", "korea-republic": "Rep\xFAblica de Korea", "mex": "M\xE9xico", "mex_short": "Mex", "mexico": "M\xE9xico", "mor": "Marruecos", "mor_short": "Mar", "morocco": "Marruecos", "nig": "Nigeria", "nig_short": "Nig", "nigeria": "Nigeria", "pan": "Panam\xE1", "pan_short": "Pan", "panama": "Panam\xE1", "per": "Per\xFA", "per_short": "Per", "peru": "Per\xFA", "pol": "Polonia", "pol_short": "Pol", "poland": "Polonia", "por": "Portugal", "por_short": "Por", "portugal": "Portugal", "rus": "Rusia", "rus_short": "Rus", "russia": "Rusia", "sau": "Arabia Saudita", "sau_short": "Ara", "saudi-arabia": "Arabia Saudita", "sen": "Senegal", "sen_short": "Sen", "senegal": "Senegal", "ser": "Serbia", "ser_short": "Ser", "serbia": "Serbia", "sf1": "Semi-Finalista 1", "sf2": "Semi-Finalista 2", "sf3": "Semi-Finalista 3", "sf4": "Semi-Finalista 4", "sla": "Segundo Lugar Grupo A", "slb": "Segundo Lugar Grupo B", "slc": "Segundo Lugar Grupo C", "sld": "Segundo Lugar Grupo D", "sle": "Segundo Lugar Grupo E", "slf": "Segundo Lugar Grupo F", "slg": "Segundo Lugar Grupo G", "slh": "Segundo Lugar Grupo H", "spa": "Espa\xF1a", "spa_short": "Esp", "spain": "Espa\xF1a", "swe": "Suecia", "swe_short": "Sue", "sweden": "Suecia", "swi": "Suiza", "swi_short": "Sui", "switzerland": "Suiza", "tun": "T\xFAnez", "tun_short": "Tun", "tunisia": "T\xFAnez", "uru": "Uruguay", "uru_short": "Uru", "uruguay": "Uruguay" }, "es.users": { "accept_and_continue": "Aceptar y continuar", "accept_tyc": "Al continuar est\xE1s aceptando los <a target=\"_blank\" href=\"/terms-and-conditions\">T\xE9rminos y condiciones</a> de la plataforma.", "change_password": "Cambiar contrase\xF1a", "city": "Ciudad", "confirm_password": "Confirmar contrase\xF1a", "country": "Pa\xEDs", "create_account": "Crear cuenta", "create_account_help": "Crea tu cuenta en Predictor y podr\xE1s ganar grandes premios. Tu conocimiento del f\xFAtbol te podr\xE1 hacer ganador.", "do_you_have_an_account": "\xBFYa tiene cuenta de usuario?", "do_you_like_promotions": "\xBFLe gustar\xEDa estar al d\xEDa en las emocionantes promociones ofrecidas por Predictor? Puede cambiar esta configuraci\xF3n en las preferencias de su perfil en cualquier momento.", "email": "Correo electr\xF3nico", "facebook_connect": "Ingresar con Facebook", "facebook_register": "Registrar con Facebook", "forgot_my_password": "Olvid\xE9 mi contrase\xF1a", "gender": "G\xE9nero", "gender_f": "Femenino", "gender_m": "Masculino", "hi": "Hola", "identification": "Identificaci\xF3n", "identification_type": "Tipo de identificaci\xF3n", "identification_type_CC": "C\xE9dula de ciudadan\xEDa", "identification_type_CE": "C\xE9dula de extranjer\xEDa", "identification_type_PASSPORT": "Pasaporte", "lang_updated": "Idioma actualizado!", "last_login": "\xDAltimo ingreso", "last_names": "Apellidos", "login": "Iniciar sesi\xF3n", "login_help": "Usa tu cuenta de Facebook para ingresar a Predictor con un solo click.", "logout": "Cerrar sesi\xF3n", "my_account": "Mi cuenta", "my_personal_information": "Mis datos personales", "names": "Nombres", "new_password": "Nueva contrase\xF1a", "not_logged_in": "Usuario no ha iniciado sesi\xF3n", "or_use_facebook": "O puede ingresar usando su cuenta en Facebook. Con este m\xE9todo no requiere una contrase\xF1a.", "password": "Contrase\xF1a", "password_changed": "Contrase\xF1a cambiada", "phone": "Celular", "register": "Reg\xEDstrate", "register_date": "Fecha de registro", "register_or_facebook": "Puede registrarse o iniciar sesi\xF3n usando su cuenta de Facebook", "remember_me": "Recu\xE9rdame", "still_not_user": "\xBFA\xFAn no eres miembro?", "summary": "Resumen", "update_password": "Actualizar contrase\xF1a", "yes_i_want_promotions": "Si, deseo recibir promociones" }, "es.validation": { "accepted": "The :attribute must be accepted.", "active_url": "The :attribute is not a valid URL.", "after": "The :attribute must be a date after :date.", "after_or_equal": "The :attribute must be a date after or equal to :date.", "alpha": "The :attribute may only contain letters.", "alpha_dash": "The :attribute may only contain letters, numbers, dashes and underscores.", "alpha_num": "Este campo solo puede contener letras y numeros.", "array": "The :attribute must be an array.", "attributes": [], "before": "The :attribute must be a date before :date.", "before_or_equal": "The :attribute must be a date before or equal to :date.", "between": { "array": "The :attribute must have between :min and :max items.", "file": "The :attribute must be between :min and :max kilobytes.", "numeric": "The :attribute must be between :min and :max.", "string": "The :attribute must be between :min and :max characters." }, "boolean": "The :attribute field must be true or false.", "confirmed": "The :attribute confirmation does not match.", "custom": { "attribute-name": { "rule-name": "custom-message" } }, "date": "The :attribute is not a valid date.", "date_format": "The :attribute does not match the format :format.", "different": "The :attribute and :other must be different.", "digits": "The :attribute must be :digits digits.", "digits_between": "The :attribute must be between :min and :max digits.", "dimensions": "The :attribute has invalid image dimensions.", "distinct": "The :attribute field has a duplicate value.", "email": "The :attribute must be a valid email address.", "exists": "The selected :attribute is invalid.", "file": "The :attribute must be a file.", "filled": "The :attribute field must have a value.", "gt": { "array": "The :attribute must have more than :value items.", "file": "The :attribute must be greater than :value kilobytes.", "numeric": "The :attribute must be greater than :value.", "string": "The :attribute must be greater than :value characters." }, "gte": { "array": "The :attribute must have :value items or more.", "file": "The :attribute must be greater than or equal :value kilobytes.", "numeric": "The :attribute must be greater than or equal :value.", "string": "The :attribute must be greater than or equal :value characters." }, "image": "The :attribute must be an image.", "in": "The selected :attribute is invalid.", "in_array": "The :attribute field does not exist in :other.", "integer": "The :attribute must be an integer.", "ip": "The :attribute must be a valid IP address.", "ipv4": "The :attribute must be a valid IPv4 address.", "ipv6": "The :attribute must be a valid IPv6 address.", "json": "The :attribute must be a valid JSON string.", "lt": { "array": "The :attribute must have less than :value items.", "file": "The :attribute must be less than :value kilobytes.", "numeric": "The :attribute must be less than :value.", "string": "The :attribute must be less than :value characters." }, "lte": { "array": "The :attribute must not have more than :value items.", "file": "The :attribute must be less than or equal :value kilobytes.", "numeric": "The :attribute must be less than or equal :value.", "string": "The :attribute must be less than or equal :value characters." }, "max": { "array": "The :attribute may not have more than :max items.", "file": "The :attribute may not be greater than :max kilobytes.", "numeric": "The :attribute may not be greater than :max.", "string": "The :attribute may not be greater than :max characters." }, "mimes": "The :attribute must be a file of type: :values.", "mimetypes": "The :attribute must be a file of type: :values.", "min": { "array": "The :attribute must have at least :min items.", "file": "The :attribute must be at least :min kilobytes.", "numeric": "The :attribute must be at least :min.", "string": "Este campo debe tener al menos :min caracteres." }, "not_in": "The selected :attribute is invalid.", "not_regex": "The :attribute format is invalid.", "numeric": "The :attribute must be a number.", "present": "The :attribute field must be present.", "regex": "The :attribute format is invalid.", "required": "Este campo es obligatorio", "required_if": "The :attribute field is required when :other is :value.", "required_unless": "The :attribute field is required unless :other is in :values.", "required_with": "The :attribute field is required when :values is present.", "required_with_all": "The :attribute field is required when :values is present.", "required_without": "The :attribute field is required when :values is not present.", "required_without_all": "The :attribute field is required when none of :values are present.", "same": "The :attribute and :other must match.", "size": { "array": "The :attribute must contain :size items.", "file": "The :attribute must be :size kilobytes.", "numeric": "The :attribute must be :size.", "string": "The :attribute must be :size characters." }, "string": "The :attribute must be a string.", "timezone": "The :attribute must be a valid zone.", "unique": "Este valor ya ha sido usado.", "uploaded": "The :attribute failed to upload.", "url": "The :attribute format is invalid." } };
 
 /***/ }),
 
