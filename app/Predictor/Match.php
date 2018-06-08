@@ -80,7 +80,7 @@ class Match extends Model
         $team->name = $json_content->home->name;
         $team->fixName();
         $this->localId()->associate($team);
-        if (!$team->image) {
+        if ($team->image) {
             $url = 'http://images.akamai.opta.net/football/team/badges_150/' . $json_content->home->id . '.png';
             if (url_exists($url) && ($file = file_get_contents($url))) {
                 Storage::disk('public')->put('teams/' . $team->id . '/' . str_slug($team->name) . '.png', $file);
