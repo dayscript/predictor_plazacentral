@@ -30,7 +30,7 @@
                             <hr class="light">
                         </div>
                         <div class="medium-6 columns">
-                            <change-password></change-password>
+                            {{--<change-password></change-password>--}}
                         </div>
                     </div>
                     {{--<hr class="light">--}}
