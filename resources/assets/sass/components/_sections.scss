@@ -59,9 +59,11 @@
     text-align: center;
     text-transform: uppercase;
     font-weight: 500;
-    font-size: 0.9em;
+    font-size: 0.6em;
+    padding: 0.6rem 1rem;
     @include breakpoint(medium){
       font-size: 1.1em;
+      padding: 1.25rem 1.5rem
     }
   }
 }

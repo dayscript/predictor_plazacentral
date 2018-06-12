@@ -57,61 +57,61 @@
                         </div>
                         <div class="tabs-panel" id="panel2c">
                             <div class="row">
-                                <div class="medium-3 columns collapse">
+                                <div class="medium-3 columns collapse end">
                                     <match-prediction :match_id="958070"></match-prediction>
                                 </div>
-                                <div class="medium-3 columns collapse">
+                                <div class="medium-3 columns collapse end">
                                     <match-prediction :match_id="958071"></match-prediction>
                                 </div>
-                                <div class="medium-3 columns collapse">
+                                <div class="medium-3 columns collapse end">
                                     <match-prediction :match_id="958075"></match-prediction>
                                 </div>
-                                <div class="medium-3 columns collapse">
+                                <div class="medium-3 columns collapse end">
                                     <match-prediction :match_id="958074"></match-prediction>
                                 </div>
-                                <div class="medium-3 columns collapse">
+                                <div class="medium-3 columns collapse end">
                                     <match-prediction :match_id="958072"></match-prediction>
                                 </div>
-                                <div class="medium-3 columns collapse">
+                                <div class="medium-3 columns collapse end">
                                     <match-prediction :match_id="958073"></match-prediction>
                                 </div>
-                                <div class="medium-3 columns collapse">
+                                <div class="medium-3 columns collapse end">
                                     <match-prediction :match_id="958077"></match-prediction>
                                 </div>
-                                <div class="medium-3 columns collapse">
+                                <div class="medium-3 columns collapse end">
                                     <match-prediction :match_id="958076"></match-prediction>
                                 </div>
                             </div>
                         </div>
                         <div class="tabs-panel" id="panel3c">
                             <div class="row">
-                                <div class="medium-3 columns collapse">
+                                <div class="medium-3 columns collapse end">
                                     <match-prediction :match_id="958078"></match-prediction>
                                 </div>
-                                <div class="medium-3 columns collapse">
+                                <div class="medium-3 columns collapse end">
                                     <match-prediction :match_id="958079"></match-prediction>
                                 </div>
-                                <div class="medium-3 columns collapse">
+                                <div class="medium-3 columns collapse end">
                                     <match-prediction :match_id="958080"></match-prediction>
                                 </div>
-                                <div class="medium-3 columns collapse">
+                                <div class="medium-3 columns collapse end">
                                     <match-prediction :match_id="958081"></match-prediction>
                                 </div>
                             </div>
                         </div>
                         <div class="tabs-panel" id="panel4c">
                             <div class="row">
-                                <div class="medium-3 columns collapse">
+                                <div class="medium-3 columns collapse end">
                                     <match-prediction :match_id="958082"></match-prediction>
                                 </div>
-                                <div class="medium-3 columns collapse">
+                                <div class="medium-3 columns collapse end">
                                     <match-prediction :match_id="958083"></match-prediction>
                                 </div>
                             </div>
                         </div>
                         <div class="tabs-panel" id="panel5c">
                             <div class="row">
-                                <div class="medium-3 columns collapse">
+                                <div class="medium-3 columns collapse end">
                                     <match-prediction :match_id="958085"></match-prediction>
                                 </div>
                             </div>
