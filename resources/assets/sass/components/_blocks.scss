@@ -194,6 +194,10 @@
   }
   .liga-info {
     font-size: 1em;
+    text-align: center;
+    @include breakpoint(medium){
+      text-align: inherit;
+    }
   }
 }
 

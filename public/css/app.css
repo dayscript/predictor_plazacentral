@@ -10495,6 +10495,13 @@ hr {
 
 .item .liga-info {
   font-size: 1em;
+  text-align: center;
+}
+
+@media print, screen and (min-width: 40em) {
+  .item .liga-info {
+    text-align: inherit;
+  }
 }
 
 .orbit .button {
