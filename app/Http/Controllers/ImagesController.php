@@ -29,7 +29,7 @@ class ImagesController extends Controller
         $blue   = '#35348f';
         $white   = '#fff';
 
-        $img = Image::canvas(600, 315);
+        $img = Image::canvas(600, 338);
         $img->fill(public_path('img/predictor-social español.jpg'));
 
         $img->insert('storage/'.$team1->image, 'top-left',80,100);
@@ -58,14 +58,14 @@ class ImagesController extends Controller
             $font->align('center');
             $font->valign('bottom');
         });
-        $img->text(__('teams.'.str_slug($team1->short)), 160, 250, function ($font) {
+        $img->text(__('teams.'.str_slug($team1->short)), 160, 255, function ($font) {
             $font->file(public_path('fonts/Exo2/Exo2-Light.otf'));
             $font->size(30);
             $font->color('#fff');
             $font->align('center');
             $font->valign('bottom');
         });
-        $img->text(__('teams.'.str_slug($team2->short)), 450, 250, function ($font) {
+        $img->text(__('teams.'.str_slug($team2->short)), 450, 255, function ($font) {
             $font->file(public_path('fonts/Exo2/Exo2-Light.otf'));
             $font->size(30);
             $font->color('#fff');
