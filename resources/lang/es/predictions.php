@@ -25,5 +25,5 @@ return [
     'predictions_help_message' => 'El Grupo A esta por cerrar: Puedes realizar cambios a tus pronósticos hasta 15 minutos antes del partido Uruguay vs Rusia el 25 de Junio',
     'total_points'             => 'Puntaje acumulado',
     'win_in_these_phase'       => 'Gana en esta fase de grupos hasta $3,000',
-    'predictor-social-en'=>'predictor-social-es',
+    'predictor-social-en'      => 'predictor-social-es',
 ];
