@@ -15,6 +15,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/pnotify.css') }}" rel="stylesheet">
     {{--@include('layouts.partials.googleanalytics')--}}
+    @include('layouts.partials.googletagmanager')
+
     <link rel="shortcut icon" href="/favicon.ico"/>
     {{--@include('layouts.partials.googletags')--}}
 
