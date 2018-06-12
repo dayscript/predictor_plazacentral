@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ContactMail;
 use App\Predictor\Group;
 use App\Predictor\Match;
 use App\Predictor\Round;
 use App\Predictor\Team;
 use App\User;
+use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
 {
@@ -129,5 +131,26 @@ class HomeController extends Controller
         $groups = Group::orderBy('name')->get();
         $groups->each->append('myprediction');
         return view('pages.predictions',compact('groups','match'));
+    }
+
+    /**
+     * Mail contact form
+     * @return array
+     */
+    public function contact()
+    {
+        $this->validate(request(),[
+            'name'=>'required|min:3',
+            'email'=>'required|email',
+            'message'=>'required|min:5',
+        ]);
+        $data = request()->all();
+        Mail::to(['oscar.rodriguez@thefmg.com','ivan@kinja.com','fosorio@univision.net','jcardenas@dayscript.com'])->send(new ContactMail($data));
+        $results = [];
+        $results['status'] = 'success';
+        $results['message'] = __('contact.information_sent');
+
+        return $results;
+
     }
 }

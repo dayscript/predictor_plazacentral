@@ -112,7 +112,6 @@
           }
         }.bind(this));
       }
-      
       this.loading--
     },
     methods: {
