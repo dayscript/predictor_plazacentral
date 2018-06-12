@@ -21,6 +21,11 @@
 
 </head>
 <body>
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5MKGX35"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
 <div id="app" style="display:none;" :class="{'show':loaded}">
     <!-- /6881/rd.univision_section_deportes/futbol/mundialrusia2018/predictordemisionrusia -->
     {{--<div id='div-gpt-ad-1528227919403-0' style="width: 728px; height: 90px">--}}
