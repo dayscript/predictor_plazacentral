@@ -26,8 +26,8 @@ class ImagesController extends Controller
      */
     public function groupPrediction(Group $group, Team $team1, Team $team2)
     {
-        //$blue   = '#35348f';
-        $blue   = '#fff';
+        $blue   = '#35348f';
+        $white   = '#fff';
 
         $img = Image::canvas(600, 315);
         $img->fill(public_path('img/predictor-social español.jpg'));
@@ -47,28 +47,28 @@ class ImagesController extends Controller
         $img->text(__('predictions.first_place'), 160, 110, function ($font) {
             $font->file(public_path('fonts/Exo2/Exo2-Medium.otf'));
             $font->size(30);
-            $font->color('#000');
+            $font->color('#fff');
             $font->align('center');
             $font->valign('bottom');
         });
         $img->text(__('predictions.second_place'), 450, 110, function ($font) {
             $font->file(public_path('fonts/Exo2/Exo2-Medium.otf'));
             $font->size(30);
-            $font->color('#000');
+            $font->color('#fff');
             $font->align('center');
             $font->valign('bottom');
         });
         $img->text(__('teams.'.str_slug($team1->short)), 160, 270, function ($font) {
             $font->file(public_path('fonts/Exo2/Exo2-Light.otf'));
             $font->size(30);
-            $font->color('#000');
+            $font->color('#fff');
             $font->align('center');
             $font->valign('bottom');
         });
         $img->text(__('teams.'.str_slug($team2->short)), 450, 270, function ($font) {
             $font->file(public_path('fonts/Exo2/Exo2-Light.otf'));
             $font->size(30);
-            $font->color('#000');
+            $font->color('#fff');
             $font->align('center');
             $font->valign('bottom');
         });
@@ -95,10 +95,10 @@ class ImagesController extends Controller
         $img->rectangle(0,0,600,15, function ($draw)use($blue) {
             $draw->background($blue);
         });
-        $img->text($match->date, 300, 60, function ($font)use($white) {
+        $img->text($match->date, 300, 60, function ($font)use($blue) {
             $font->file(public_path('fonts/Exo2/Exo2-ExtraLight.otf'));
             $font->size(30);
-            $font->color($white);
+            $font->color($blue);
             $font->align('center');
             $font->valign('bottom');
         });
