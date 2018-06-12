@@ -30,7 +30,7 @@ class ImagesController extends Controller
         $white   = '#fff';
 
         $img = Image::canvas(600, 338);
-        $img->fill(public_path('img/predictor-social español.jpg'));
+        $img->fill(public_path('img/' . __('predictor-social-en') . '.jpg'));
 
         $img->insert('storage/'.$team1->image, 'top-left',80,100);
         $img->insert('storage/'.$team2->image, 'top-left',370,100);
@@ -87,7 +87,7 @@ class ImagesController extends Controller
         $white   = '#fff';
 
         $img = Image::canvas(600, 315);
-        $img->fill(public_path('img/predictor-social español.jpg'));
+        $img->fill(public_path('img/' . __('predictor-social-en') . '.jpg'));
         if($match->localId && $match->localId->image)$img->insert('storage/'.$match->localId->image, 'top-left',80,100);
         else $img->insert('img/flag-default.png', 'top-left',80,100);
         if($match->visitId && $match->visitId->image)$img->insert('storage/'.$match->visitId->image, 'top-left',370,100);
