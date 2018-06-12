@@ -83,8 +83,8 @@ class ImagesController extends Controller
      */
     public function matchPrediction(Match $match, $local_score, $visit_score)
     {
-        //$blue   = '#35348f';
-        $blue   = '#fff';
+        $blue   = '#35348f';
+        $white   = '#fff';
 
         $img = Image::canvas(600, 315);
         $img->fill(public_path('img/predictor-social español.jpg'));
@@ -95,31 +95,31 @@ class ImagesController extends Controller
         $img->rectangle(0,0,600,15, function ($draw)use($blue) {
             $draw->background($blue);
         });
-        $img->text($match->date, 300, 60, function ($font)use($blue) {
+        $img->text($match->date, 300, 60, function ($font)use($white) {
             $font->file(public_path('fonts/Exo2/Exo2-ExtraLight.otf'));
             $font->size(30);
-            $font->color($blue);
+            $font->color($white);
             $font->align('center');
             $font->valign('bottom');
         });
         $img->text($local_score . '   -   ' . $visit_score, 300, 180, function ($font) {
             $font->file(public_path('fonts/Exo2/Exo2-ExtraBold.otf'));
             $font->size(35);
-            $font->color('#000');
+            $font->color($white);
             $font->align('center');
             $font->valign('bottom');
         });
         $img->text(__('teams.'.str_slug($match->localId->short)), 160, 270, function ($font) {
             $font->file(public_path('fonts/Exo2/Exo2-Light.otf'));
             $font->size(20);
-            $font->color('#000');
+            $font->color($white);
             $font->align('center');
             $font->valign('bottom');
         });
         $img->text(__('teams.'.str_slug($match->visitId->short)), 450, 270, function ($font) {
             $font->file(public_path('fonts/Exo2/Exo2-Light.otf'));
             $font->size(20);
-            $font->color('#000');
+            $font->color($white);
             $font->align('center');
             $font->valign('bottom');
         });
