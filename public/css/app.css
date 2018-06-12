@@ -10548,7 +10548,7 @@ hr {
   .container-slide h1 {
     font-size: 2.6em;
     text-align: inherit;
-    line-height: inherit;
+    line-height: 50px;
   }
 }
 

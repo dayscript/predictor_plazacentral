@@ -238,7 +238,7 @@
     @include breakpoint(medium){
       font-size: 2.6em;
       text-align: inherit;
-      line-height: inherit;
+      line-height: 50px;
     }
   }
 }
