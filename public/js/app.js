@@ -1729,6 +1729,119 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/Utils/Contact.vue":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      name: '',
+      last: '',
+      email: '',
+      country: '',
+      city: '',
+      phone: '',
+      message: '',
+      errors: {},
+      loading: 0
+    };
+  },
+
+  methods: {
+    sendContact: function sendContact() {
+      var _this = this;
+
+      this.loading++;
+      axios.post('/contact', {
+        name: this.name,
+        last: this.last,
+        country: this.country,
+        city: this.city,
+        phone: this.phone,
+        email: this.email,
+        message: this.message
+      }).then(function (_ref) {
+        var data = _ref.data;
+
+        if (data.message) {
+          new PNotify({
+            text: data.message,
+            type: data.status,
+            animation: 'fade',
+            delay: 2000
+          });
+        }
+        _this.loading--;
+      }).catch(function (error) {
+        this.loading--;
+        if (error.response) {
+          if (error.response.status === 422) {
+            var data = error.response.data;
+            this.errors = data.errors;
+          } else {
+            console.log(error.response.status);
+          }
+        } else {
+          console.log('Error', error.message);
+        }
+      }.bind(this));
+    },
+    resetErrors: function resetErrors(field) {
+      Vue.delete(this.errors, field);
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/Utils/GameSummary.vue":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -2809,119 +2922,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             }.bind(this));
         }
     }
-});
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/utils/Contact.vue":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = ({
-  data: function data() {
-    return {
-      name: '',
-      last: '',
-      email: '',
-      country: '',
-      city: '',
-      phone: '',
-      message: '',
-      errors: {},
-      loading: 0
-    };
-  },
-
-  methods: {
-    sendContact: function sendContact() {
-      var _this = this;
-
-      this.loading++;
-      axios.post('/contact', {
-        name: this.name,
-        last: this.last,
-        country: this.country,
-        city: this.city,
-        phone: this.phone,
-        email: this.email,
-        message: this.message
-      }).then(function (_ref) {
-        var data = _ref.data;
-
-        if (data.message) {
-          new PNotify({
-            text: data.message,
-            type: data.status,
-            animation: 'fade',
-            delay: 2000
-          });
-        }
-        _this.loading--;
-      }).catch(function (error) {
-        this.loading--;
-        if (error.response) {
-          if (error.response.status === 422) {
-            var data = error.response.data;
-            this.errors = data.errors;
-          } else {
-            console.log(error.response.status);
-          }
-        } else {
-          console.log('Error', error.message);
-        }
-      }.bind(this));
-    },
-    resetErrors: function resetErrors(field) {
-      Vue.delete(this.errors, field);
-    }
-  }
 });
 
 /***/ }),
@@ -45360,7 +45360,79 @@ if (false) {
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-079ec1ca\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/utils/Contact.vue":
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-18b8eb58\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/leagues/Summary.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "item", class: _vm.rowclass },
+    [
+      _c("div", { staticClass: "medium-6 columns liga-info text-left" }, [
+        _c("a", { attrs: { href: "/ranking?l=" + _vm.league.id } }, [
+          _vm._v(_vm._s(_vm.league.name))
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "medium-2 columns liga-info text-center" }, [
+        _c("strong", { staticClass: "show-for-small-only" }, [
+          _vm._v(_vm._s(_vm.$store.getters.trans("leagues.users")) + ":")
+        ]),
+        _vm._v(" " + _vm._s(_vm.league.users_count) + "\n    ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "medium-2 columns liga-info text-center" }, [
+        _c("strong", { staticClass: "show-for-small-only" }, [
+          _vm._v(_vm._s(_vm.$store.getters.trans("leagues.points")) + ": ")
+        ]),
+        _vm._v(_vm._s(_vm.league.users_points) + "\n    ")
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "medium-2 columns liga-info text-center" }, [
+        _vm.editable
+          ? _c(
+              "a",
+              {
+                staticClass: "button small",
+                attrs: { href: "/leagues/" + _vm.league.id + "/edit" }
+              },
+              [_vm._v(_vm._s(_vm.$store.getters.trans("leagues.edit")))]
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        !_vm.editable
+          ? _c(
+              "a",
+              {
+                staticClass: "button alert small",
+                on: { click: _vm.leaveLeague }
+              },
+              [_vm._v(_vm._s(_vm.$store.getters.trans("leagues.leave")))]
+            )
+          : _vm._e()
+      ]),
+      _vm._v(" "),
+      _vm.loading ? _c("spinner") : _vm._e()
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-18b8eb58", module.exports)
+  }
+}
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-3216420a\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/Utils/Contact.vue":
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -45659,79 +45731,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-079ec1ca", module.exports)
-  }
-}
-
-/***/ }),
-
-/***/ "./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-18b8eb58\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/leagues/Summary.vue":
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "item", class: _vm.rowclass },
-    [
-      _c("div", { staticClass: "medium-6 columns liga-info text-left" }, [
-        _c("a", { attrs: { href: "/ranking?l=" + _vm.league.id } }, [
-          _vm._v(_vm._s(_vm.league.name))
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "medium-2 columns liga-info text-center" }, [
-        _c("strong", { staticClass: "show-for-small-only" }, [
-          _vm._v(_vm._s(_vm.$store.getters.trans("leagues.users")) + ":")
-        ]),
-        _vm._v(" " + _vm._s(_vm.league.users_count) + "\n    ")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "medium-2 columns liga-info text-center" }, [
-        _c("strong", { staticClass: "show-for-small-only" }, [
-          _vm._v(_vm._s(_vm.$store.getters.trans("leagues.points")) + ": ")
-        ]),
-        _vm._v(_vm._s(_vm.league.users_points) + "\n    ")
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "medium-2 columns liga-info text-center" }, [
-        _vm.editable
-          ? _c(
-              "a",
-              {
-                staticClass: "button small",
-                attrs: { href: "/leagues/" + _vm.league.id + "/edit" }
-              },
-              [_vm._v(_vm._s(_vm.$store.getters.trans("leagues.edit")))]
-            )
-          : _vm._e(),
-        _vm._v(" "),
-        !_vm.editable
-          ? _c(
-              "a",
-              {
-                staticClass: "button alert small",
-                on: { click: _vm.leaveLeague }
-              },
-              [_vm._v(_vm._s(_vm.$store.getters.trans("leagues.leave")))]
-            )
-          : _vm._e()
-      ]),
-      _vm._v(" "),
-      _vm.loading ? _c("spinner") : _vm._e()
-    ],
-    1
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-18b8eb58", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-3216420a", module.exports)
   }
 }
 
@@ -60751,7 +60751,7 @@ Vue.component('ranking-index', __webpack_require__("./resources/assets/js/compon
 Vue.component('spinner', __webpack_require__("./resources/assets/js/components/Utils/Spinner.vue"));
 Vue.component('change-password', __webpack_require__("./resources/assets/js/components/Utils/ChangePassword.vue"));
 Vue.component('game-summary', __webpack_require__("./resources/assets/js/components/Utils/GameSummary.vue"));
-Vue.component('contact', __webpack_require__("./resources/assets/js/components/utils/Contact.vue"));
+Vue.component('contact', __webpack_require__("./resources/assets/js/components/Utils/Contact.vue"));
 
 
 Vue.use(__WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */]);
@@ -60950,6 +60950,54 @@ if (false) {(function () {
     hotAPI.createRecord("data-v-363bade0", Component.options)
   } else {
     hotAPI.reload("data-v-363bade0", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/Utils/Contact.vue":
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")
+/* script */
+var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/Utils/Contact.vue")
+/* template */
+var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-3216420a\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/Utils/Contact.vue")
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/Utils/Contact.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3216420a", Component.options)
+  } else {
+    hotAPI.reload("data-v-3216420a", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -61434,54 +61482,6 @@ if (false) {(function () {
     hotAPI.createRecord("data-v-d03b9814", Component.options)
   } else {
     hotAPI.reload("data-v-d03b9814", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-
-/***/ "./resources/assets/js/components/utils/Contact.vue":
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__("./node_modules/vue-loader/lib/component-normalizer.js")
-/* script */
-var __vue_script__ = __webpack_require__("./node_modules/babel-loader/lib/index.js?{\"cacheDirectory\":true,\"presets\":[[\"env\",{\"modules\":false,\"targets\":{\"browsers\":[\"> 2%\"],\"uglify\":true}}]],\"plugins\":[\"transform-object-rest-spread\",[\"transform-runtime\",{\"polyfill\":false,\"helpers\":false}]]}!./node_modules/vue-loader/lib/selector.js?type=script&index=0!./resources/assets/js/components/utils/Contact.vue")
-/* template */
-var __vue_template__ = __webpack_require__("./node_modules/vue-loader/lib/template-compiler/index.js?{\"id\":\"data-v-079ec1ca\",\"hasScoped\":false,\"buble\":{\"transforms\":{}}}!./node_modules/vue-loader/lib/selector.js?type=template&index=0!./resources/assets/js/components/utils/Contact.vue")
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/utils/Contact.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-079ec1ca", Component.options)
-  } else {
-    hotAPI.reload("data-v-079ec1ca", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
