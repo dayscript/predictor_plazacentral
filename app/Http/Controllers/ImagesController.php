@@ -27,7 +27,7 @@ class ImagesController extends Controller
     public function groupPrediction(Group $group, Team $team1, Team $team2)
     {
         $blue   = '#35348f';
-        $img = Image::canvas(600, 315);
+        $img = Image::canvas(600, 338);
         $img->fill(public_path('img/predictor-social español.jpg'));
 
         $img->insert('storage/'.$team1->image, 'top-left',80,100);
@@ -82,7 +82,7 @@ class ImagesController extends Controller
     public function matchPrediction(Match $match, $local_score, $visit_score)
     {
         $blue   = '#35348f';
-        $img = Image::canvas(600, 315);
+        $img = Image::canvas(600, 338);
         $img->fill(public_path('img/predictor-social español.jpg'));
         if($match->localId && $match->localId->image)$img->insert('storage/'.$match->localId->image, 'top-left',80,100);
         else $img->insert('img/flag-default.png', 'top-left',80,100);
