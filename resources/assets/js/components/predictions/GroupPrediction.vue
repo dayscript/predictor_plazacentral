@@ -40,7 +40,7 @@
             </div>
         </div>
         <div class="social text-center" v-if="first.length && second.length">
-            <social-sharing v-if="group.myprediction && group.myprediction.id" :url="'https://predictor.linkdigital.co/predictions/'+group.myprediction.id" inline-template>
+            <social-sharing v-if="group.myprediction && group.myprediction.id" :url="'https://futbol.vive-mas.co/predictions/'+group.myprediction.id" inline-template>
                 <div>
                     <network network="facebook">
                         <img src="/img/facebook.png" alt="Facebook" class="pointer">

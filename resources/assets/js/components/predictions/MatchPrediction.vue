@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="social text-center" v-if="local_score && visit_score">
-            <social-sharing v-if="match.myprediction && match.myprediction.id" :url="'https://predictor.linkdigital.co/matchpredictions/'+match.myprediction.id" inline-template>
+            <social-sharing v-if="match.myprediction && match.myprediction.id" :url="'https://futbol.vive-mas.co/matchpredictions/'+match.myprediction.id" inline-template>
                 <div>
                     <network network="facebook">
                         <img src="/img/facebook.png" alt="Facebook" class="pointer">
