@@ -28,7 +28,7 @@
                 </div>
                 <div class="row margin-30">
                     <div class="columns medium-6"><img :src="'img/prizes/' + $store.state.lang + '/5.jpg'" alt="1"></div>
-
+                    <div class="columns medium-6"><img :src="'img/prizes/' + $store.state.lang + '/6.jpg'" alt="1"></div>
                 </div>
             </div>
             <div class="medium-3 columns text-center banner">
