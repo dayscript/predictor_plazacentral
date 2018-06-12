@@ -10632,6 +10632,7 @@ hr {
   font-weight: 500;
   font-size: 0.6em;
   padding: 0.6rem 1rem;
+  min-height: 47px;
 }
 
 @media print, screen and (min-width: 40em) {
