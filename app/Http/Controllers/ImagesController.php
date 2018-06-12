@@ -109,20 +109,20 @@ class ImagesController extends Controller
             $font->align('center');
             $font->valign('bottom');
         });
-        $img->text(__('teams.'.str_slug($match->localId->short)), 160, 270, function ($font) {
-            $font->file(public_path('fonts/Exo2/Exo2-Light.otf'));
-            $font->size(20);
-            $font->color($white);
-            $font->align('center');
-            $font->valign('bottom');
-        });
-        $img->text(__('teams.'.str_slug($match->visitId->short)), 450, 270, function ($font) {
-            $font->file(public_path('fonts/Exo2/Exo2-Light.otf'));
-            $font->size(20);
-            $font->color($white);
-            $font->align('center');
-            $font->valign('bottom');
-        });
+        // $img->text(__('teams.'.str_slug($match->localId->short)), 160, 270, function ($font) {
+        //     $font->file(public_path('fonts/Exo2/Exo2-Light.otf'));
+        //     $font->size(20);
+        //     $font->color($white);
+        //     $font->align('center');
+        //     $font->valign('bottom');
+        // });
+        // $img->text(__('teams.'.str_slug($match->visitId->short)), 450, 270, function ($font) {
+        //     $font->file(public_path('fonts/Exo2/Exo2-Light.otf'));
+        //     $font->size(20);
+        //     $font->color($white);
+        //     $font->align('center');
+        //     $font->valign('bottom');
+        // });
         return $img->response('png');
     }
 
