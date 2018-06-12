@@ -26,7 +26,7 @@
                                 <div class="puntos">0</div>
                             </div>
                             <div class="small-9 columns">
-                                <strong>{{ $store.getters.trans('predictions.total_points') }}:</strong>{{ $store.getters.trans('predictions.win_in_these_phase') }}: Fase de Grupos, gana hasta $3,000
+                                <strong>{{ $store.getters.trans('predictions.total_points') }}:</strong>{{ $store.getters.trans('predictions.win_in_these_phase') }}
                             </div>
                         </div>
                     </div>
