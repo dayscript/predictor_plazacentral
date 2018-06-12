@@ -92,8 +92,8 @@ class ImagesController extends Controller
         else $img->insert('img/flag-default.png', 'top-left',80,100);
         if($match->visitId && $match->visitId->image)$img->insert('storage/'.$match->visitId->image, 'top-left',370,100);
         else $img->insert('img/flag-default.png', 'top-left',370,100);
-        $img->rectangle(0,0,600,15, function ($draw)use($white) {
-            $draw->background($white);
+        $img->rectangle(0,0,600,15, function ($draw)use($blue) {
+            $draw->background($blue);
         });
         $img->text($match->date, 300, 60, function ($font)use($white) {
             $font->file(public_path('fonts/Exo2/Exo2-ExtraLight.otf'));
