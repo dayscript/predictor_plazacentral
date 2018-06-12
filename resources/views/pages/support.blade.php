@@ -19,7 +19,7 @@
         <div class="row">
             <div class="medium-9 columns">
                 <div class="info">
-                    ssasa
+                    <contact></contact>
                 </div>
             </div>
             <div class="medium-3 columns text-center banner">

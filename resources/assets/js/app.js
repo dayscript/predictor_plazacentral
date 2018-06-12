@@ -26,6 +26,7 @@ Vue.component('ranking-index', require('./components/ranking/Ranking.vue'));
 Vue.component('spinner', require('./components/Utils/Spinner.vue'));
 Vue.component('change-password', require('./components/Utils/ChangePassword.vue'));
 Vue.component('game-summary', require('./components/Utils/GameSummary.vue'));
+Vue.component('contact', require('./components/utils/Contact.vue'));
 import Lang from './lang'
 import Vuex from 'vuex'
 Vue.use(Vuex)
