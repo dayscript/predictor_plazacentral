@@ -12,14 +12,14 @@
             </div>
             <div id="menu-predictor">
                 <ul class="vertical medium-horizontal menu align-left">
-                    <li><a class="active" href="/">@{{ $store.getters.trans('menu.home') }}</a></li>
-                    <li><a href="/predictions">@{{ $store.getters.trans('menu.my_predictions') }}</a></li>
-                    <li><a href="/leagues">@{{ $store.getters.trans('menu.leagues') }}</a></li>
-                    <li><a href="/ranking">@{{ $store.getters.trans('menu.ranking') }}</a></li>
-                    <li><a href="/how-to-play">@{{ $store.getters.trans('menu.how_to_play') }}</a></li>
-                    <li><a href="/prizes">@{{ $store.getters.trans('menu.prizes') }}</a></li>
+                    <li><a class="{{ (request()->is(''))?'active':'' }}" href="/">@{{ $store.getters.trans('menu.home') }}</a></li>
+                    <li><a class="{{ (request()->is('predictions'))?'active':'' }}" href="/predictions">@{{ $store.getters.trans('menu.my_predictions') }}</a></li>
+                    <li><a class="{{ (request()->is('leagues'))?'active':'' }}" href="/leagues">@{{ $store.getters.trans('menu.leagues') }}</a></li>
+                    <li><a class="{{ (request()->is('ranking'))?'active':'' }}" href="/ranking">@{{ $store.getters.trans('menu.ranking') }}</a></li>
+                    <li><a class="{{ (request()->is('how-to-play'))?'active':'' }}" href="/how-to-play">@{{ $store.getters.trans('menu.how_to_play') }}</a></li>
+                    <li><a class="{{ (request()->is('prizes'))?'active':'' }}" href="/prizes">@{{ $store.getters.trans('menu.prizes') }}</a></li>
                     @auth
-                        <li><a href="#" class="login" onclick="$('.login.in').slideToggle();"><i class="fi-torso"> </i> {{ auth()->user()->name }}</a></li>
+                        <li><a href="#" class="login {{ (request()->is('login'))?'active':'' }}" onclick="$('.login.in').slideToggle();"><i class="fi-torso"> </i> {{ auth()->user()->name }}</a></li>
                     @else
                         <li><a href="#" class="login" onclick="$('.login.out').slideToggle();">@{{ $store.getters.trans('menu.play') }}</a></li>
                     @endauth

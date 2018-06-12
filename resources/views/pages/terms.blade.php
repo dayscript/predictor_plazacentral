@@ -19,7 +19,8 @@
         <div class="row">
             <div class="medium-9 columns">
                 <div class="info">
-                    ssasa
+                    @include('pages.terms.doc2')
+                    @include('pages.terms.doc1')
                 </div>
             </div>
             <div class="medium-3 columns text-center banner">
