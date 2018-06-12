@@ -105,24 +105,24 @@ class ImagesController extends Controller
         $img->text($local_score . '   -   ' . $visit_score, 300, 180, function ($font) {
             $font->file(public_path('fonts/Exo2/Exo2-ExtraBold.otf'));
             $font->size(35);
-            $font->color($white);
+            $font->color('#fff');
             $font->align('center');
             $font->valign('bottom');
         });
-        // $img->text(__('teams.'.str_slug($match->localId->short)), 160, 270, function ($font) {
-        //     $font->file(public_path('fonts/Exo2/Exo2-Light.otf'));
-        //     $font->size(20);
-        //     $font->color($white);
-        //     $font->align('center');
-        //     $font->valign('bottom');
-        // });
-        // $img->text(__('teams.'.str_slug($match->visitId->short)), 450, 270, function ($font) {
-        //     $font->file(public_path('fonts/Exo2/Exo2-Light.otf'));
-        //     $font->size(20);
-        //     $font->color($white);
-        //     $font->align('center');
-        //     $font->valign('bottom');
-        // });
+        $img->text(__('teams.'.str_slug($match->localId->short)), 160, 270, function ($font) {
+            $font->file(public_path('fonts/Exo2/Exo2-Light.otf'));
+            $font->size(20);
+            $font->color('#fff');
+            $font->align('center');
+            $font->valign('bottom');
+        });
+        $img->text(__('teams.'.str_slug($match->visitId->short)), 450, 270, function ($font) {
+            $font->file(public_path('fonts/Exo2/Exo2-Light.otf'));
+            $font->size(20);
+            $font->color('#fff');
+            $font->align('center');
+            $font->valign('bottom');
+        });
         return $img->response('png');
     }
 
