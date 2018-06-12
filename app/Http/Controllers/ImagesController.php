@@ -95,10 +95,10 @@ class ImagesController extends Controller
         $img->rectangle(0,0,600,15, function ($draw)use($blue) {
             $draw->background($blue);
         });
-        $img->text($match->date, 300, 60, function ($font)use($blue) {
+        $img->text($match->date, 300, 60, function ($font)use($white) {
             $font->file(public_path('fonts/Exo2/Exo2-ExtraLight.otf'));
             $font->size(30);
-            $font->color($blue);
+            $font->color($white);
             $font->align('center');
             $font->valign('bottom');
         });
