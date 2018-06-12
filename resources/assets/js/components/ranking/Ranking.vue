@@ -43,13 +43,13 @@
                             <div class="item" v-for="(user,index ) in users" :class="{'dark':index%2===0}">
                                 <div class="small-1 columns posicion text-left">{{ parseInt(index) + 1 }}.</div>
                                 <div class="small-9 columns jugador text-left" :class="{'account':userid===user.id}">
-                                    <a :href="'/users/'+user.id">{{ user.name + ' ' + (user.last || '') }}</a>
+                                    {{ user.name + ' ' + (user.last || '') }}
                                 </div>
                                 <div class="small-2 columns puntaje text-right">{{ user.points }}</div>
                             </div>
                             <ul class="pagination text-center" role="navigation" aria-label="Pagination">
-                                <li class="pagination-previous disabled" v-if="!pagination.prev">{{ $store.getters.trans('pagination.previous') }}</li>
-                                <li class="pagination-previous" v-else><a @click.prevent="loadRanking(pagination.prev)" aria-label="Prev page">{{ $store.getters.trans('pagination.previous') }}</a></li>
+                                <li class="pagination-previous disabled" v-if="!pagination.prev" v-html="$store.getters.trans('pagination.previous')"></li>
+                                <li class="pagination-previous" v-else><a @click.prevent="loadRanking(pagination.prev)" aria-label="Prev page" v-html="$store.getters.trans('pagination.previous')"></a></li>
                                 <li v-if="pagination.page===1" class="current"><span class="show-for-sr"></span> 1</li>
                                 <li v-else><a @click.prevent="loadRanking(1)" aria-label="First Page">1</a></li>
                                 <li class="ellipsis" v-if="pagination.page>2"></li>
@@ -57,8 +57,8 @@
                                 <li class="ellipsis" v-if="pagination.pages-pagination.page>1"></li>
                                 <li v-if="pagination.pages>2 && pagination.page===pagination.pages" class="current"><span class="show-for-sr"></span> {{ pagination.pages }}</li>
                                 <li v-else-if="pagination.pages>2"><a @click.prevent="loadRanking(pagination.pages)" aria-label="Last Page">{{ pagination.pages }}</a></li>
-                                <li class="pagination-next disabled" v-if="!pagination.next">{{ $store.getters.trans('pagination.next') }}</li>
-                                <li class="pagination-next" v-else><a @click.prevent="loadRanking(pagination.next)" aria-label="Next page">{{ $store.getters.trans('pagination.next') }}</a></li>
+                                <li class="pagination-next disabled" v-if="!pagination.next" v-html="$store.getters.trans('pagination.next')"></li>
+                                <li class="pagination-next" v-else><a @click.prevent="loadRanking(pagination.next)" aria-label="Next page" v-html="$store.getters.trans('pagination.next')"></a></li>
                             </ul>
                         </div>
                     </div>
