@@ -19,8 +19,8 @@
         <div class="row">
             <div class="medium-9 columns">
                 <div class="info">
-                    @include('pages.privacy.doc2')
                     @include('pages.privacy.doc1')
+                    @include('pages.privacy.doc2')
                 </div>
             </div>
             <div class="medium-3 columns text-center banner">
