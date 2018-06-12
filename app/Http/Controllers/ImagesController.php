@@ -51,7 +51,7 @@ class ImagesController extends Controller
             $font->align('center');
             $font->valign('bottom');
         });
-        $img->text(__('predictions.second_place'), 450, 110, function ($font) {
+        $img->text(__('predictions.second_place'), 400, 110, function ($font) {
             $font->file(public_path('fonts/Exo2/Exo2-Medium.otf'));
             $font->size(30);
             $font->color('#fff');
@@ -65,7 +65,7 @@ class ImagesController extends Controller
             $font->align('center');
             $font->valign('bottom');
         });
-        $img->text(__('teams.'.str_slug($team2->short)), 450, 270, function ($font) {
+        $img->text(__('teams.'.str_slug($team2->short)), 400, 270, function ($font) {
             $font->file(public_path('fonts/Exo2/Exo2-Light.otf'));
             $font->size(30);
             $font->color('#fff');
