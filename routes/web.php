@@ -35,6 +35,7 @@ Route::get('predictions/{prediction}','PredictionsController@show');
 Route::get('matchpredictions/{prediction}','PredictionsController@matchShow');
 Route::get('images/predictions/{group}/{team1}/{team2}','ImagesController@groupPrediction');
 Route::get('images/matchpredictions/{match}/{local_score}/{visit_score}','ImagesController@matchPrediction');
+Route::get('images/matchpredictionsdev','ImagesController@matchPredictionDev');
 Route::get('account','UsersController@account');
 Route::post('rankingdata/{page}','UsersController@ranking');
 Route::post('users/updatepassword','UsersController@updatePassword');

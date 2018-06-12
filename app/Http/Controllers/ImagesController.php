@@ -29,7 +29,7 @@ class ImagesController extends Controller
         $blue   = '#35348f';
         $img = Image::canvas(600, 315);
         $img->fill(public_path('img/predictor-social español.jpg'));
-        
+
         $img->insert('storage/'.$team1->image, 'top-left',80,100);
         $img->insert('storage/'.$team2->image, 'top-left',370,100);
         $img->rectangle(0,0,600,15, function ($draw)use($blue) {
@@ -119,6 +119,20 @@ class ImagesController extends Controller
             $font->align('center');
             $font->valign('bottom');
         });
+        return $img->response('png');
+    }
+
+    /**
+     * @param Match $match
+     * @param $local_score
+     * @param $visit_score
+     * @return mixed
+     */
+    public function matchPredictionDev()
+    {
+        $blue   = '#35348f';
+        $img = Image::canvas(600, 338);
+        $img->fill(public_path('img/predictor-social español.jpg'));
         return $img->response('png');
     }
 }
