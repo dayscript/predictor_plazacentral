@@ -13,7 +13,7 @@
                 </div>
 
                 <figure class="orbit-figure">
-                    <img class="orbit-image" src="/img/slide/es/1.jpg" alt="">
+                    <img class="orbit-image" :src="'/img/slide/' + $store.state.lang + '/1.jpg'" alt="Predictor">
                 </figure>
             </li>
         </ul>
