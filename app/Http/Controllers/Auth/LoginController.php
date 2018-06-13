@@ -70,7 +70,7 @@ class LoginController extends Controller
                     if ($usuarioVive == false) 
                     {
                         auth()->login($us);
-                        return view('auth/update',compact('usuarioVive'));
+                        return view('auth/update',compact('usuarioVive','us'));
                         //auth()->login($us);
                         //auth()->login($us);
                     }
