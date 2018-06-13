@@ -70,6 +70,7 @@ class LoginController extends Controller
                     dd($usuarioVive);
                     //auth()->login($us);
                 }else {
+                    dd($usuarioVive);
                     /*
                     $name = $user->getName();
                     $first = trim(substr($name,0,strpos($name,' ')));
