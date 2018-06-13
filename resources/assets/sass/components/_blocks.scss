@@ -1,6 +1,6 @@
 //Header
 .top-nav {
-  background-color: $predictor4;
+  background-color: $white;
   padding: 4px 0;
   ul.lang {
     margin: 0;
@@ -15,7 +15,7 @@
       padding: 0 6px;
       a {
         text-transform: uppercase;
-        color: $white;
+        color: $black;
         font-size: 0.7em;
         &:hover {
           color: $secondary-color;
@@ -29,7 +29,7 @@
 }
 
 .header {
-  background-color: $predictor3;
+  background-color: $white;
   padding: 16px 0;
   .logo {
     margin-top: 18px;
@@ -54,8 +54,8 @@
 
     li {
       a {
-        padding: 18px 12px;
-        color: $white;
+        padding: 18px 7px;
+        color: $black;
         font-size: 0.938em;
         &.active {
           color: $secondary-color;
@@ -70,9 +70,10 @@
           min-width: 120px;
           text-align: center;
           margin-left: 12px;
+          color: $white;
           &:hover {
             color: $white;
-            background-color: #E48E2F;
+            background-color: #e20020;
           }
         }
       }
@@ -81,19 +82,24 @@
   button.menu-icon {
     top: -26px;
     margin-left: 13px;
+    background: $secondary-color;
+    width: 28px;
+    height: 21px;
     @include breakpoint(medium) {
       top: inherit;
       margin-left: inherit;
     }
   }
 }
-
+.sticky.is-at-top.is-stuck, .sticky-container {
+  background-color: $white;
+}
 //Footer
 .footer {
   background: $primary-color;
   padding: 40px 0;
   color: $white;
-  font-size: 0.9em;
+  font-size: 0.8em;
   a {
     color: $white;
     &:hover {
