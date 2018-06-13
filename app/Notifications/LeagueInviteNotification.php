@@ -56,7 +56,7 @@ class LeagueInviteNotification extends Notification implements ShouldQueue
         $url = url('/leagues/join/' . $this->league->code);
         return (new MailMessage)
             ->subject('Te han invitado a una liga en Predictor')
-            ->markdown('notifications.leagues.invite', [
+            ->markdown('notifications.leagues.facebookinvite', [
                 'url'      => $url,
                 'league'   => $this->league,
                 'password' => $this->password,
