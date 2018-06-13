@@ -2,7 +2,7 @@
 {{-- Header --}}
 @slot('header')
 @component('mail::header', ['url' => config('app.url')])
-<img src="/img/vivefutbol.jpg" alt="Vive + Fútbol">
+<img src="https://futbol.vive-mas.co/img/vivefutbol.jpg" alt="Vive + Fútbol">
 @endcomponent
 @endslot
 
