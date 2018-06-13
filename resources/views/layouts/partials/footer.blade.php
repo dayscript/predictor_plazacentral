@@ -1,13 +1,13 @@
 <div class="footer">
     <div class="row">
-        <div class="medium-3 columns">
+        <div class="medium-4 columns">
             <div class="img-logo">
-                <img class="logo" src="/img/logo-predictor.png" alt="Predictor">
+                <img class="logo" src="/img/logo_plaza_central.png" alt="Plaza Central">
             </div>
         </div>
-        <div class="medium-3 columns">
+        <div class="medium-2 columns">
             <div class="img-logo">
-                <img class="logo" src="/img/univision.png" alt="Univision">
+                <img class="logo" src="/img/logo_familia_tricolor.png" alt="Familia Tricolor">
             </div>
         </div>
         <div class="medium-6 columns">
