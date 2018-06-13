@@ -47040,10 +47040,7 @@ var staticRenderFns = [
     return _c("div", { staticClass: "text-center margin-30" }, [
       _c("img", {
         staticClass: "Add",
-        attrs: {
-          src: "/img/banners/MPI_320x50_Q20089_GM_99Coverage_ST.jpg",
-          alt: ""
-        }
+        attrs: { src: "/img/banners/728x90.jpg", alt: "" }
       })
     ])
   }
