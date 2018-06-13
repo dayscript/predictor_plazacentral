@@ -33,7 +33,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           {{--googletag.cmd.push(function() { googletag.display('div-gpt-ad-1528227919403-0'); });--}}
         {{--</script>--}}
     {{--</div>--}}
-    @include('layouts.partials.language')
+{{--    @include('layouts.partials.language')--}}
     @include('layouts.partials.header')
     @yield('content')
     @include('layouts.partials.footer')
