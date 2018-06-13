@@ -1,1 +1,1 @@
-<img src="{{ asset('img/banners/MPI_320x50_Q20089_GM_99Coverage_ST.jpg') }}" alt="" class="Add">
+<img src="{{ asset('img/banners/728x90.jpg') }}" alt="" class="Add">

@@ -1,12 +1,9 @@
 <div class="header sticky" data-sticky data-margin-top="0">
     <div class="row">
-        <div class="small-5 medium-2 columns">
+        <div class="small-10 medium-3 columns">
             <img class="logo pred" src="/img/logo-predictor.png" alt="">
         </div>
-        <div class="small-5 medium-2 columns">
-            <img class="logo" src="/img/logo-metropcs.png" alt="">
-        </div>
-        <div class="medium-8 columns">
+        <div class="medium-9 columns">
             <div class="barra" data-responsive-toggle="menu-predictor" data-hide-for="medium">
                 <button class="menu-icon" type="button" data-toggle="menu-predictor"></button>
             </div>
