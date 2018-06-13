@@ -58,12 +58,17 @@ class LoginController extends Controller
      */
     public function handleProviderCallback()
     {
+        
         $user = Socialite::driver('facebook')->user();
         if ($user && $user->getEmail()) {
             if (auth()->check() && ( auth()->user()->email == $user->getEmail() )) {
                 $us = auth()->user();
             } else {
                 $us = User::where('email', $user->getEmail())->first();
+                $usuarioVive = $this->userVivemas($user->getEmail());
+                dd($usuarioVive);
+                dd($us);
+                /*
                 if ($us){
                     auth()->login($us);
                 }else {
@@ -73,11 +78,35 @@ class LoginController extends Controller
                     $us = User::create(['email' => $user->getEmail(), 'name' => $first,'last'=>$last]);
                     auth()->login($us);
                 }
+                */
             }
             return redirect()->intended($this->redirectPath());
         } else {
             return redirect('/login');
         }
-
+    }
+    public function userVivemas($email)
+    {
+        $url = env('VIVE_MAS_URL')."/login/buscarcorreoasignacion";
+        $client = new \GuzzleHttp\Client(['headers' => ['Content-Type' => 'application/json']]);
+        $response = $client->post($url, [
+            'multipart' => [
+                [
+                    'name'     => 'VIVE_MAS_USER',
+                    'contents' => env('VIVE_MAS_USER')
+                ],
+                [
+                    'name'     => 'VIVE_MAS_PASS',
+                    'contents' => env('VIVE_MAS_PASS')
+                ],
+                [
+                    'name'     => 'correo',
+                    'contents' => $email
+                ]
+            ]
+        ]);
+        $contact4 = $response->getBody()->getContents();
+        $dataResponse = json_decode($contact4);
+        return $dataResponse;
     }
 }
