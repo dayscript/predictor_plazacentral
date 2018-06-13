@@ -3,7 +3,7 @@
         <div class="small-10 medium-3 columns">
             <img class="logo pred" src="/img/logo-predictor.png" alt="">
         </div>
-        <div class="medium-7 columns">
+        <div class="medium-9 columns">
             <div class="barra" data-responsive-toggle="menu-predictor" data-hide-for="medium">
                 <button class="menu-icon" type="button" data-toggle="menu-predictor"></button>
             </div>
