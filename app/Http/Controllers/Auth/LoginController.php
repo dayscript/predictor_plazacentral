@@ -67,29 +67,37 @@ class LoginController extends Controller
                 $us = User::where('email', $user->getEmail())->first();
                 $usuarioVive = $this->userVivemas($user->getEmail());
                 if ($us){
-                    if ($usuarioVive == false) {
+                    if ($usuarioVive == false) 
+                    {
+                        dd($usuarioVive);
+                        //auth()->login($us);
                         //auth()->login($us);
                     }
                     else
                     {
                         auth()->login($us);
+                        return redirect()->intended($this->redirectPath());
                     }
                 }else {
-                    $name = $user->getName();
-                    $first = trim(substr($name,0,strpos($name,' ')));
-                    $last = trim(str_replace($first,'', $name));
-                    $us = User::create(['email' => $user->getEmail(), 'name' => $first,'last'=>$last]);
                     if ($usuarioVive == false) {
+                        //auth()->login($us);
                         dd($usuarioVive);
                         //auth()->login($us);
                     }
                     else
                     {
+                        dd($usuarioVive);
+                        /*
+                        $name = $user->getName();
+                        $first = trim(substr($name,0,strpos($name,' ')));
+                        $last = trim(str_replace($first,'', $name));
+                        $us = User::create(['email' => $user->getEmail(), 'name' => $first,'last'=>$last]);
                         auth()->login($us);
+                        */
                     }
                 }
             }
-            //return redirect()->intended($this->redirectPath());
+            //
         } else {
             return redirect('/login');
         }
