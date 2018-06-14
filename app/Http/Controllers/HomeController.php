@@ -39,7 +39,7 @@ class HomeController extends Controller
     public function index()
     {
         $matches = Match::orderBy('date')->take(5)->get();
-        $users   = User::orderByDesc('points')->take(5)->get();
+        $users   = User::orderByDesc('points')->orderby('created_at')->take(5)->get();
         return view('home', compact('matches', 'users'));
     }
 

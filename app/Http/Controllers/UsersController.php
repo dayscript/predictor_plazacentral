@@ -55,9 +55,9 @@ class UsersController extends Controller
         // TODO: Filter points by round id
         if($league){
             $lg = League::find($league);
-            $users = $lg->users()->orderByDesc('points')->get();
+            $users = $lg->users()->orderByDesc('points')->orderBy('created_at')->get();
         } else {
-            $users = User::orderByDesc('points')->get();
+            $users = User::orderByDesc('points')->orderBy('created_at')->get();
         }
         $results['pagination']['total'] = $users->count();
         $results['pagination']['page'] = $page;
@@ -119,5 +119,4 @@ class UsersController extends Controller
         return $results;
 
     }
-    
 }
