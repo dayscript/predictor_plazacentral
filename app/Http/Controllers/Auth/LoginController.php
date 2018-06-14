@@ -189,15 +189,13 @@ class LoginController extends Controller
         ]);
         $contact4 = $response->getBody()->getContents();
         $dataResponse = json_decode($contact4);
-        dd($dataResponse);
-        /*
         if ($dataResponse->estado == true) 
         {
             $us = User::where('email', request()->get('email'))->first();
             $us->identification = request()->get('identification');
             $us->save();
-            return redirect('/');
+            dd($us);
+            //return redirect('/');
         }
-        */
     }
 }
