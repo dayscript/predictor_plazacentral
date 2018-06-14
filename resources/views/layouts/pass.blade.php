@@ -22,9 +22,9 @@
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5WK2GCT"
-  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5MKGX35"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <div id="app" style="display:none;" :class="{'show':loaded}">
     <!-- /6881/rd.univision_section_deportes/futbol/mundialrusia2018/predictordemisionrusia -->
@@ -34,9 +34,9 @@
         {{--</script>--}}
     {{--</div>--}}
 {{--    @include('layouts.partials.language')--}}
-    @include('layouts.partials.header')
+{{--    @include('layouts.partials.header')--}}
     @yield('content')
-    @include('layouts.partials.footer')
+{{--    @include('layouts.partials.footer')--}}
 </div>
 <!-- Scripts -->
 <script src="{{ mix('js/messages.js') }}"></script>
