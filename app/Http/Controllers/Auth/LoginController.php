@@ -73,7 +73,7 @@ class LoginController extends Controller
                 if ($us){
                     if ($usuarioVive == false) 
                     {
-                        auth()->login($us);
+                        //auth()->login($us);
                         $users = $us;
                         return view('auth/update',compact('users'));
                     }
@@ -88,7 +88,7 @@ class LoginController extends Controller
                         $first = trim(substr($name,0,strpos($name,' ')));
                         $last = trim(str_replace($first,'', $name));
                         $us = User::create(['email' => $user->getEmail(), 'name' => $first,'last'=>$last]);
-                        auth()->login($us);
+                        //auth()->login($us);
                         $users = $us;
                         return view('auth/update',compact('users'));
                     }
