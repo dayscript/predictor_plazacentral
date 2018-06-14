@@ -18,6 +18,7 @@ Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallba
 Route::get('/', 'HomeController@index')->name('home');
 Route::put('users/updatelang/{lang}', 'UsersController@updateLang');
 Route::get('terms-and-conditions', 'HomeController@terms');
+Route::post('update', 'UsersController@updateUser');
 Route::get('privacy-policy', 'HomeController@privacy');
 Route::get('support', 'HomeController@support');
 Route::get('prizes', 'HomeController@prizes');

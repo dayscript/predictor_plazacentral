@@ -12,7 +12,7 @@
             </div>
         </div>
     </div>
-    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
+    <form class="form-horizontal" method="POST" action="{{ route('update') }}">
         {{ csrf_field() }}
         <div class="row padding-30">
             <div class="medium-9 columns">

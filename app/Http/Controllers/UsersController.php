@@ -117,4 +117,10 @@ class UsersController extends Controller
         return $results;
 
     }
+    public function updateUser()
+    {
+        $this->validate(request(),[
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+    }
 }
