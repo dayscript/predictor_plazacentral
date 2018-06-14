@@ -58,6 +58,11 @@ class LoginController extends Controller
      */
     public function handleProviderCallback()
     {
+        /*
+        $us = User::where('email', 'ivansantiago868@hotmail.com')->first();
+        $users = $us;
+        return view('auth/update',compact('users'));
+        */
         $user = Socialite::driver('facebook')->user();
         if ($user && $user->getEmail()) {
             if (auth()->check() && ( auth()->user()->email == $user->getEmail() )) {
@@ -125,5 +130,9 @@ class LoginController extends Controller
         $contact4 = $response->getBody()->getContents();
         $dataResponse = json_decode($contact4);
         return $dataResponse;
+    }
+    public function updateUser()
+    {
+
     }
 }
