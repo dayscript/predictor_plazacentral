@@ -73,11 +73,9 @@ class LoginController extends Controller
                 if ($us){
                     if ($usuarioVive == false) 
                     {
-                        //auth()->login($us);
+                        auth()->login($us);
                         $users = $us;
                         return view('auth/update',compact('users'));
-                        //auth()->login($us);
-                        //auth()->login($us);
                     }
                     else
                     {
@@ -86,20 +84,21 @@ class LoginController extends Controller
                     }
                 }else {
                     if ($usuarioVive == false) {
-                        //auth()->login($us);
-                        dd($usuarioVive);
-                        //auth()->login($us);
-                    }
-                    else
-                    {
-                        dd($usuarioVive);
-                        /*
                         $name = $user->getName();
                         $first = trim(substr($name,0,strpos($name,' ')));
                         $last = trim(str_replace($first,'', $name));
                         $us = User::create(['email' => $user->getEmail(), 'name' => $first,'last'=>$last]);
                         auth()->login($us);
-                        */
+                        $users = $us;
+                        return view('auth/update',compact('users'));
+                    }
+                    else
+                    {
+                        $name = $user->getName();
+                        $first = trim(substr($name,0,strpos($name,' ')));
+                        $last = trim(str_replace($first,'', $name));
+                        $us = User::create(['email' => $user->getEmail(), 'name' => $first,'last'=>$last]);
+                        auth()->login($us);
                     }
                 }
             }
@@ -133,6 +132,70 @@ class LoginController extends Controller
     }
     public function updateUser()
     {
+        $this->validate(request(),[
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+        $usuarios = array(
+            'password' => request()->get('password'),
+            'identification_type' => request()->get('identification_type'),
+            'identification' => request()->get('identification'),
+            'name' => request()->get('name'),
+            'last' => request()->get('last'),
+            'email' => request()->get('email'),
+            'phone' => request()->get('phone')
 
+        );
+        $url = env('VIVE_MAS_URL')."/login/CreateCorreoAsignacion";
+        $client = new \GuzzleHttp\Client(['headers' => ['Content-Type' => 'application/json']]);
+        $response = $client->post($url, [
+            'multipart' => [
+                [
+                    'name'     => 'VIVE_MAS_USER',
+                    'contents' => env('VIVE_MAS_USER')
+                ],
+                [
+                    'name'     => 'VIVE_MAS_PASS',
+                    'contents' => env('VIVE_MAS_PASS')
+                ],
+                [
+                    'name' => 'password',
+                    'contents' => request()->get('password')
+                ],
+                [
+                    'name'     => 'identification_type',
+                    'contents' => request()->get('identification_type')
+                ],
+                [
+                    'name'     => 'identification',
+                    'contents' => request()->get('identification')
+                ],
+                [
+                    'name'     => 'name',
+                    'contents' => request()->get('name')
+                ],
+                [
+                    'name'     => 'last',
+                    'contents' => request()->get('last')
+                ],
+                [
+                    'name'     => 'email',
+                    'contents' => request()->get('email')
+                ],
+                [
+                    'name'     => 'phone',
+                    'contents' => request()->get('phone')
+                ]
+            ]
+        ]);
+        $contact4 = $response->getBody()->getContents();
+        $dataResponse = json_decode($contact4);
+        
+        if ($dataResponse->estado == true) 
+        {
+            $us = User::where('email', request()->get('email'))->first();
+            $us->identification = request()->get('identification');
+            $us->save();
+            return redirect('/');
+        }
     }
 }
