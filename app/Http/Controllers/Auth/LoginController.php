@@ -194,6 +194,7 @@ class LoginController extends Controller
             $us = User::where('email', request()->get('email'))->first();
             $us->identification = request()->get('identification');
             $us->save();
+            auth()->login($us);
             dd($us);
             //return redirect('/');
         }
