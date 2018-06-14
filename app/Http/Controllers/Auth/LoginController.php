@@ -58,7 +58,7 @@ class LoginController extends Controller
      */
     public function handleProviderCallback()
     {
-        /*
+        /*        
         $us = User::where('email', 'ivansantiago868@hotmail.com')->first();
         $users = $us;
         return view('auth/update',compact('users'));
@@ -105,6 +105,7 @@ class LoginController extends Controller
         } else {
             return redirect('/login');
         }
+
     }
     public function userVivemas($email)
     {
@@ -196,8 +197,7 @@ class LoginController extends Controller
             $us->phone = request()->get('phone');
             $us->save();
             auth()->login($us);
-            dd($us);
-            //return redirect('/');
+            return redirect('/');
         }
     }
 }
