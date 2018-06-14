@@ -1,6 +1,3 @@
-@extends('layouts.app')
-
-
 @extends('layouts.pass')
 @section('title')
     {{ __('users.register') }} @parent
