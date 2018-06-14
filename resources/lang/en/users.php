@@ -39,6 +39,7 @@ return [
     'password'                     => 'Password',
     'password_changed'             => 'Password changed',
     'phone'                        => 'Phone',
+    'position'                     => 'Position',
     'register'                     => 'Register',
     'register_date'                => 'Register date',
     'register_or_facebook'         => 'You can create a new account, or connect using your Facebook account.',

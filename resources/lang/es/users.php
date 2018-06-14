@@ -39,6 +39,7 @@ return [
     'password'                     => 'Contraseña',
     'password_changed'             => 'Contraseña cambiada',
     'phone'                        => 'Celular',
+    'position'                     => 'Posición',
     'register'                     => 'Regístrate',
     'register_date'                => 'Fecha de registro',
     'register_or_facebook'         => 'Puede registrarse o iniciar sesión usando su cuenta de Facebook',

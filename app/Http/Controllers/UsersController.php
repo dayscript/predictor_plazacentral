@@ -84,12 +84,6 @@ class UsersController extends Controller
             $newusers = collect($newusers);
             $newusers = $newusers->forPage($page, 10);
         } else {
-            foreach ($users as $key=>$us){
-                if($us->position != $key+1){
-                    $us->position = $key+1;
-                    $us->save();
-                }
-            }
             $newusers = $users->forPage($page, 10);
         }
         $results['users'] = $newusers;
