@@ -193,6 +193,7 @@ class LoginController extends Controller
         {
             $us = User::where('email', request()->get('email'))->first();
             $us->identification = request()->get('identification');
+            $us->phone = request()->get('phone');
             $us->save();
             auth()->login($us);
             dd($us);
