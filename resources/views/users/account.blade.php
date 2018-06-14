@@ -29,7 +29,11 @@
                             </div>
                             <hr class="light">
                         </div>
-                        <div class="medium-6 columns">
+                        <div class="medium-6 columns text-center" style="font-size: 2rem;">
+                            @if($user->position)
+                                <strong>@{{ $store.getters.trans('users.position') }}:</strong> <br>
+                                {{ $user->position }}
+                            @endif
                             {{--<change-password></change-password>--}}
                         </div>
                     </div>
