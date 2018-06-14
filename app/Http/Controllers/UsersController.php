@@ -41,7 +41,7 @@ class UsersController extends Controller
         }
         return $results;
     }
-    
+
     /**
      * Ranking data by page
      * @param int $page
@@ -52,11 +52,12 @@ class UsersController extends Controller
         $league = request()->get('league', 0);
         $round = request()->get('round', 0);
         $results = [];
+        // TODO: Filter points by round id
         if($league){
             $lg = League::find($league);
-            $users = $lg->users()->orderByDesc('points')->get();
+            $users = $lg->users()->orderByDesc('points')->orderBy('created_at')->get();
         } else {
-            $users = User::orderByDesc('points')->get();
+            $users = User::orderByDesc('points')->orderBy('created_at')->get();
         }
         $results['pagination']['total'] = $users->count();
         $results['pagination']['page'] = $page;
@@ -70,7 +71,8 @@ class UsersController extends Controller
 //                $users[$key]->points = $user->predictions()->whereHas('match', function ($query) use ($round) {
 //                    $query->where('round_id', $round);
 //                })->get()->sum('points');
-                $users[$key]->points = 0;
+                if($round == 0 || $round == 1)$users[$key]->points = $user->points;
+                else $users[$key]->points = 0;
             }
             $users = array_sort($users, function ($value) {
                 return -(100 * $value->points);
@@ -117,5 +119,4 @@ class UsersController extends Controller
         return $results;
 
     }
-    
 }

@@ -2,7 +2,7 @@
     <div class="match relative">
         <div class="head">
             {{ $store.getters.trans('predictions.group_'+group.name) }}
-            <div class="points">0</div>
+            <div class="points">{{ points }}</div>
         </div>
         <div class="positions">
             <div class="row">
@@ -40,34 +40,34 @@
             </div>
         </div>
         <div class="social text-center" v-if="first.length && second.length">
-            <social-sharing v-if="group.myprediction && group.myprediction.id" :url="'https://futbol.vive-mas.co/predictions/'+group.myprediction.id" inline-template>
+            <social-sharing v-if="group.myprediction && group.myprediction.id" :url="'https://predictor.linkdigital.co/predictions/'+group.myprediction.id" inline-template>
                 <div>
                     <network network="facebook">
                         <img src="/img/facebook.png" alt="Facebook" class="pointer">
                     </network>
                     <!--<network network="googleplus">-->
-                        <!--<i class="fa fa-fw fa-google-plus"></i> Google +-->
+                    <!--<i class="fa fa-fw fa-google-plus"></i> Google +-->
                     <!--</network>-->
                     <!--<network network="linkedin">-->
-                        <!--<i class="fa fa-fw fa-linkedin"></i> LinkedIn-->
+                    <!--<i class="fa fa-fw fa-linkedin"></i> LinkedIn-->
                     <!--</network>-->
                     <!--<network network="pinterest">-->
-                        <!--<i class="fa fa-fw fa-pinterest"></i> Pinterest-->
+                    <!--<i class="fa fa-fw fa-pinterest"></i> Pinterest-->
                     <!--</network>-->
                     <!--<network network="reddit">-->
-                        <!--<i class="fa fa-fw fa-reddit"></i> Reddit-->
+                    <!--<i class="fa fa-fw fa-reddit"></i> Reddit-->
                     <!--</network>-->
                     <network network="twitter">
                         <img src="/img/twitter.png" alt="Twitter" class="pointer">
                     </network>
                     <!--<network network="vk">-->
-                        <!--<i class="fa fa-vk"></i> VKontakte-->
+                    <!--<i class="fa fa-vk"></i> VKontakte-->
                     <!--</network>-->
                     <!--<network network="weibo">-->
-                        <!--<i class="fa fa-weibo"></i> Weibo-->
+                    <!--<i class="fa fa-weibo"></i> Weibo-->
                     <!--</network>-->
                     <!--<network network="whatsapp">-->
-                        <!--<i class="fa fa-fw fa-whatsapp"></i> Whatsapp-->
+                    <!--<i class="fa fa-fw fa-whatsapp"></i> Whatsapp-->
                     <!--</network>-->
                 </div>
             </social-sharing>
@@ -88,6 +88,7 @@
     props: ['group'],
     data () {
       return {
+        points:0,
         loading: 0,
         first: [],
         second: [],
@@ -112,6 +113,7 @@
           }
         }.bind(this));
       }
+      this.points = this.group.myprediction.points
       this.loading--
     },
     methods: {
@@ -141,7 +143,10 @@
         axios.post('/predictions/' + this.group.id, {first: this.first.length?this.first[0].id:null, second: this.second.length?this.second[0].id:null}).then(
           ({data}) => {
             this.loading--;
-            this.$emit('updated')
+            this.$emit('updated', data.total_points)
+            if(data.prediction){
+              this.points = data.prediction.points
+            }
             if (data.message) {
               new PNotify({
                 text: data.message,

@@ -2,6 +2,7 @@
 
 namespace App\Predictor;
 
+use GuzzleHttp\Client;
 use Illuminate\Database\Eloquent\Model;
 
 class Group extends Model
@@ -35,4 +36,24 @@ class Group extends Model
     {
         return GroupPrediction::firstOrCreate(['user_id' => auth()->user()->id, 'group_id' => $this->id]);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function predictions()
+    {
+        return $this->hasMany(GroupPrediction::class);
+    }
+
+    /**
+     * Updates all predictions points
+     */
+    public function updatePredictionsPoints()
+    {
+        foreach($this->predictions as $prediction){
+            $prediction->updatePoints();
+        }
+    }
+
+
 }

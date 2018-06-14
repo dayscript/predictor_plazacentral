@@ -43,3 +43,5 @@ Route::post('rankingdata/{page}','UsersController@ranking');
 Route::post('users/updatepassword','UsersController@updatePassword');
 Route::get('matches/{match}','MatchesController@show');
 Route::post('contact','HomeController@contact');
+Route::get('groups/update-positions','MatchesController@updateGroupPositions');
+Route::get('groups/update-points','PredictionsController@updateGroupPoints');
