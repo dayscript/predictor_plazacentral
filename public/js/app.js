@@ -47628,12 +47628,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "medium-3 columns text-center banner" }, [
-      _c("img", {
-        attrs: {
-          src: "/img/banners/MPI_300x600_Q20089_GM_99Coverage_ST_F.jpg",
-          alt: "Add"
-        }
-      })
+      _c("img", { attrs: { src: "/img/banners/300x600.jpg", alt: "Add" } })
     ])
   }
 ]
