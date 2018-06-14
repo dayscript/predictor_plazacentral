@@ -145,7 +145,7 @@ class HomeController extends Controller
             'message'=>'required|min:5',
         ]);
         $data = request()->all();
-        Mail::to(['oscar.rodriguez@thefmg.com','ivan@kinja.com','fosorio@univision.net','jcardenas@dayscript.com'])->send(new ContactMail($data));
+        Mail::to(['jcardenas@dayscript.com'])->send(new ContactMail($data));
         $results = [];
         $results['status'] = 'success';
         $results['message'] = __('contact.information_sent');
