@@ -189,7 +189,8 @@ class LoginController extends Controller
         ]);
         $contact4 = $response->getBody()->getContents();
         $dataResponse = json_decode($contact4);
-        
+        dd($dataResponse);
+        /*
         if ($dataResponse->estado == true) 
         {
             $us = User::where('email', request()->get('email'))->first();
@@ -197,5 +198,6 @@ class LoginController extends Controller
             $us->save();
             return redirect('/');
         }
+        */
     }
 }
