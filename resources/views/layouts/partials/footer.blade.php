@@ -7,7 +7,7 @@
         </div>
         <div class="medium-2 columns">
             <div class="img-logo">
-                <img class="logo" src="/img/loteria-bogota.jpg" alt="Loteria de Bogotá">
+                <img class="logo" src="/img/loteria-bogota.png" alt="Loteria de Bogotá">
             </div>
         </div>
         <div class="medium-7 columns">
