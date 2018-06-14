@@ -68,7 +68,7 @@ class LoginController extends Controller
                 if ($us){
                     if ($usuarioVive == false) 
                     {
-                        auth()->login($us);
+                        //auth()->login($us);
                         $users = $us;
                         return view('auth/update',compact('users'));
                         //auth()->login($us);
