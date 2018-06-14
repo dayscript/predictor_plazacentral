@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.pass')
 @section('title')
     {{ __('users.register') }} @parent
 @endsection
@@ -16,8 +16,6 @@
         {{ csrf_field() }}
         <div class="row padding-30">
             <div class="medium-9 columns">
-
-                <hr>
                 <div class="row">
                     <div class="medium-6 columns">
                         <label>@{{ $store.getters.trans('users.identification_type') }}
@@ -35,7 +33,7 @@
                     <div class="medium-6 columns">
                         <label>
                             @{{ $store.getters.trans('users.identification') }}
-                            <input type="text" name="identification" class="{{ $errors->has('identification') ? ' is-invalid-input' : '' }}" value="{{ old('identification') }}" required autofocus>
+                            <input type="text" name="identification" class="{{ $errors->has('identification') ? ' is-invalid-input' : '' }}" value="{{ $users->identification }}" required autofocus>
                             @if ($errors->has('identification'))
                                 <span class="form-error is-visible">{{ $errors->first('identification') }}</span>
                             @endif
@@ -46,7 +44,7 @@
                     <div class="medium-6 columns">
                         <label>
                             @{{ $store.getters.trans('users.names') }}
-                            <input type="text" name="name" class="{{ $errors->has('name') ? ' is-invalid-input' : '' }}" value="{{ old('name') }}" required autofocus>
+                            <input type="text" name="name" class="{{ $errors->has('name') ? ' is-invalid-input' : '' }}" value="{{ $users->name }}" required autofocus>
                             @if ($errors->has('name'))
                                 <span class="form-error is-visible">{{ $errors->first('name') }}</span>
                             @endif
@@ -55,7 +53,7 @@
                     <div class="medium-6 columns">
                         <label>
                             @{{ $store.getters.trans('users.last_names') }}
-                            <input type="text" name="last" class="{{ $errors->has('last') ? ' is-invalid-input' : '' }}" value="{{ old('last') }}">
+                            <input type="text" name="last" class="{{ $errors->has('last') ? ' is-invalid-input' : '' }}" value="{{ $users->last }}">
                             @if ($errors->has('last'))
                                 <span class="form-error is-visible">{{ $errors->first('last') }}</span>
                             @endif
@@ -66,7 +64,7 @@
                     <div class="medium-6 columns">
                         <label>
                             @{{ $store.getters.trans('users.email') }}
-                            <input type="email" name="email" class="{{ $errors->has('email') ? ' is-invalid-input' : '' }}" value="{{ old('email') }}" required>
+                            <input type="email" name="email" class="{{ $errors->has('email') ? ' is-invalid-input' : '' }}" value="{{ $users->email }}" required>
                             @if ($errors->has('email'))
                                 <span class="form-error is-visible">{{ $errors->first('email') }}</span>
                             @endif
@@ -75,7 +73,7 @@
                     <div class="medium-6 columns">
                         <label>
                             @{{ $store.getters.trans('users.phone') }}
-                            <input type="text" name="phone" class="{{ $errors->has('phone') ? ' is-invalid-input' : '' }}" value="{{ old('phone') }}">
+                            <input type="text" name="phone" class="{{ $errors->has('phone') ? ' is-invalid-input' : '' }}" value="{{ $users->phone }}">
                             @if ($errors->has('phone'))
                                 <span class="form-error is-visible">{{ $errors->first('phone') }}</span>
                             @endif

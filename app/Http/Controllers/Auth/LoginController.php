@@ -58,7 +58,6 @@ class LoginController extends Controller
      */
     public function handleProviderCallback()
     {
-        
         $user = Socialite::driver('facebook')->user();
         if ($user && $user->getEmail()) {
             if (auth()->check() && ( auth()->user()->email == $user->getEmail() )) {
@@ -70,7 +69,8 @@ class LoginController extends Controller
                     if ($usuarioVive == false) 
                     {
                         auth()->login($us);
-                        return view('auth/update',compact('usuarioVive','us'));
+                        $users = $us;
+                        return view('auth/update',compact('users'));
                         //auth()->login($us);
                         //auth()->login($us);
                     }
@@ -98,7 +98,6 @@ class LoginController extends Controller
                     }
                 }
             }
-            //
         } else {
             return redirect('/login');
         }
