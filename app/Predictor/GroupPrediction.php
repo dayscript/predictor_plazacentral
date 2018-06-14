@@ -30,4 +30,21 @@ class GroupPrediction extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * Update points
+     */
+    public function updatePoints()
+    {
+        $group = $this->group;
+        $new_points = 0;
+        if($this->first_team_id && $group->first_team_id && ($group->first_team_id == $this->first_team_id)) $new_points += 3;
+        if($this->second_team_id && $group->second_team_id && ($group->second_team_id == $this->second_team_id)) $new_points += 3;
+        if($new_points != $this->points){
+            $this->user->points += ($new_points-$this->points);
+            $this->user->save();
+            $this->points = $new_points;
+            $this->save();
+        }
+    }
 }

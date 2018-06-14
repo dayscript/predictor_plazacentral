@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Foundation\Inspiring;
+use GuzzleHttp\Client;
+use App\Predictor\Group;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,3 +46,33 @@ Artisan::command('matches:create', function () {
 //        $match->save();
     }
 })->describe('Creates tournament matches');
+
+Artisan::command('groups:update-positions', function () {
+    $client       = new Client();
+    $url          = 'https://winsports.dayscript.com/phases/237/generate-stats';
+    $res          = $client->get($url);
+    $content      = $res->getBody();
+    $json_content = json_decode($content);
+    foreach ($json_content->groups as $key => $positions) {
+        $group = Group::firstOrCreate(['name' => $key]);
+        $this->info('Group ' .$group->name);
+        $changed = false;
+        if (isset($positions[0]) && $json_content->teams->{$positions[0]}->pj) {
+            if($group->first_team_id != $positions[0]){
+                $group->first_team_id = $positions[0];
+                $changed = true;
+            }
+            if (isset($positions[1]) ) {
+                if($group->second_team_id != $positions[1]){
+                    $group->second_team_id = $positions[1];
+                    $changed = true;
+                }
+            }
+        }
+        if(true) {
+            $this->line('Changed');
+            $group->save();
+            $group->updatePredictionsPoints();
+        }
+    }
+})->describe('Updates group positions');

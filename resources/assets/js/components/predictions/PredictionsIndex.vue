@@ -1,5 +1,5 @@
 <template>
-    <div class="page">
+    <div>
         <div class="section">
             <div class="row">
                 <div class="medium-8 columns text-left">
@@ -23,7 +23,7 @@
                     <div class="acumulado">
                         <div class="row">
                             <div class="small-3 columns">
-                                <div class="puntos">0</div>
+                                <div class="puntos">{{ points }}</div>
                             </div>
                             <div class="small-9 columns">
                                 <strong>{{ $store.getters.trans('predictions.total_points') }}:</strong>{{ $store.getters.trans('predictions.win_in_these_phase') }}
@@ -51,7 +51,7 @@
                         <div class="tabs-panel is-active" id="panel1c">
                             <div class="row">
                                 <div class="medium-3 columns collapse" v-for="group in groups">
-                                    <group-prediction :group="group" @updated="updated=true"></group-prediction>
+                                    <group-prediction :group="group" @updated="onUpdated"></group-prediction>
                                 </div>
                             </div>
                         </div>
@@ -119,23 +119,27 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center margin-30">
-                <img src="/img/banners/728x90.jpg" alt="" class="Add">
-            </div>
         </div>
     </div>
 </template>
 
 <script>
   export default {
-    props: ['groups'],
+    props: ['groups', 'total'],
     data () {
       return {
+        points: 0,
         updated: false
       }
     },
     mounted () {
-      console.log('Component mounted.')
+      this.points = this.total
+    },
+    methods: {
+      onUpdated(points) {
+        this.points = points
+        this.updated = true
+      }
     }
   }
 </script>

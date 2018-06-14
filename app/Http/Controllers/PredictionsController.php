@@ -17,7 +17,7 @@ class PredictionsController extends Controller
     {
         $this->middleware('locale');
     }
-    
+
     /**
      * @param GroupPrediction $prediction
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -48,11 +48,14 @@ class PredictionsController extends Controller
         if ($first = request()->get('first')) $prediction->first_team_id = $first;
         if ($second = request()->get('second')) $prediction->second_team_id = $second;
         $prediction->save();
-        $results['first']      = $first;
-        $results['prediction'] = $prediction;
-        $results['group']      = $group;
-        $results['message']    = __('predictions.predictions_updated');
-        $results['status']     = 'success';
+        $prediction->updatePoints();
+        $points                  = $prediction->user->points;
+        $results['first']        = $first;
+        $results['prediction']   = $prediction;
+        $results['total_points'] = $points;
+        $results['group']        = $group;
+        $results['message']      = __('predictions.predictions_updated');
+        $results['status']       = 'success';
         return $results;
     }
 
@@ -73,5 +76,16 @@ class PredictionsController extends Controller
         $results['message']    = __('predictions.predictions_updated');
         $results['status']     = 'success';
         return $results;
+    }
+
+    /**
+     * Updates points in predictions
+     */
+    public function updateGroupPoints()
+    {
+        $predictions = GroupPrediction::all();
+        foreach ($predictions as $prediction) {
+            $prediction->updatePoints();
+        }
     }
 }

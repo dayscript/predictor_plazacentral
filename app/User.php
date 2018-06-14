@@ -103,4 +103,18 @@ class User extends Authenticatable
         return $this->hasMany(GroupPrediction::class);
     }
 
+    /**
+     * Update user points
+     */
+    public function updatePoints()
+    {
+        $points = 0;
+        foreach ($this->predictions as $prediction){
+            $points += $prediction->points;
+        }
+        $this->points = $points;
+        $this->save();
+        return $this->points;
+    }
+
 }
