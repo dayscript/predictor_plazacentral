@@ -13,6 +13,19 @@
                 </div>
 
                 <figure class="orbit-figure">
+                    <img class="orbit-image" :src="'/img/slide/' + $store.state.lang + '/premios.png'" alt="Predictor">
+                </figure>
+            </li>
+            <li class="orbit-slide">
+                <div class="row">
+                    <div class="medium-6 columns">
+                        <div class="container-slide">
+
+                        </div>
+                    </div>
+                </div>
+
+                <figure class="orbit-figure">
                     <img class="orbit-image" :src="'/img/slide/' + $store.state.lang + '/1.jpg'" alt="Predictor">
                 </figure>
             </li>
@@ -21,7 +34,6 @@
     <nav class="orbit-bullets">
         <button class="is-active" data-slide="0"><span class="show-for-sr">First slide details.</span><span
                     class="show-for-sr">Current Slide</span></button>
-        <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
         <button data-slide="1"><span class="show-for-sr">Second slide details.</span></button>
     </nav>
 </div>
