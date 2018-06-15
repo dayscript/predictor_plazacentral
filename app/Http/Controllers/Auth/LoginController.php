@@ -58,7 +58,7 @@ class LoginController extends Controller
      */
     public function handleProviderCallback()
     {
-        /*        
+        /*
         $us = User::where('email', 'ivansantiago868@hotmail.com')->first();
         $users = $us;
         return view('auth/update',compact('users'));
@@ -69,9 +69,9 @@ class LoginController extends Controller
                 $us = auth()->user();
             } else {
                 $us = User::where('email', $user->getEmail())->first();
-                $usuarioVive = $this->userVivemas($user->getEmail());
+                $usuarioVive = TRUE;//$this->userVivemas($user->getEmail());
                 if ($us){
-                    if ($usuarioVive == false) 
+                    if ($usuarioVive == false)
                     {
                         //auth()->login($us);
                         $users = $us;
@@ -190,7 +190,7 @@ class LoginController extends Controller
         ]);
         $contact4 = $response->getBody()->getContents();
         $dataResponse = json_decode($contact4);
-        if ($dataResponse->estado == true) 
+        if ($dataResponse->estado == true)
         {
             $us = User::where('email', request()->get('email'))->first();
             $us->identification = request()->get('identification');
