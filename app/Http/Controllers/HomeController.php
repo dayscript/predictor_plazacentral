@@ -8,6 +8,7 @@ use App\Predictor\Match;
 use App\Predictor\Round;
 use App\Predictor\Team;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
