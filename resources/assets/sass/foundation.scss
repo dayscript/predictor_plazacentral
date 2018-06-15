@@ -5,3 +5,7 @@
 // if you won't be using old float grid, comment this out
 // and design your own auth pages
 //@include foundation-grid;
+
+@import 'node_modules/motion-ui/src/motion-ui';
+@include motion-ui-transitions;
+@include motion-ui-animations;
