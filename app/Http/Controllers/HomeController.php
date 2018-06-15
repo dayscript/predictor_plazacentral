@@ -8,6 +8,7 @@ use App\Predictor\Match;
 use App\Predictor\Round;
 use App\Predictor\Team;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 
 class HomeController extends Controller
@@ -38,7 +39,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $matches = Match::orderBy('date')->take(5)->get();
+        $matches = Match::where('date','>=',Carbon::now())->orderBy('date')->take(5)->get();
         $users   = User::orderByDesc('points')->orderby('created_at')->take(5)->get();
         return view('home', compact('matches', 'users'));
     }
