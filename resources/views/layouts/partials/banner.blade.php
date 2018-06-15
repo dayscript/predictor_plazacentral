@@ -13,6 +13,19 @@
                 </div>
 
                 <figure class="orbit-figure">
+                    <img class="orbit-image" :src="'/img/slide/' + $store.state.lang + '/premios.png'" alt="Predictor">
+                </figure>
+            </li>
+            <li class="is-active orbit-slide">
+                <div class="row">
+                    <div class="medium-6 columns">
+                        <div class="container-slide">
+
+                        </div>
+                    </div>
+                </div>
+
+                <figure class="orbit-figure">
                     <img class="orbit-image" :src="'/img/slide/' + $store.state.lang + '/1.jpg'" alt="Predictor">
                 </figure>
             </li>
