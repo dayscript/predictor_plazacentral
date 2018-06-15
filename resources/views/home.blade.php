@@ -48,7 +48,7 @@
                         </div>
                     </div>
                     @endforeach
-                    <a href="#" class="button expanded">@{{ $store.getters.trans('game.see_all') }}</a>
+                    <a href="/ranking" class="button expanded">@{{ $store.getters.trans('game.see_all') }}</a>
                 </div>
             </div>
         </div>
