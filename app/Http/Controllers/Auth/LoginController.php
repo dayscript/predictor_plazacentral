@@ -69,7 +69,7 @@ class LoginController extends Controller
                 $us = auth()->user();
             } else {
                 $us = User::where('email', $user->getEmail())->first();
-                $usuarioVive = TRUE;//$this->userVivemas($user->getEmail());
+                $usuarioVive = $this->userVivemas($user->getEmail());
                 if ($us){
                     if ($usuarioVive == false)
                     {
