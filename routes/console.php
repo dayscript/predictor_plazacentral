@@ -79,6 +79,10 @@ Artisan::command('groups:update-positions', function () {
 })->describe('Updates group positions');
 
 Artisan::command('users:update-positions', function () {
+    $users = User::all();
+    foreach ($users as $user){
+        $user->updatePoints();
+    }
     $users = User::orderByDesc('points')->orderBy('created_at')->get();
     foreach ($users as $key=>$us){
         if($us->position != $key+1){
