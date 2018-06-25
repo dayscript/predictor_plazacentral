@@ -4,6 +4,7 @@ namespace App;
 
 use App\Predictor\GroupPrediction;
 use App\Predictor\League;
+use App\Predictor\MatchPrediction;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -102,6 +103,14 @@ class User extends Authenticatable
     {
         return $this->hasMany(GroupPrediction::class);
     }
+    /**
+     * User group predictions
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function matchpredictions()
+    {
+        return $this->hasMany(MatchPrediction::class);
+    }
 
     /**
      * Update user points
@@ -110,6 +119,9 @@ class User extends Authenticatable
     {
         $points = 0;
         foreach ($this->predictions as $prediction){
+            $points += $prediction->points;
+        }
+        foreach ($this->matchpredictions as $prediction){
             $points += $prediction->points;
         }
         $this->points = $points;
