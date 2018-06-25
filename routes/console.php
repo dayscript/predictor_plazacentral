@@ -49,7 +49,7 @@ Artisan::command('matches:create', function () {
     }
 })->describe('Creates tournament matches');
 Artisan::command('matches:update', function () {
-    $matches = Match::where('date', 'like', \Carbon\Carbon::now()->toDateString() . '%')->get();
+    $matches = Match::where('date', '>=', \Carbon\Carbon::now()->toDateString() . '%')->get();
     foreach ($matches as $match){
         $this->info('Updating match '.$match->id . ': ' . $match->date);
         $match->updateOptaData();
