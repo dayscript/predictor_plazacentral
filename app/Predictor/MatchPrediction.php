@@ -29,4 +29,25 @@ class MatchPrediction extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * Update points
+     */
+    public function updatePoints()
+    {
+        $match = $this->match;
+        $new_points = 0;
+        if(!in_array($match->status,['pending','PreMatch']) && $this->local_score !== null && $this->visit_score !== null){
+            if(($this->local_score == $match->local_score) && ($this->visit_score == $match->visit_score)) $new_points += 1;
+            if( ($this->local_score == $this->visit_score) && ($match->local_score == $match->visit_score) ) $new_points += 2;
+            elseif( ($this->local_score > $this->visit_score) && ($match->local_score > $match->visit_score) ) $new_points += 2;
+            elseif( ($this->local_score < $this->visit_score) && ($match->local_score < $match->visit_score) ) $new_points += 2;
+        }
+        if($new_points != $this->points){
+            $this->user->points += ($new_points-$this->points);
+            $this->user->save();
+            $this->points = $new_points;
+            $this->save();
+        }
+    }
 }

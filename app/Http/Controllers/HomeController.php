@@ -108,6 +108,12 @@ class HomeController extends Controller
      */
     public function predictions()
     {
+        $match =  Match::find(958026);
+        if($match->carbon_date->subMinutes(15) > Carbon::now()){
+            $active = 'groups';
+        } else {
+            $active = '16';
+        }
         $letters = [];
         $letters['A'] = [536,1264,1225,837];
         $letters['B'] = [359,118,1057,1042];
@@ -131,7 +137,7 @@ class HomeController extends Controller
         $match = Match::find(958026);
         $groups = Group::orderBy('name')->get();
         $groups->each->append('myprediction');
-        return view('pages.predictions',compact('groups','match'));
+        return view('pages.predictions',compact('groups','match', 'active'));
     }
 
     /**

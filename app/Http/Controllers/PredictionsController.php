@@ -6,6 +6,7 @@ use App\Predictor\Group;
 use App\Predictor\GroupPrediction;
 use App\Predictor\Match;
 use App\Predictor\MatchPrediction;
+use Carbon\Carbon;
 
 class PredictionsController extends Controller
 {
@@ -44,6 +45,12 @@ class PredictionsController extends Controller
     public function addGroupPrediction(Group $group)
     {
         $results    = [];
+        $match =  Match::find(958026);
+        if($match->carbon_date->subMinutes(15) <= Carbon::now()){
+            $results['message'] = 'Error';
+            $results['status'] = 'error';
+            return $results;
+        }
         $prediction = GroupPrediction::firstOrCreate(['user_id' => auth()->user()->id, 'group_id' => $group->id]);
         if ($first = request()->get('first')) $prediction->first_team_id = $first;
         if ($second = request()->get('second')) $prediction->second_team_id = $second;

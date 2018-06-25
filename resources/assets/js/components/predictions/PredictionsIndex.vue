@@ -51,7 +51,7 @@
                         <div class="tabs-panel is-active" id="panel1c">
                             <div class="row">
                                 <div class="medium-3 columns collapse" v-for="group in groups">
-                                    <group-prediction :group="group" @updated="onUpdated"></group-prediction>
+                                    <group-prediction :group="group" :active="active=='groups'" @updated="onUpdated"></group-prediction>
                                 </div>
                             </div>
                         </div>
@@ -125,7 +125,7 @@
 
 <script>
   export default {
-    props: ['groups', 'total'],
+    props: ['groups', 'total','active'],
     data () {
       return {
         points: 0,
