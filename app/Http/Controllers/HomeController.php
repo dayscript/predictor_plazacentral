@@ -112,7 +112,7 @@ class HomeController extends Controller
         if($match->carbon_date->subMinutes(15) > Carbon::now()){
             $active = 'groups';
         } else {
-            $active = '16';
+            $active = 'direct';
         }
         $letters = [];
         $letters['A'] = [536,1264,1225,837];

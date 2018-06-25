@@ -2,7 +2,7 @@
     <div class="match relative" v-if="match">
         <div class="head">
             {{ match.date }}
-            <div class="points">0</div>
+            <div class="points">{{ points }}</div>
         </div>
         <div class="versus">
             <div class="row">
@@ -14,7 +14,8 @@
                     <div class="team" style="line-height: 14px;">{{ $store.getters.trans('teams.'+match.local_id.short) }}</div>
                 </div>
                 <div class="small-3 columns text-center">
-                    <input type="text" placeholder="0" v-model="local_score" @input="updateContent" disabled>
+                    <input type="text" placeholder="0" v-model="local_score" @input="updateContent" v-if="match && match.active">
+                    <input type="text" placeholder="0" v-model="local_score"  v-else disabled>
                 </div>
             </div>
             <div class="row">
@@ -26,7 +27,8 @@
                     <div class="team" style="line-height: 14px;">{{ $store.getters.trans('teams.'+match.visit_id.short) }}</div>
                 </div>
                 <div class="small-3 columns text-center">
-                    <input type="text" placeholder="0" v-model="visit_score" @input="updateContent" disabled>
+                    <input type="text" placeholder="0" v-model="visit_score" @input="updateContent" v-if="match && match.active">
+                    <input type="text" placeholder="0" v-model="visit_score" v-else disabled>
                 </div>
             </div>
         </div>
@@ -62,6 +64,7 @@
         local_score: null,
         visit_score: null,
         match: null,
+        points: 0
       }
     },
     methods: {
@@ -74,6 +77,7 @@
             if(this.match.myprediction){
               this.local_score = this.match.myprediction.local_score
               this.visit_score = this.match.myprediction.visit_score
+              this.points = this.match.myprediction.points
             }
           }
         ).catch(function (error) {

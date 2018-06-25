@@ -20,7 +20,7 @@ class Match extends Model
      *
      * @var array
      */
-    protected $dates = ['created_at','updated_at'];
+    protected $dates = ['created_at', 'updated_at'];
 
     /**
      * Formats date value
@@ -32,6 +32,7 @@ class Match extends Model
         setlocale(LC_ALL, 'es_ES');
         return Carbon::parse($date)->formatLocalized('%b %e - %H:%M');
     }
+
     /**
      * Formats date value
      * @param $date
@@ -41,6 +42,7 @@ class Match extends Model
     {
         return Carbon::parse($this->attributes['date']);
     }
+
     /**
      * Local team relationship
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -67,6 +69,7 @@ class Match extends Model
     {
         return $this->belongsTo(Group::class);
     }
+
     /**
      * Updates from opta services
      */
@@ -97,7 +100,7 @@ class Match extends Model
             }
             $team->save();
         }
-        $team = Team::firstOrCreate(['id' => $json_content->away->id]);
+        $team       = Team::firstOrCreate(['id' => $json_content->away->id]);
         $team->name = $json_content->away->name;
         $team->fixName();
         $this->visitId()->associate($team);
@@ -124,13 +127,14 @@ class Match extends Model
      */
     public function updateGroup()
     {
-        if($local = $this->localId){
-            if($group = $local->groups()->first()){
+        if ($local = $this->localId) {
+            if ($group = $local->groups()->first()) {
                 $this->group()->associate($group);
                 $this->save();
             }
         }
     }
+
     /**
      * Loads predictions
      * @return array
@@ -146,11 +150,12 @@ class Match extends Model
     public function getVersusAttribute()
     {
         $text = '';
-        $text .= __('teams.'.str_slug($this->localId->short));
+        $text .= __('teams.' . str_slug($this->localId->short));
         $text .= ' vs ';
-        $text .= __('teams.'.str_slug($this->visitId->short));
+        $text .= __('teams.' . str_slug($this->visitId->short));
         return $text;
     }
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -158,13 +163,28 @@ class Match extends Model
     {
         return $this->hasMany(MatchPrediction::class);
     }
+
     /**
      * Updates all predictions points
      */
     public function updatePredictionsPoints()
     {
-        foreach($this->predictions as $prediction){
+        foreach ($this->predictions as $prediction) {
             $prediction->updatePoints();
         }
+    }
+
+    /**
+     * @return bool
+     */
+    public function getActiveAttribute()
+    {
+        $noteams = [1908, 1909, 1910, 1911, 1912, 1913, 1914, 1915, 1916, 1917, 1918, 1919, 1920, 1921, 1922, 1923, 1936, 1937, 1938, 1939, 5550, 5551, 5552, 5553, 5554, 5555, 5556, 5557, 7977, 7978, 7979, 7980];
+        if (!in_array($this->local_id, $noteams)
+            && !in_array($this->visit_id, $noteams)
+            && $this->status == 'pending'
+            && $this->carbon_date->subMinutes(15) > Carbon::now()
+        ) return true;
+        return false;
     }
 }

@@ -18,7 +18,7 @@ class MatchesController extends Controller
         $match->load(['visitId', 'localId']);
         $match->visitId->append('short');
         $match->localId->append('short');
-        $match->append(['myprediction']);
+        $match->append(['myprediction', 'active']);
         $results['match'] = $match;
         return $results;
     }
