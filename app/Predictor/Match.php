@@ -20,7 +20,7 @@ class Match extends Model
      *
      * @var array
      */
-    protected $dates = ['created_at','updated_at','date'];
+    protected $dates = ['created_at','updated_at'];
 
     /**
      * Formats date value
@@ -31,6 +31,15 @@ class Match extends Model
     {
         setlocale(LC_ALL, 'es_ES');
         return Carbon::parse($date)->formatLocalized('%b %e - %H:%M');
+    }
+    /**
+     * Formats date value
+     * @param $date
+     * @return mixed
+     */
+    public function getCarbonDateAttribute()
+    {
+        return Carbon::parse($this->attributes['date']);
     }
     /**
      * Local team relationship
@@ -141,5 +150,21 @@ class Match extends Model
         $text .= ' vs ';
         $text .= __('teams.'.str_slug($this->visitId->short));
         return $text;
+    }
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function predictions()
+    {
+        return $this->hasMany(MatchPrediction::class);
+    }
+    /**
+     * Updates all predictions points
+     */
+    public function updatePredictionsPoints()
+    {
+        foreach($this->predictions as $prediction){
+            $prediction->updatePoints();
+        }
     }
 }
