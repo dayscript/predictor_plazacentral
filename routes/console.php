@@ -48,6 +48,13 @@ Artisan::command('matches:create', function () {
 //        $match->save();
     }
 })->describe('Creates tournament matches');
+Artisan::command('matches:update', function () {
+    $matches = Match::where('date', 'like', \Carbon\Carbon::now()->toDateString() . '%')->get();
+    foreach ($matches as $match){
+        $this->info('Updating match '.$match->id . ': ' . $match->date);
+        $match->updateOptaData();
+    }
+})->describe('Updates today matches');
 
 Artisan::command('groups:update-positions', function () {
     $client       = new Client();
