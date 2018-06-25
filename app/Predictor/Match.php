@@ -82,7 +82,7 @@ class Match extends Model
         $json_content = json_decode($content);
         if ($json_content->period == 'PreMatch' || $json_content->period == 'Postponed') {
             $this->status = 'pending';
-        } else if ($json_content->period == 'FullTime') {
+        } else if ($json_content->period == 'FullTime' || $json_content->period == 'Full Time' ) {
             $this->status = 'finished';
         } else {
             $this->status = 'playing';
