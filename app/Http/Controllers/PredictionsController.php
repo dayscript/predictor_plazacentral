@@ -74,6 +74,12 @@ class PredictionsController extends Controller
     public function addMatchPrediction(Match $match)
     {
         $results    = [];
+        if($match->carbon_date->subMinutes(15) <= Carbon::now()){
+            $results['message'] = 'Error';
+            $results['status'] = 'error';
+            return $results;
+        }
+        
         $prediction = MatchPrediction::firstOrCreate(['user_id' => auth()->user()->id, 'match_id' => $match->id]);
         if (request()->has('local_score')) $prediction->local_score = request()->get('local_score');
         if (request()->has('visit_score')) $prediction->visit_score = request()->get('visit_score');
