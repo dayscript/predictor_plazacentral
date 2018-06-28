@@ -50,8 +50,8 @@ Artisan::command('matches:create', function () {
 })->describe('Creates tournament matches');
 Artisan::command('matches:update', function () {
     $matches = Match::where('date', '>=', \Carbon\Carbon::now()->toDateString() . '%')->get();
-    foreach ($matches as $match){
-        $this->info('Updating match '.$match->id . ': ' . $match->date);
+    foreach ($matches as $match) {
+        $this->info('Updating match ' . $match->id . ': ' . $match->date);
         $match->updateOptaData();
     }
 })->describe('Updates today matches');
@@ -72,6 +72,7 @@ Artisan::command('groups:update-positions', function () {
                 $changed              = true;
             }
             if (isset($positions[1])) {
+                if ($positions[1] == 1226) $positions[1] = 1266;
                 if ($group->second_team_id != $positions[1]) {
                     $group->second_team_id = $positions[1];
                     $changed               = true;
@@ -87,24 +88,24 @@ Artisan::command('groups:update-positions', function () {
 })->describe('Updates group positions');
 
 Artisan::command('matches:update-points', function () {
-    $client       = new Client();
-    $phases = ['238','239','240','241','242'];
+    $client = new Client();
+    $phases = ['238', '239', '240', '241', '242'];
     foreach ($phases as $phase) {
-        $url          = 'https://winsports.dayscript.com/phases/'.$phase.'/schedule';
+        $url          = 'https://winsports.dayscript.com/phases/' . $phase . '/schedule';
         $res          = $client->get($url);
         $content      = $res->getBody();
         $json_content = json_decode($content);
-        foreach($json_content->rounds as $round){
+        foreach ($json_content->rounds as $round) {
             foreach ($round->matches as $id => $data) {
                 $match = Match::firstOrCreate(['id' => $id]);
                 $this->info('Match ' . $match->id);
                 $match->status      = $data->period;
                 $match->local_score = $data->home->score;
-                $match->local_id = $data->home->id;
+                $match->local_id    = $data->home->id;
                 $match->visit_score = $data->away->score;
-                $match->visit_id = $data->away->id;
+                $match->visit_id    = $data->away->id;
                 $match->save();
-                if($match->status != 'PreMatch') $match->updatePredictionsPoints();
+                if ($match->status != 'PreMatch') $match->updatePredictionsPoints();
             }
         }
     }
