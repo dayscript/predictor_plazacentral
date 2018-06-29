@@ -35,11 +35,11 @@
             <div class="row">
                 <div class="medium-12 columns">
                     <ul class="tabs" data-active-collapse="false" data-tabs id="collapsing-tabs">
-                        <li class="tabs-title is-active">
-                            <a href="#panel1c" aria-selected="true">{{ $store.getters.trans('predictions.group_phase') }}</a>
-                        </li>
                         <li class="tabs-title">
-                            <a href="#panel2c">{{ $store.getters.trans('game.round_round_of_16') }}</a></li>
+                            <a href="#panel1c">{{ $store.getters.trans('predictions.group_phase') }}</a>
+                        </li>
+                        <li class="tabs-title is-active">
+                            <a href="#panel2c" aria-selected="true">{{ $store.getters.trans('game.round_round_of_16') }}</a></li>
                         <li class="tabs-title">
                             <a href="#panel3c">{{ $store.getters.trans('game.round_quarter_finals') }}</a></li>
                         <li class="tabs-title">
@@ -48,14 +48,14 @@
                         </li>
                     </ul>
                     <div class="tabs-content" data-tabs-content="collapsing-tabs">
-                        <div class="tabs-panel is-active" id="panel1c">
+                        <div class="tabs-panel" id="panel1c">
                             <div class="row">
                                 <div class="medium-3 columns collapse" v-for="group in groups">
                                     <group-prediction :group="group" :active="active=='groups'" @updated="onUpdated"></group-prediction>
                                 </div>
                             </div>
                         </div>
-                        <div class="tabs-panel" id="panel2c">
+                        <div class="tabs-panel is-active" id="panel2c">
                             <div class="row">
                                 <div class="medium-3 columns collapse end">
                                     <match-prediction :match_id="958070"></match-prediction>
