@@ -97,9 +97,10 @@ class HomeController extends Controller
     public function ranking()
     {
         if (!($l = request()->get('l'))) $l = null;
+        if (!($r = request()->get('r'))) $r = 0;
         $rounds  = Round::orderBy('id')->get();
         $leagues = auth()->user()->leagues;
-        return view('pages.ranking', compact('leagues', 'l', 'rounds'));
+        return view('pages.ranking', compact('leagues', 'l', 'rounds', 'r'));
     }
 
     /**

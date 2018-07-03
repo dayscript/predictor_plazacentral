@@ -41,7 +41,7 @@ class UsersController extends Controller
         }
         return $results;
     }
-
+    
     /**
      * Ranking data by page
      * @param int $page
@@ -52,12 +52,21 @@ class UsersController extends Controller
         $league = request()->get('league', 0);
         $round = request()->get('round', 0);
         $results = [];
-        // TODO: Filter points by round id
         if($league){
             $lg = League::find($league);
-            $users = $lg->users()->orderByDesc('points')->orderBy('created_at')->get();
+            if($round){
+                $rn = Round::find($round);
+                $users = $lg->users()->orderByDesc('points_'.$rn->name)->orderBy('created_at')->get();
+            } else {
+                $users = $lg->users()->orderByDesc('points')->orderBy('created_at')->get();    
+            }
         } else {
-            $users = User::orderByDesc('points')->orderBy('created_at')->get();
+            if($round){
+                $rn = Round::find($round);
+                $users = User::orderByDesc('points_'.$rn->name)->orderBy('created_at')->get();
+            } else {
+                $users = User::orderByDesc('points')->orderBy('created_at')->get();
+            }
         }
         $results['pagination']['total'] = $users->count();
         $results['pagination']['page'] = $page;
@@ -65,27 +74,27 @@ class UsersController extends Controller
         $results['pagination']['prev'] = ($page > 1 ? $page - 1 : null);
         $results['pagination']['pages'] = ceil($results['pagination']['total'] / $results['pagination']['items']);
         $results['pagination']['next'] = ($page < $results['pagination']['pages'] ? $page + 1 : null);
-        if ($round) {
-            $rnd = Round::find($round);
-            foreach ($users as $key => $user) {
+//        if ($round) {
+//            $rnd = Round::find($round);
+//            foreach ($users as $key => $user) {
 //                $users[$key]->points = $user->predictions()->whereHas('match', function ($query) use ($round) {
 //                    $query->where('round_id', $round);
 //                })->get()->sum('points');
-                if($round == 0 || $round == 1)$users[$key]->points = $user->points;
-                else $users[$key]->points = 0;
-            }
-            $users = array_sort($users, function ($value) {
-                return -(100 * $value->points);
-            });
-            $newusers = [];
-            foreach ($users as $user) {
-                $newusers[] = $user;
-            }
-            $newusers = collect($newusers);
-            $newusers = $newusers->forPage($page, 10);
-        } else {
+//                if($round == 0 || $round == 1)$users[$key]->points = $user->points;
+//                else $users[$key]->points = 0;
+//            }
+//            $users = array_sort($users, function ($value) {
+//                return -(100 * $value->points);
+//            });
+//            $newusers = [];
+//            foreach ($users as $user) {
+//                $newusers[] = $user;
+//            }
+//            $newusers = collect($newusers);
+//            $newusers = $newusers->forPage($page, 10);
+//        } else {
             $newusers = $users->forPage($page, 10);
-        }
+//        }
         $results['users'] = $newusers;
         return $results;
     }

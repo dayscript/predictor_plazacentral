@@ -121,8 +121,11 @@ class User extends Authenticatable
         foreach ($this->predictions as $prediction){
             $points += $prediction->points;
         }
+        $this->points_group_phase = $points;
+        $this->points_round_of_16 = $this->points_quarter_finals = $this->points_semi_finals = $this->points_finals = 0;
         foreach ($this->matchpredictions as $prediction){
             $points += $prediction->points;
+            $this->{'points_'.$prediction->match->round->name} += $prediction->points;
         }
         $this->points = $points;
         $this->save();

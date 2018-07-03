@@ -112,8 +112,9 @@ Artisan::command('matches:update-points', function () {
 })->describe('Updates match predictions positions');
 
 Artisan::command('users:update-positions', function () {
-    $users = User::all();
+    $users = User::with(['predictions','matchpredictions.match.round'])->get();
     foreach ($users as $user) {
+        $this->line('Calculating points: '. $user->id . '. ' . $user->fullName);
         $user->updatePoints();
     }
     $users = User::orderByDesc('points')->orderBy('created_at')->get();

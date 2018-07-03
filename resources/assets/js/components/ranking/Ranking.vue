@@ -45,7 +45,12 @@
                                 <div class="small-9 columns jugador text-left" :class="{'account':userid===user.id}">
                                     {{ user.name + ' ' + (user.last || '') }}
                                 </div>
-                                <div class="small-2 columns puntaje text-right">{{ user.points }}</div>
+                                <div v-if="round.id===0" class="small-2 columns puntaje text-right">{{ user.points }}</div>
+                                <div v-else-if="round.id===1" class="small-2 columns puntaje text-right">{{ user.points_group_phase }}</div>
+                                <div v-else-if="round.id===2" class="small-2 columns puntaje text-right">{{ user.points_round_of_16 }}</div>
+                                <div v-else-if="round.id===3" class="small-2 columns puntaje text-right">{{ user.points_quarter_finals }}</div>
+                                <div v-else-if="round.id===4" class="small-2 columns puntaje text-right">{{ user.points_semi_finals }}</div>
+                                <div v-else-if="round.id===5" class="small-2 columns puntaje text-right">{{ user.points_finals }}</div>
                             </div>
                             <ul class="pagination text-center" role="navigation" aria-label="Pagination">
                                 <li class="pagination-previous disabled" v-if="!pagination.prev" v-html="$store.getters.trans('pagination.previous')"></li>
@@ -74,8 +79,10 @@
 
 <script>
     export default {
+      props: ['rounds', 'leagues', 'userid','l','r'],
         mounted() {
             if(this.l) this.league.id = this.l;
+            if(this.r) this.round.id = this.r;
             this.loadRanking(1);
         },
         data() {
@@ -100,7 +107,6 @@
                 }
             }
         },
-        props: ['rounds', 'leagues', 'userid','l'],
         methods: {
             loadRanking(page) {
                 this.loading++

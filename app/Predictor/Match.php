@@ -187,4 +187,12 @@ class Match extends Model
         ) return true;
         return false;
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function round()
+    {
+        return $this->belongsTo(Round::class);
+    }
 }
