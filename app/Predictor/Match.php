@@ -182,7 +182,7 @@ class Match extends Model
         $noteams = [1908, 1909, 1910, 1911, 1912, 1913, 1914, 1915, 1916, 1917, 1918, 1919, 1920, 1921, 1922, 1923, 1936, 1937, 1938, 1939, 5550, 5551, 5552, 5553, 5554, 5555, 5556, 5557, 7977, 7978, 7979, 7980];
         if (!in_array($this->local_id, $noteams)
             && !in_array($this->visit_id, $noteams)
-            && $this->status == 'pending'
+            && ($this->status == 'pending' || $this->status == 'PreMatch')
             && $this->carbon_date->subMinutes(15) > Carbon::now()
         ) return true;
         return false;
