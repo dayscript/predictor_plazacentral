@@ -39,9 +39,12 @@ class MatchPrediction extends Model
         $new_points = 0;
         if(!in_array($match->status,['pending','PreMatch']) && $this->local_score !== null && $this->visit_score !== null){
             if(($this->local_score == $match->local_score) && ($this->visit_score == $match->visit_score)) $new_points += 1;
-            if( ($this->local_score == $this->visit_score) && ($match->local_score == $match->visit_score) ) $new_points += 2;
-            elseif( ($this->local_score > $this->visit_score) && ($match->local_score > $match->visit_score) ) $new_points += 2;
-            elseif( ($this->local_score < $this->visit_score) && ($match->local_score < $match->visit_score) ) $new_points += 2;
+            if( (($this->local_score+$this->local_pen_score) == ($this->visit_score+$this->visit_pen_score)) 
+                && ($match->local_score == $match->visit_score) ) $new_points += 2;
+            elseif( (($this->local_score+$this->local_pen_score) > ($this->visit_score+$this->visit_pen_score)) 
+                    && ($match->local_score > $match->visit_score) ) $new_points += 2;
+            elseif( (($this->local_score+$this->local_pen_score) < ($this->visit_score+$this->visit_pen_score)) 
+                    && ($match->local_score < $match->visit_score) ) $new_points += 2;
         }
         if($new_points != $this->points){
             $this->user->points += ($new_points-$this->points);
