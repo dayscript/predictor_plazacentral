@@ -101,8 +101,10 @@ Artisan::command('matches:update-points', function () {
                 $this->info('Match ' . $match->id);
                 $match->status      = $data->period;
                 $match->local_score = $data->home->score;
+                $match->local_pen_score = $data->home->pen_score;
                 $match->local_id    = $data->home->id;
                 $match->visit_score = $data->away->score;
+                $match->visit_pen_score = $data->away->pen_score;
                 $match->visit_id    = $data->away->id;
                 $match->save();
                 if ($match->status != 'PreMatch') $match->updatePredictionsPoints();
