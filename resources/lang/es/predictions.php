@@ -22,7 +22,7 @@ return [
     'share_group_description'  => 'Tu también puedes participar y ganar fabulosos premios',
     'share_match_title'        => 'Este es mi pronóstico para el partido :match del Mundial de Rusia 2018',
     'share_match_description'  => 'Tu también puedes participar y ganar fabulosos premios',
-    'predictions_help_message' => 'La Fase de Grupos ha cerrado sus pronósticos. Espere resultados y no olvide sus predicciones para la siguiente fase.',
+    'predictions_help_message' => 'La Fase de Octavos de Final ha cerrado sus pronósticos. Espere resultados y no olvide sus predicciones para la siguiente fase.',
     'total_points'             => 'Puntaje acumulado',
     'win_in_these_phase'       => 'Premio Mayor: Gana $2.000.000 en bonos regalo.',
     'predictor-social-en'      => 'predictor-social-es',
