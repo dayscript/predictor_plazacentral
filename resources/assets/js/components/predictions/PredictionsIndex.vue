@@ -41,9 +41,9 @@
                         <li class="tabs-title">
                             <a href="#panel2c">{{ $store.getters.trans('game.round_round_of_16') }}</a></li>
                         <li class="tabs-title">
-                            <a href="#panel3c" aria-selected="true">{{ $store.getters.trans('game.round_quarter_finals') }}</a></li>
+                            <a href="#panel3c">{{ $store.getters.trans('game.round_quarter_finals') }}</a></li>
                         <li class="tabs-title">
-                            <a href="#panel4c is-active">{{ $store.getters.trans('game.round_semi_finals') }}</a></li>
+                            <a href="#panel4c is-active" aria-selected="true">{{ $store.getters.trans('game.round_semi_finals') }}</a></li>
                         <li class="tabs-title"><a href="#panel5c">{{ $store.getters.trans('game.round_finals') }}</a>
                         </li>
                     </ul>
