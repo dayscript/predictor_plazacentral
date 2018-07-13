@@ -42,9 +42,9 @@
                             <a href="#panel2c" aria-selected="true">{{ $store.getters.trans('game.round_round_of_16') }}</a></li>
                         <li class="tabs-title">
                             <a href="#panel3c">{{ $store.getters.trans('game.round_quarter_finals') }}</a></li>
-                        <li class="tabs-title is-active">
+                        <li class="tabs-title">
                             <a href="#panel4c">{{ $store.getters.trans('game.round_semi_finals') }}</a></li>
-                        <li class="tabs-title"><a href="#panel5c">{{ $store.getters.trans('game.round_finals') }}</a>
+                        <li class="tabs-title is-active"><a href="#panel5c">{{ $store.getters.trans('game.round_finals') }}</a>
                         </li>
                     </ul>
                     <div class="tabs-content" data-tabs-content="collapsing-tabs">
@@ -99,7 +99,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tabs-panel is-active" id="panel4c">
+                        <div class="tabs-panel" id="panel4c">
                             <div class="row">
                                 <div class="medium-3 columns collapse end">
                                     <match-prediction :match_id="958082"></match-prediction>
@@ -109,7 +109,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="tabs-panel" id="panel5c">
+                        <div class="tabs-panel is-active" id="panel5c">
                             <div class="row">
                                 <div class="medium-3 columns collapse end">
                                     <match-prediction :match_id="958085"></match-prediction>
